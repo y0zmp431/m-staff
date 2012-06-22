@@ -1,0 +1,5 @@
+if [[ -s "/Users/sutto/.rvm/environments/ruby-1.9.3-p194@base" ]] ; then
+	. "/Users/sutto/.rvm/environments/ruby-1.9.3-p194@base"
+else
+	rvm --create use  "ruby-1.9.3-p194@base"
+fi
