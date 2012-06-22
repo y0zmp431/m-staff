@@ -21,6 +21,13 @@
 </p>
 
 <p>
+<b>Roles:</b><ul>
+  <% @user.roles.each do |role| %>
+		<li><%= role %>
+	<% end %></ul>
+</p>
+
+<p>
   <b>Login count:</b>
   <%= @user.login_count %>
 </p>
