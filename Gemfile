@@ -29,6 +29,10 @@ gem "stringex"
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem "ckeditor", "3.7.1"
+gem "paperclip"
+#gem "i18n", "~> 0.6.0"
+gem 'russian', '~> 0.6.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

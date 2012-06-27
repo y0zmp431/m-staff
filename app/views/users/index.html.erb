@@ -1,10 +1,12 @@
-<h1>Listing users</h1>
+<h1><%= t :Listing_users %></h1>
+<%=  %>
+<%=  %>
 
 <table>
   <tr>
-    <th>Login</th>
-    <th>Email</th>
-    <th>Name</th>
+		<th><%= t(:login)%></th>
+		<th><%= t(:email) %></th>
+		<th><%= Russian::t :Name %></th>
     <th>Active</th>
     <th></th>
     <th></th>
@@ -17,9 +19,9 @@
     <td><%= user.email %></td>
     <td><%= user.name %></td>
     <td><%= user.active %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('Show'), user %></td>
+    <td><%= link_to t('Edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('Destroy'), user, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,13 @@
 Base::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  resources :articles
+
+	pages = %w[index]
+	pages.each do |page|
+		match page => 'articles#show', :defaults => {:id => page}
+	end
+
   resources :users
 	resources :user_sessions
 
