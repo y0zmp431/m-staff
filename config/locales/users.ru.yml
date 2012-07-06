@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+        article:
+          title: "Название"
+          user: "Пользователь"
+          short_text: "Краткое содержание"
+          text: "Текст"
+          section: "Раздел"
+          active: "Активность"
+        user:
+          email: "Почта"
+          password: "Пароль"
+          password_confirmation: "Подтверждение пароля"

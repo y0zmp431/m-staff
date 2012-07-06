@@ -21,23 +21,23 @@
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label t :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :section %><br />
+    <%= f.label t :section %><br />
     <%= f.text_field :section %>
   </div>
   <div class="field">
-    <%= f.label :short_text %><br />
+    <%= f.label t :short_text %><br />
     <%= f.text_area :short_text %>
   </div>
   <div class="field">
-    <%= f.label :text %><br />
-    <%= cktext_area_tag('article[text]', :text) %>
+    <%= f.label t :text %><br />
+    <%= cktext_area_tag('article[text]', @article['text']) %>
   </div>
   <div class="field">
-    <%= f.label :active %><br />
+    <%= f.label t :active %><br />
     <%= f.check_box :active %>
   </div>
   <div class="actions">

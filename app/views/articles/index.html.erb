@@ -1,14 +1,18 @@
-<h1>Listing articles</h1>
+<h1><%= t :Listing_articles %></h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Url</th>
-    <th>Title</th>
-    <th>Section</th>
-    <th>Short text</th>
-    <th>Text</th>
-    <th>Active</th>
+		<th><%= t :User %></th>
+		<% if false %>
+			<th><%= t :Url %></th>
+		<% end %>
+		<th><%= t :Title %></th>
+		<th><%= t :Section %></th>
+		<% if false %>
+			<th><%= t :Short_text %></th>
+			<th><%= t :Text %></th>
+			<th><%= t :Active %></th>
+		<% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -16,20 +20,24 @@
 
 <% @articles.each do |article| %>
   <tr>
-    <td><%= article.user_id %></td>
-    <td><%= article.url %></td>
-    <td><%= article.title %></td>
+    <td><%= article.user.login %></td>
+		<% if false %>
+			<td><%= article.url %></td>
+		<% end %>
+    <td><%= link_to article.title, article %></td>
     <td><%= article.section %></td>
-    <td><%= article.short_text %></td>
-    <td><%= article.text %></td>
-    <td><%= article.active %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+		<% if false %>
+			<td><%= article.short_text %></td>
+			<td><%= article.text %></td>
+			<td><%= article.active %></td>
+		<% end %>
+    <td><%= link_to t('Show'), article %></td>
+    <td><%= link_to t('Edit'), edit_article_path(article) %></td>
+    <td><%= link_to t('Destroy'), article, confirm: t('Are you sure?'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to t('New_article'), new_article_path %>

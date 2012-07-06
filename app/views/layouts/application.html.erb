@@ -10,9 +10,9 @@
 	<div class="login_bar">
 		<% if current_user %>
 			<%= current_user.name %> |
-			<%= link_to :logout, logout_path %>
+			<%= link_to t(:logout), logout_path %>
 		<% else %>
-			<%= link_to :login, login_path %>
+			<%= link_to t(:login), login_path %>
 		<% end %>
 	</div>
 

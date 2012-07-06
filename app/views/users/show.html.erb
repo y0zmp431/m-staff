@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <b>Name:</b>
+<b><%= t :Name %>:</b>
   <%= @user.name %>
 </p>
 
@@ -21,44 +21,44 @@
 </p>
 
 <p>
-<b>Roles:</b><ul>
+<b><%= t :roles %>:</b><ul>
   <% @user.roles.each do |role| %>
 		<li><%= role %>
 	<% end %></ul>
 </p>
 
 <p>
-  <b>Login count:</b>
+<b><%= t "Login count" %>:</b>
   <%= @user.login_count %>
 </p>
 <p>
-  <b>Failed login count:</b>
+<b><%= t "Failed login count" %>:</b>
   <%= @user.failed_login_count %>
 </p>
 <p>
-  <b>Last request at:</b>
-  <%= @user.last_request_at %>
+<b><%= t "Last request at" %>:</b>
+<%= l @user.last_request_at, :format => :datetime %>
 </p>
 <p>
-  <b>Current login at:</b>
+<b><%= t "Current login at" %>:</b>
   <%= @user.current_login_at %>
 </p>
 <p>
-  <b>Last login at:</b>
+  <b><%= t "Last login at" %>:</b>
   <%= @user.last_login_at %>
 </p>
 <p>
-  <b>Current login ip:</b>
+  <b><%= t "Current login ip" %>:</b>
   <%= @user.current_login_ip %>
 </p>
 <p>
-  <b>Last login ip:</b>
+  <b><%= t "Last login ip" %>:</b>
   <%= @user.last_login_ip %>
 </p>
 
-<%= link_to_if( @user.active, 'Disable', user_path(@user, 'user[active]' => false), {:method => :put}) do
-			link_to 'Enable', user_path(@user, 'user[active]' => true), :method => :put
+<%= link_to_if( @user.active, t('Disable'), user_path(@user, 'user[active]' => false), {:method => :put}) do
+			link_to t('Enable'), user_path(@user, 'user[active]' => true), :method => :put
 end
  %> |
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to t('Edit'), edit_user_path(@user) %> |
+<%= link_to t('Back'), users_path %>
