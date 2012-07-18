@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 1
+  user: admin
   url: MyString
   title: MyString
   section: MyString
   short_text: MyText
   text: MyText
-  active: false
+  active: true
 
 two:
-  user_id: 1
-  url: MyString
-  title: MyString
+  user: admin
+  url: MyString1
+  title: MyString1
   section: MyString
   short_text: MyText
   text: MyText
-  active: false
+  active: true

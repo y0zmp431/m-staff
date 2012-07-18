@@ -37,15 +37,27 @@
 </p>
 <p>
 <b><%= t "Last request at" %>:</b>
+<% if @user.last_request_at %>
 <%= l @user.last_request_at, :format => :datetime %>
+<% else %>
+	-
+<% end %>
 </p>
 <p>
 <b><%= t "Current login at" %>:</b>
+<% if @user.current_login_at %>
   <%= @user.current_login_at %>
+<% else %>
+	-
+<% end %>
 </p>
 <p>
   <b><%= t "Last login at" %>:</b>
+<% if @user.last_login_at %>
   <%= @user.last_login_at %>
+<% else %>
+	-
+<% end %>
 </p>
 <p>
   <b><%= t "Current login ip" %>:</b>
