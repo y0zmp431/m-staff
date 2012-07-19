@@ -7,3 +7,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
     User.create(:login => "admin", :name => 'Илья', :email => 'ilp416@gmail.com', :password => 'admin', :password_confirmation => 'admin', :roles_mask => '1', :active => true)
+		Article.create(:url => "index", :title => 'Index', :text => 'Index page', :active => true, :user_id => User.find_by_login("admin").id);

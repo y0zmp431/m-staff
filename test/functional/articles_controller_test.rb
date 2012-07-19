@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
+	setup :activate_authlogic
   setup do
+		UserSession.create(users :admin )
     @article = articles(:one)
+  end
+  setup do
   end
 
   test "should get index" do
