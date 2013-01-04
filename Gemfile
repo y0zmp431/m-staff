@@ -33,6 +33,18 @@ gem "ckeditor", "3.7.1"
 gem "paperclip"
 #gem "i18n", "~> 0.6.0"
 gem 'russian', '~> 0.6.0'
+
+group :development, :test do
+	gem 'rspec-rails'
+end
+
+group :test do
+	gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -5,3 +5,6 @@ tmp/
 *~
 .*.swp
 config/database.yml
+test
+*.swp
+.DS_Store
