@@ -1,0 +1,35 @@
+
+ru:
+  Login_or_email: "Логин/e-mail"
+  Login: "Логин"
+  login: "Войти"
+  Forgot password?: Забыли пароль?
+  Recovery password: Восстановление пароля 
+  Signup: Регистрация
+  password: "Пароль"
+  Change password: "Новый пароль"
+  password_confirmation: "Повторите пароль"
+  logout: "Выход"
+  Logged on: "Вход выполнен"
+  Login failed: "Неправильный логин или пароль"
+  User: "Пользователь"
+  New User: "Новый пользователь"
+  Listing_users: "Пользователи"
+  user: "Пользователь"
+  Name: "Имя"
+  roles: "Роли"
+  Login count: "Количество входов"
+  Failed login count: "Количество ошибок входа"
+  Last request at: "Последний запрос"
+  Current login at: "Текущий вход"
+  Last login at: "Последний вход"
+  Current login ip: "Текущий IP"
+  Last login ip: "Последний IP"
+  User was successfully created: "Регистрация завершена успешно"
+  message:
+    recovered: "Новый пароль отправлен на < %{email} >"
+
+    user_not_found: "На сайте нет пользователя с почтой < %{email} >"
+
+  New password will be sent to the specified e-mail: "Пароль будет отравлен на e-mail"
+

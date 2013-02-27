@@ -29,8 +29,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :active %><br />
     <%= f.check_box :active %>
+    <%= f.label :active %><br />
   </div>
 	<p>
 	<%=  f.label t(:roles) %><br />
@@ -41,6 +41,10 @@
 	<%=  hidden_field_tag "user[roles][]", "" %>
 	</p>
   <div class="actions">
-    <%= f.submit %>
+		<% if request.fullpath == "/signup" %>
+			<%= f.submit t("Signup") %>
+		<% else %>
+			<%= f.submit %>
+		<% end %>
   </div>
 <% end %>

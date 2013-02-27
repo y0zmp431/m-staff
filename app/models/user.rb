@@ -4,10 +4,14 @@ class User < ActiveRecord::Base
 
 	has_many :articles
 
-	acts_as_authentic do |c|
-		#c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
-	end # block optional
 	acts_as_authentic
+
+	after_initialize :init
+
+
+	def init
+    self.active ||= 1
+	end
   
   
   ROLES = %w[admin moderator user]
@@ -26,5 +30,16 @@ class User < ActiveRecord::Base
 
 	def is?(role)
 		  roles.include?(role.to_s)
+	end
+
+	def self.find_by_login_or_email(login)
+		  User.find_by_login(login) || User.find_by_email(login)
+	end
+
+	def change_random_passwd
+		password = SecureRandom.hex(8)
+		password_confirmation = password
+		save
+		password
 	end
 end

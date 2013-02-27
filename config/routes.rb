@@ -1,4 +1,6 @@
 Base::Application.routes.draw do
+  get "users/recovery"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles
@@ -11,8 +13,12 @@ Base::Application.routes.draw do
   resources :users
 	resources :user_sessions
 
-	match "login" => "user_sessions#new"
+	get "/login" => "user_sessions#new", :as => :login
+	post "/login" => "user_sessions#create"
+	
 	match "logout" => "user_sessions#destroy"
+	match "recovery_passwd" => "users#recovery"
+	match "signup" => "users#new", :as => :singup
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,7 +68,8 @@ Base::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'articles#show', :id => "index"
+  # root :to => 'articles#show', :id => "index"
+   root :to => 'articles#index'
 
   # See how all your routes lay out with "rake routes"
 

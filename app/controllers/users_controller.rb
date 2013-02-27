@@ -46,7 +46,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+				if URI(request.referer).path == "/signup"
+					@user_session = UserSession.create(@user)
+				end
+        format.html { redirect_to @user, notice: t('User was successfully created.') }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -82,4 +85,20 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def recovery 
+		if params[:email]
+			if @user = User.find_by_email(params[:email])
+				if new_passwd = @user.change_random_passwd
+					if UserMailer.recovery_password(@user, new_passwd).deliver
+						redirect_to "/login", notice: t("message.recovered", :email => params[:email])
+					end
+				end 
+			else
+        flash[:error] = t "message.user_not_found", :email => params[:email]
+			end
+		end
+  end
+
 end

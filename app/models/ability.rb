@@ -14,6 +14,9 @@ class Ability
 				 can :read, :all
 			 else
 				 can :read, Article 
+				 can :read, User, :id => user.id 
+				 can :create, User
+				 can :recovery, User
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
