@@ -11,8 +11,8 @@
 		<% if false %>
 			<th><%= t :Short_text %></th>
 			<th><%= t :Text %></th>
-			<th><%= t :Active %></th>
 		<% end %>
+			<th><%= t :Disabled %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,8 +29,8 @@
 		<% if false %>
 			<td><%= article.short_text %></td>
 			<td><%= article.text %></td>
-			<td><%= article.active %></td>
 		<% end %>
+			<td><%= article.disabled %></td>
     <td><%= link_to t('Show'), article %></td>
     <td><%= link_to t('Edit'), edit_article_path(article) %></td>
     <td><%= link_to t('Destroy'), article, confirm: t('Are you sure?'), method: :delete %></td>

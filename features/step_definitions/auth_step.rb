@@ -87,18 +87,11 @@ end
 	assert UserSession.find("#{id}")
 end
 
-
-
-То /^(?:|я )должен быть создан пользователь "(.*?)" с\:$/ do |login, table|
-	user = User.find_by_login login
-		table.hashes.each do |row|
-			assert user.attributes[row[:name]], row[:value]
-		end
+То /^пользователь "(.*?)" с паролем "(.*?)" сможет войти на сайт$/ do |login, password|
+	step %{пользователь с email "#{login}" с паролем "#{password}" сможет войти на сайт}
 end
 
-То /^(?:|я )должен быть создан пользователь "(.*?)"$/ do |login|
-	assert_not_nil User.find_by_login login
-end
+
 
 То /^пользователь "(.*?)" должен быть аунтентифицирован$/ do  |login|
 	id = User.find_by_login(login).id if User.find_by_login(login)

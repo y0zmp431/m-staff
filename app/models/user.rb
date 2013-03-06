@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :active, :email, :login, :name, :password, :password_confirmation, :roles, :roles_mask
+  attr_accessible :disabled, :email, :login, :name, :password, :password_confirmation, :roles, :roles_mask
 
 	has_many :articles
 
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 
 	def init
-    self.active ||= 1
+    self.disabled ||= 0
 	end
   
   

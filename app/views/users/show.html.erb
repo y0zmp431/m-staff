@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <b>Active:</b>
-  <%= @user.active %>
+<b><%= t :disabled %>:</b>
+  <%= @user.disabled %>
 </p>
 
 <p>
@@ -68,8 +68,8 @@
   <%= @user.last_login_ip %>
 </p>
 
-<%= link_to_if( @user.active, t('Disable'), user_path(@user, 'user[active]' => false), {:method => :put}) do
-			link_to t('Enable'), user_path(@user, 'user[active]' => true), :method => :put
+<%= link_to_if( @user.disabled, t('Enable'), user_path(@user, 'user[disabled]' => false), {:method => :put}) do
+			link_to t('Disable'), user_path(@user, 'user[disable]' => true), :method => :put
 end
  %> |
 <%= link_to t('Edit'), edit_user_path(@user) %> |

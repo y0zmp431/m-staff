@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625183607) do
+ActiveRecord::Schema.define(:version => 20130227123342) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20120625183607) do
     t.string   "section"
     t.text     "short_text"
     t.text     "text"
-    t.boolean  "active",     :default => false, :null => false
+    t.boolean  "disabled",   :default => false, :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
@@ -41,6 +41,62 @@ ActiveRecord::Schema.define(:version => 20120625183607) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "clients", :force => true do |t|
+    t.string   "org"
+    t.string   "name"
+    t.string   "adress"
+    t.string   "unp"
+    t.string   "accont"
+    t.text     "bank"
+    t.text     "director"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "number"
+    t.integer  "sum"
+    t.datetime "date_of_end"
+    t.boolean  "active"
+    t.integer  "client_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "servises", :force => true do |t|
+    t.text     "desc"
+    t.integer  "sum"
+    t.datetime "date_of_end"
+    t.integer  "order_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "suppliers", :force => true do |t|
+    t.string   "org"
+    t.string   "name"
+    t.string   "adress"
+    t.string   "unp"
+    t.string   "accont"
+    t.text     "bank"
+    t.text     "director"
+    t.string   "phone"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tzs", :force => true do |t|
+    t.text     "desc"
+    t.integer  "service_id"
+    t.integer  "supplier_id"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -49,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20120625183607) do
   create_table "users", :force => true do |t|
     t.string   "login",                                  :null => false
     t.string   "name",                                   :null => false
-    t.boolean  "active",              :default => false, :null => false
+    t.boolean  "disabled",            :default => false, :null => false
     t.string   "email",                                  :null => false
     t.string   "crypted_password",                       :null => false
     t.string   "password_salt",                          :null => false

@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :active, :section, :short_text, :text, :title, :url, :user_id
+  attr_accessible :disabled, :section, :short_text, :text, :title, :url, :user_id
 	belongs_to :user
 	acts_as_url :title
 	after_initialize :default_values
@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 
 	private
 	def default_values
-		self.active ||= true
+		self.disabled ||= false
 	end
 
 end

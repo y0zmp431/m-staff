@@ -54,7 +54,7 @@
 		Допустим я пользователь c:
 			| email    | tester1@test.com |
 			| password | tester     |
-			| active   | false      |
+			| disabled   | true |
 		  И я на странице Авторизация
 		Если я ввожу в поле "user_session[login]" значение "tester1@test.com"
 		  И ввожу в поле "user_session[password]" значение "notester"
