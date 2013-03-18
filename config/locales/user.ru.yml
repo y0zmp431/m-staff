@@ -1,5 +1,25 @@
 
 ru:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        login: Логин
+        name: Имя
+        disabled: Отключен
+        email: Еmail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        login_count: Количество входов
+        failed_login_count: Количество ошибочных входов
+        last_request_at: Последний запрос
+        last_login_at: Последний вход
+        current_login_at: Текущий вход
+        last_request_ip: IP последнего запроса
+        last_login_ip: IP последнего входа
+        current_login_ip: IP текущей сессии
+
   Login_or_email: "Логин/e-mail"
   Login: "Логин"
   login: "Войти"
