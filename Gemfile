@@ -26,20 +26,21 @@ gem "authlogic"
 gem "cancan"
 gem "cells"
 gem "stringex"
+gem "role_model"
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 gem "ckeditor", "3.7.1"
 gem "paperclip"
 #gem "i18n", "~> 0.6.0"
-gem 'russian'
+gem 'russian', "~> 0.6.0"
 
 group :development, :test do
 	gem 'rspec-rails'
 end
 
 group :test do
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

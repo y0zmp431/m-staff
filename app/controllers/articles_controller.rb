@@ -4,7 +4,12 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+		if params[:unpublished] 
+			@articles = Article.unpublished
+		else
+			@articles = Article.published
+		end
+    @articles= @articles.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,7 +52,12 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+				if @article.published?
+					text_published = ' and published'
+				else
+					text_published = ' (no published)'
+				end
+        format.html { redirect_to @article, notice: t("Article was successfully created#{ text_published }.") }
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
@@ -62,8 +72,21 @@ class ArticlesController < ApplicationController
     @article = Article.find_by_url(params[:id])
 
     respond_to do |format|
+
+			old_url = @article.url
+
       if @article.update_attributes(params[:article])
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+
+				notice_message = t('article.updated')
+				if params[:article].count == 1
+					notice_message = t("article.unpublished", :link => article_path(@article), :title => @article.title) if params[:article][:published] == false 
+					notice_message = t("article.published", :link => article_path(@article), :title => @article.title) if params[:article][:published] == true 
+				end
+				
+				redirect_path = :back
+				redirect_path = article_path(@article) if @article.url != old_url 
+
+        format.html { redirect_to redirect_path, notice: notice_message.html_safe }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

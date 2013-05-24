@@ -13,24 +13,46 @@ ru:
   Edit: "Редактировать"
   Destroy: "Удалить"
   Back: "Назад"
-  Title: "Название"
-  Short_text: "Краткое содержание"
-  Text: "Текст"
-  Section: "Раздел"
   Active: "Активность"
-  New_article: "Новая статья"
-  Listing_articles: "Статьи"
-  title: "Название"
-  short_text: "Краткое содержание"
-  text: "Текст"
-  section: "Раздел"
-  active: "Активность"
   Are you sure?: "Вы уверены?"
   Send: "Отправить"
+  Save: "Сохранить"
+  because_next_errors: "из-за следующих ошибок:"
+  because_next_error: "из-за ошибки:"
 
-errors:
-  template:
-    header:
-      one:   "1 error prohibited this %{model} from being saved"
-      other: "%{count} errors prohibited this %{model} from being saved"
-    body:    "There were problems with the following fields:"
+  errors:
+    template:
+      header:
+        one:   "%{model} не сохранена"
+        other: "%{model} не сохранена"
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "%{model} не сохранена"
+          other: "%{model} не сохранена"
+        body:    "Обнаружены ошибки:"
+  activemodel:
+    errors:
+      template:
+        header:
+          one:   "%{model} не сохранена"
+          other: "%{model} не сохранена"
+        body:    "Обнаружены ошибки:"
+
+  cancan:
+    default: "Você não está autorizado a ver esta página."
+    read: "Você não tem permissão para ver {{model}}."
+    new: "Você não tem permissão para criar {{model}}."
+    edit: "Você não tem permissão para editar {{model}}."
+    destroy: "Você não tem permissão para excluir {{model}}."
+  unauthorized:
+    create:
+      all: "Нет привелегий для выполнения данного действия"
+    read:
+      all: "Нет привелегий для выполнения данного действия"
+    edit:
+      all: "Нет привелегий для выполнения данного действия"
+    update:
+      all: "Нет привелегий для выполнения данного действия"
+      #all: "You do not have access to %{action} %{subject}!"

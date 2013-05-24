@@ -1,0 +1,36 @@
+
+ru:
+  activerecord:
+    models:
+      article:
+    attributes:
+      article:
+        title: Заголовок 
+        section: Раздел
+        short_text: Краткое описание
+        text: Текст
+        disabled: Не публиковать 
+        published: Публиковать 
+
+  Listing_articles: Статьи
+  New article: "Новая статья"
+  Article not save: "Статья не сохранена"
+  Article was successfully created: "Статья сохранена"
+  Article was successfully updated: "Статья сохранена"
+  article:
+    updated: "Статья сохранена"
+    published: "Статья <a href='%{link}' >«%{title}»</a> опубликована"
+    unpublished: "Отменена публикация статьи <a href='%{link}' >«%{title}»</a>"
+  Published: "Опубликованные"
+  Unpublished: "Неопубликованные"
+  Publish: "Опубликовать"
+  Unpublish: "Не публиковать"
+  Article was successfully created and published: "Статья сохранена и опубликована"
+  Article was successfully created (no published): "Статья сохранена (не опубликована)"
+  Article was successfully updated: "Статья сохранена"
+  message:
+    recovered: "Новый пароль отправлен на < %{email} >"
+
+    user_not_found: "На сайте нет пользователя с почтой < %{email} >"
+
+

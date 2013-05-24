@@ -10,11 +10,17 @@ class Ability
 			 elsif user.is? :moderator
 				 can :manage, Article
          can :read, :all
+			 elsif user.is? :writer
+				 can :manage, Article
+         can :read, :all
 			 elsif user.is? :user
-				 can :read, :all
+				 can :read, Article
+				 #cannot :read, Article, :published => false 
+				 can [:read, :update], User, :id => user.id 
 			 else
-				 can :read, Article 
-				 can :read, User, :id => user.id 
+				 can :read, Article
+				 cannot :read, :articles, :published => false 
+				 can :read, Article, :published => true 
 				 can :create, User
 				 can :recovery, User
        end

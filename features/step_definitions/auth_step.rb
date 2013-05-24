@@ -65,10 +65,41 @@ end
 	step %{кликаю кнопку "Войти"}
 end
 
+
 Допустим /^я администратор$/ do
 	user = FactoryGirl.create(:admin)
-	UserSession.create(user)
-	assert UserSession.find("#{user.id}")
+#	UserSession.create(user)
+#	assert UserSession.find("#{user.id}")
+  step %{я на странице Авторизация}
+  step %{я ввожу в поле "user_session[login]" значение "#{user.login}"}
+  step %{я ввожу в поле "user_session[password]" значение "#{user.password}"}
+	step %{кликаю кнопку "Войти"}
+#  visit users_path
+#	puts page.body
+end
+
+Допустим /^я писатель$/ do
+	user = FactoryGirl.create(:writer)
+  step %{я на странице Авторизация}
+  step %{я ввожу в поле "user_session[login]" значение "#{user.login}"}
+  step %{я ввожу в поле "user_session[password]" значение "#{user.password}"}
+	step %{кликаю кнопку "Войти"}
+end
+
+Допустим /^я простой пользователь$/ do 
+	user = FactoryGirl.create(:user)
+  step %{я на странице Авторизация}
+  step %{я ввожу в поле "user_session[login]" значение "#{user.login}"}
+  step %{я ввожу в поле "user_session[password]" значение "#{user.password}"}
+	step %{кликаю кнопку "Войти"}
+end
+
+Допустим /^я пользователь "(.*?)"$/ do |login|
+	user = FactoryGirl.create(:user, :login => login)
+  step %{я на странице Авторизация}
+  step %{я ввожу в поле "user_session[login]" значение "#{user.login}"}
+  step %{я ввожу в поле "user_session[password]" значение "#{user.password}"}
+	step %{кликаю кнопку "Войти"}
 end
 
 Допустим /^я не зарегистрированный пользователь$/ do
@@ -83,13 +114,21 @@ end
   step %{я ввожу в поле "user_session[login]" значение "#{email}"}
   step %{я ввожу в поле "user_session[password]" значение "#{passwd}"}
 	step %{кликаю кнопку "Войти"}
-	id = User.find_by_email(email).id if User.find_by_email(email)
-	assert UserSession.find("#{id}")
+	step %{должен увидеть текст "Выход"}
+	#id = User.find_by_email(email).id if User.find_by_email(email)
+	#assert UserSession.find("#{id}").valid?
 end
 
 То /^пользователь "(.*?)" с паролем "(.*?)" сможет войти на сайт$/ do |login, password|
 	step %{пользователь с email "#{login}" с паролем "#{password}" сможет войти на сайт}
 end
+
+То /^пользователь "(.*?)" не сможет войти на сайт$/ do |login|
+	user = User.find_by_login login
+	@session = UserSession.create user
+	assert ! @session.valid?
+end
+
 
 
 

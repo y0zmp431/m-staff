@@ -67,10 +67,13 @@
   <b><%= t "Last login ip" %>:</b>
   <%= @user.last_login_ip %>
 </p>
-
-<%= link_to_if( @user.disabled, t('Enable'), user_path(@user, 'user[disabled]' => false), {:method => :put}) do
-			link_to t('Disable'), user_path(@user, 'user[disable]' => true), :method => :put
-end
- %> |
-<%= link_to t('Edit'), edit_user_path(@user) %> |
+<% if can? :manage, User %>
+	<%= link_to_if( @user.disabled, t('Enable'), enable_user_path(@user) ) do
+				link_to t('Disable'), disable_user_path(@user)
+	end
+	 %> |
+<% end %>
+<% if can? :edit, User, :id => @user.id %>
+	<%= link_to t('Edit'), edit_user_path(@user) %> |
+<% end %>
 <%= link_to t('Back'), users_path %>

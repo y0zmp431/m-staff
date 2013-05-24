@@ -8,7 +8,7 @@ ru:
         login: Логин
         name: Имя
         disabled: Отключен
-        email: Еmail
+        email: Email
         password: Пароль
         password_confirmation: Подтверждение пароля
         login_count: Количество входов
@@ -38,6 +38,8 @@ ru:
   user: "Пользователь"
   Name: "Имя"
   roles: "Роли"
+  Show disabled: "Показать отключенных"
+  Show only enabled: "Показать только активных"
   Login count: "Количество входов"
   Failed login count: "Количество ошибок входа"
   Last request at: "Последний запрос"

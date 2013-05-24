@@ -12,7 +12,13 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 
 Допустим /^я на странице (.+)$/ do |page_name|
   visit path_to(page_name)
+	assert_equal path_to(page_name), current_path
 end
+
+#Допустим /^я на страницe "(.*?)"$/ do |page_name|
+#  visit path_to(page_name)
+#	assert_equal path_to(page_name), current_path
+#end
 
 Если /^(?:|я )перехожу на страницу (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -73,7 +79,6 @@ end
 
 #   <%= f.datetime_select :preferred %>
 #   <%= f.label :alternative %>
-
 #   <%= f.datetime_select :alternative %>
 # The following steps would fill out the form:
 # When I select "November 23, 2004 11:20" as the "Preferred" date and time
@@ -114,6 +119,10 @@ end
   check(field)
 end
 
+Если /^(?:|я )ставлю крестик в поле "([^\"]*)"$/ do |field|
+  check(field)
+end
+
 Если /^(?:|я )убираю крестик в поле "([^\"]*)"$/ do |field|
   uncheck(field)
 end
@@ -142,9 +151,25 @@ end
   attach_file(field, path, type)
 end
 
+Если /^я оказался на странице (.+)$/ do |page_name|
+  current_path = URI.parse(current_url).select(:path, :query).compact.join('?')
+  if defined?(Spec::Rails::Matchers)
+    #current_path.should == path_to(page_name)
+    path_to(page_name) === current_path.should
+  else
+    assert_equal path_to(page_name), current_path
+  end
+end
+
+
+
+
+
+
 То /^(?:|я )должен увидеть форму с полями\:$/ do |table|
 		table.hashes.each do |row|
 			page.should have_text row[:title]
+			page.should have_selector("form input[name='#{row[:name]}'][type='#{row[:type]}']")
 			#page.has_selector? ("form input[type='#{row[:type]}']")
 		end
 end
@@ -164,8 +189,19 @@ end
   end
 end
 
-То /^(?:|я )должен увидеть ссылку на страницу "([^\"]*)"$/ do |page_name|
+То /^(?:|я )должен увидеть ссылку на страницу (.+)$/ do |page_name|
 		page.should have_selector("a[href='#{path_to page_name}']")
+end
+
+#То /^(?:|я )должен увидеть ссылку на страницу "([^\"]*)"$/ do |pag#e_name|
+#		page.should have_selector("a[href='#{path_to page_name}']")
+#end
+
+#То /^не должно быть ссылки на страницу "(.*?)"$/ do |page_name|
+#		page.should have_no_selector("a[href='#{path_to page_name}']")
+#end
+То /^не должно быть ссылки на страницу (.+)$/ do |page_name|
+		page.should have_no_selector("a[href='#{path_to page_name}']")
 end
 
 
@@ -178,8 +214,14 @@ end
 end
 
 То /^(?:|я )должен увидеть сообщение "([^\"]*)"$/ do |text|
+ #puts current_url
  step %{я должен увидеть текст "#{text}"}
 end
+
+То /^увидеть сообщение "(.*?)"$/ do |text|
+ step %{я должен увидеть текст "#{text}"}
+end
+
 
 То /^(?:|я )должен увидеть ошибку "([^\"]*)"$/ do |text|
  step %{я должен увидеть текст "#{text}"}
@@ -220,7 +262,7 @@ end
   if defined?(Spec::Rails::Matchers)
     response.should_not contain(text)
   else
-    assert_not_contain(text)
+		page.should have_no_content(text)
   end
 end
 
@@ -298,5 +340,11 @@ end
 end
 
 То /^показать страницу$/ do
-  save_and_open_page
+	puts page.html
+  #save_and_open_page
 end
+
+Если /^покажи текст$/ do
+	puts page.body
+end
+

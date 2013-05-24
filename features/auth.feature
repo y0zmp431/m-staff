@@ -8,8 +8,8 @@
 		Если я перехожу на страницу Авторизация
 		То  я должен увидеть форму с полями: 
 		  | title        | name      | type     |
-			| Логин/e-mail | login     | input    |
-			| Пароль       | password  | password |
+			| Логин/e-mail | user_session[login]     | text    |
+			| Пароль       | user_session[password]  | password |
 			#И я должен увидеть кнопку "Войти"
 			И кнопкой "Войти"
 			#	И должен увидеть ссылку на страницу "Регистрация"

@@ -23,8 +23,24 @@ module NavigationHelpers
       '/recovery_passwd'     
     when /Регистрация нового пользователя/
       '/users/new'
+    when /Мой профиль/
+      '/account'
+    when /Пользователи/
+      '/users'
     when /Страница пользователя/
       '/account'
+    when /Новая статья/
+      '/articles/new'
+    when /Список статей/
+      '/articles/'
+    when /Список неопубликованных статей/
+      '/articles?unpublished=true'
+    when /Редактирование статьи "(.+)"/
+      edit_article_path(Article.find_by_title($1))
+    when /со статьей "(.+)"/
+      article_path(Article.find_by_title($1))
+    when /отменить публикацию статьи "(.+)"/
+      unpublish_article_path(Article.find_by_title($1))
     when /Добавить новый снипет/
       '/snippets/new'
     when /Просмотр снипета/

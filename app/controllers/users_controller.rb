@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+		if params[:disabled]
+			@users = User
+		else
+			@users = User.enabled
+		end
+    @users = @users.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+		params[:id] = current_user.id if ! params[:id]
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -27,6 +33,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+		@user.roles = ["user"]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,6 +54,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 				if URI(request.referer).path == "/signup"
+					@user.roles = ["user"]
 					@user_session = UserSession.create(@user)
 				end
         format.html { redirect_to @user, notice: t('User was successfully created.') }
@@ -65,7 +73,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+				if request.referer == edit_user_url(@user)
+					path = user_path @user
+				else
+					path = user_path @user
+					path = request.referer
+				end
+        format.html { redirect_to path, notice: t('User was successfully updated.') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

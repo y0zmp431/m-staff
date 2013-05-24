@@ -3,14 +3,26 @@ Base::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  resources :articles
+  resources :articles do
+		member do
+			get 'unpublish', :action => 'update', :defaults => { :article => {:published => false} }
+			get 'publish', :action => 'update', :defaults => { :article => {:published => true} }
+		end
+	end
 
 	pages = %w[index]
 	pages.each do |page|
 		match page => 'articles#show', :defaults => {:id => page}
 	end
 
-  resources :users
+	get 'account' => "users#show"
+  resources :users do
+		member do
+			get 'disable', :action => 'update', :defaults => { :user => {:disabled => true} }
+			get 'enable', :action => 'update', :defaults => { :user => {:disabled => false} }
+		end
+	end
+
 	resources :user_sessions
 
 	get "/login" => "user_sessions#new", :as => :login

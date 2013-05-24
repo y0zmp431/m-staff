@@ -2,6 +2,8 @@
 <%=  %>
 <%=  %>
 
+<%= link_to t('Show disabled'), users_path( :disabled => true ) if ! params[:disabled] %>
+<%= link_to t('Show only enabled'), users_path if params[:disabled] %>
 <table>
   <tr>
 		<th><%= :login%></th>
@@ -21,7 +23,11 @@
 		<td><%= user.disabled %></td>
     <td><%= link_to t('Show'), user %></td>
     <td><%= link_to t('Edit'), edit_user_path(user) %></td>
-    <td><%= link_to t('Destroy'), user, confirm: t('Are you sure?'), method: :delete %></td>
+		<td>
+	<%=	link_to_if( user.disabled, t('Enable'), enable_user_path(user) ) do
+			  link_to t('Disable'), disable_user_path(user)
+			end%>
+		</td>
   </tr>
 <% end %>
 </table>

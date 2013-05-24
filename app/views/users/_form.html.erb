@@ -28,23 +28,26 @@
     <%= f.label t(:Name)  %><br />
     <%= f.text_field :name %>
   </div>
+<% if can? :manage, User %>
   <div class="field">
 			<%= f.check_box :disabled %>
 			<%= f.label :disabled %><br />
   </div>
 	<p>
 	<%=  f.label t(:roles) %><br />
-	<%  for role in User::ROLES %>
+	<%  for role in User.valid_roles %>
+		<label>
 		<%=  check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
-		<%= h role.humanize %><br />
+		<%= h role.to_s.humanize %></label><br />
 	<%  end %>
 	<%=  hidden_field_tag "user[roles][]", "" %>
 	</p>
+<% end %>
   <div class="actions">
 		<% if request.fullpath == "/signup" %>
 			<%= f.submit t("Signup") %>
 		<% else %>
-			<%= f.submit %>
+			<%= f.submit t('Save')%>
 		<% end %>
   </div>
 <% end %>
