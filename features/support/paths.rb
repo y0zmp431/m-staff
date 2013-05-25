@@ -29,6 +29,10 @@ module NavigationHelpers
       '/users'
     when /Страница пользователя/
       '/account'
+    when /Список баннеров/
+      '/banners/'
+    when /Новый баннер/
+      '/banners/new'
     when /Новая статья/
       '/articles/new'
     when /Список статей/

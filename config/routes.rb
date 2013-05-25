@@ -1,4 +1,7 @@
 Base::Application.routes.draw do
+  resources :banners
+
+
   get "users/recovery"
 
   mount Ckeditor::Engine => '/ckeditor'

@@ -1,0 +1,21 @@
+
+
+ru:
+  activerecord:
+    models:
+      banner:
+    attributes:
+      banner:
+        target_url: Url цели(Куда ведет баннер) 
+        title: Название
+        content: Контент 
+        published: Публиковать 
+
+  Listing_banners: Список баннеров 
+  New Banner: "Новый баннер"
+  Banner not save: "Баннер не сохранен"
+  Banner was successfully created: "Баннер сохранен"
+  Banner was successfully updated: "Баннер сохранен"
+  banner:
+    updated: "Баннер сохранен"
+    published: "Баннер опубликован"
