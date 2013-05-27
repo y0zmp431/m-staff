@@ -29,10 +29,6 @@ module NavigationHelpers
       '/users'
     when /Страница пользователя/
       '/account'
-    when /Список баннеров/
-      '/banners/'
-    when /Новый баннер/
-      '/banners/new'
     when /Новая статья/
       '/articles/new'
     when /Список статей/
@@ -45,6 +41,16 @@ module NavigationHelpers
       article_path(Article.find_by_title($1))
     when /отменить публикацию статьи "(.+)"/
       unpublish_article_path(Article.find_by_title($1))
+    when /Список баннеров/
+      '/banners'
+    when /Новый баннер/
+      '/banners/new'
+    when /Баннер "(.+)"/
+      banner_path(Banner.find_by_title($1))
+    when /со списком баннеров со ссылкой "(.+)"/
+      '/banners?target_link=test'
+    when /Редактирование баннера "(.+)"/
+      edit_banner_path(Banner.find_by_title($1))
     when /Добавить новый снипет/
       '/snippets/new'
     when /Просмотр снипета/

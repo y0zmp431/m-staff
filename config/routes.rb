@@ -1,5 +1,11 @@
 Base::Application.routes.draw do
-  resources :banners
+
+  resources :banners do
+		member do
+			get 'disable', :action => 'update', :defaults => { :banner => {:disabled => true} }
+			get 'enable', :action => 'update', :defaults => { :banner => {:disabled => false} }
+		end
+	end
 
 
   get "users/recovery"

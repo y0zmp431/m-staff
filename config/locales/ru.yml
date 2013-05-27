@@ -23,21 +23,21 @@ ru:
   errors:
     template:
       header:
-        one:   "%{model} не сохранена"
-        other: "%{model} не сохранена"
+        one:   "%{model} не!! сохранена"
+        other: "%{model} не!! сохранена"
   activerecord:
     errors:
       template:
         header:
-          one:   "%{model} не сохранена"
-          other: "%{model} не сохранена"
+          one:   "%{model} не!! сохранена"
+          other: "%{model} не!! сохранена"
         body:    "Обнаружены ошибки:"
   activemodel:
     errors:
       template:
         header:
-          one:   "%{model} не сохранена"
-          other: "%{model} не сохранена"
+          one:   "%{model} не### сохранена"
+          other: "%{model} не### сохранена"
         body:    "Обнаружены ошибки:"
 
   cancan:

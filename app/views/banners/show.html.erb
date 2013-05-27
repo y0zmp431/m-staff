@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Target url:</b>
+<b><%= t 'Banner_type' %>:</b>
+  <%= @banner.banner_type%>
+</p>
+
+<p>
+<b><%= t 'Target url' %>:</b>
   <%= @banner.target_url %>
 </p>
 
 <p>
-  <b>Title:</b>
+<b><%= t 'Title' %>:</b>
   <%= @banner.title %>
 </p>
 
 <p>
-  <b>Content:</b>
+<b><%= t 'Content' %>:</b>
   <%= @banner.content %>
 </p>
 
 <p>
-  <b>Published:</b>
-  <%= @banner.published %>
+<b><%= t 'Disabled' %>:</b>
+  <%= @banner.disabled %>
 </p>
 
 
-<%= link_to 'Edit', edit_banner_path(@banner) %> |
+<% if can? :manage, Banner %>
+<%= link_to t('Edit'), edit_banner_path(@banner) %> |
+	<%=	link_to_if( @banner.disabled, t('Enable'), enable_banner_path(@banner) ) do
+			  link_to t('Disable'), disable_banner_path(@banner)
+			end %> |
+<% end %>
+
 <%= link_to 'Back', banners_path %>

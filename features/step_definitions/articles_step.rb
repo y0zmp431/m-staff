@@ -63,8 +63,8 @@ end
 То /^статья "(.*?)" должна иметь следующие аттрибуты:$/ do |title, table|
   article = Article.find_by_title title
 	table.hashes.each do |row|
-		row[:value] = row[:value] == "true" if ["true", "false"].include? row[:value] 
-		assert_equal article.attributes[row[:name]], row[:value]
+		row[1] = row[1] == "true" if ["true", "false"].include? row[1] 
+		assert_equal article.attributes[row[0]], row[1]
 	end
 end
 

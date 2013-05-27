@@ -12,6 +12,7 @@ class Ability
          can :read, :all
 			 elsif user.is? :writer
 				 can :manage, Article
+				 can :manage, Banner
          can :read, :all
 			 elsif user.is? :user
 				 can :read, Article

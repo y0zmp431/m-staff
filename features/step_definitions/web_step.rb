@@ -161,6 +161,9 @@ end
   end
 end
 
+Если /^я вижу ссылку на страницу (.+)$/ do |page_name|
+		page.should have_selector("a[href='#{path_to page_name}']")
+end
 
 
 

@@ -1,7 +1,13 @@
 <%= form_for(@banner) do |f| %>
   <% if @banner.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+			<h2><%=  t "Banner not save" %>
+			<% if @banner.errors.count > 1 %>
+				<%= t :because_next_errors %>
+			<% else %>
+				<%= t :because_next_error %>
+			<% end %>
+			</h2>
 
       <ul>
       <% @banner.errors.full_messages.each do |msg| %>
@@ -11,6 +17,10 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :banner_type %><br />
+    <%= f.text_field :banner_type %>
+  </div>
   <div class="field">
     <%= f.label :target_url %><br />
     <%= f.text_field :target_url %>
@@ -24,8 +34,8 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
+    <%= f.label :disabled %><br />
+    <%= f.check_box :disabled %>
   </div>
   <div class="actions">
     <%= f.submit t('Save') %>

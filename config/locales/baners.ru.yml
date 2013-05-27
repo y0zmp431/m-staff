@@ -9,7 +9,7 @@ ru:
         target_url: Url цели(Куда ведет баннер) 
         title: Название
         content: Контент 
-        published: Публиковать 
+        disabled: Отключен 
 
   Listing_banners: Список баннеров 
   New Banner: "Новый баннер"
@@ -17,5 +17,12 @@ ru:
   Banner was successfully created: "Баннер сохранен"
   Banner was successfully updated: "Баннер сохранен"
   banner:
+    created_and_enabled: "Баннер сохранен и включен"
+    created_but_disabled: "Баннер сохранен но отключен" 
+    created: "Баннер сохранен"
     updated: "Баннер сохранен"
-    published: "Баннер опубликован"
+    published: "Баннер включен"
+    unpublished: "Баннер отключен"
+    enabled: "Баннер включен"
+    disabled: "Баннер отключен"
+    

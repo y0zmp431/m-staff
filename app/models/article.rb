@@ -2,7 +2,6 @@ class Article < ActiveRecord::Base
   attr_accessible :published, :section, :short_text, :text, :title, :url, :user_id
 	belongs_to :user
 	acts_as_url :title, :only_when_blank => true, :allow_duplicates => true
-	after_initialize :default_values
 	validates :title, :url, :text, :presence => true
 	validates_associated :user;
 	validates :title, :url, :uniqueness => { :case_sensitive => false }
@@ -16,7 +15,7 @@ class Article < ActiveRecord::Base
 
 	private
 	def default_values
-		self.disabled ||= false
+		self.published ||= true
 	end
 
 end

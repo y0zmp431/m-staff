@@ -2,12 +2,10 @@
 
 <table>
   <tr>
-    <th>Target url</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Published</th>
-    <th></th>
-    <th></th>
+		<th><%= t 'Target url' %></th>
+    <th><%= t 'Title' %></th>
+    <th><%= t 'Content' %></th>
+    <th><%= t 'Disabled' %></th>
     <th></th>
   </tr>
 
@@ -16,10 +14,17 @@
     <td><%= banner.target_url %></td>
     <td><%= banner.title %></td>
     <td><%= banner.content %></td>
-    <td><%= banner.published %></td>
-    <td><%= link_to 'Show', banner %></td>
-    <td><%= link_to 'Edit', edit_banner_path(banner) %></td>
-    <td><%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= banner.disabled %></td>
+		<td>
+<% if can? :manage, Banner %>
+			<%= link_to 'Show', banner %>
+    <%= link_to t('Edit'), edit_banner_path(banner) %>
+    <%=	link_to_if( banner.disabled, t('Enable'), enable_banner_path(banner) ) do
+			  link_to t('Disable'), disable_banner_path(banner)
+		end %> 
+<% end %>
+	</td>
+
   </tr>
 <% end %>
 </table>
