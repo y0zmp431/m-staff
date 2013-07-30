@@ -1,0 +1,30 @@
+
+ru:
+  activerecord:
+    models:
+      banner:
+    attributes:
+      banner:
+        target_url: Url цели(Куда ведет баннер) 
+        title: Название
+        content: Контент 
+        disabled: Отключен 
+
+  Listing_banners: Список баннеров 
+  New Banner: "Новый баннер"
+  Banner not save: "Баннер не сохранен"
+  Banner was successfully created: "Баннер сохранен"
+  Banner was successfully updated: "Баннер сохранен"
+  banner:
+    saved:
+      enabled:
+        ok: "Баннер сохранен и включен"
+        without_link: "Баннер сохранен и включен. (Баннер без ссылки и никуда не приведет)"
+        link_unavailable: "Баннер сохранен и включен. (Баннер указывает на страницу которая не открывается)"
+      disabled: "Баннер создан но отключен"
+    updated: "Баннер сохранен"
+    published: "Баннер включен"
+    unpublished: "Баннер отключен"
+    enabled: "Баннер включен"
+    disabled: "Баннер отключен"
+    

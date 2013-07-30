@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 gem "authlogic"
 gem "cancan"
@@ -45,6 +46,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 	gem "spork-rails"
+	gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password
