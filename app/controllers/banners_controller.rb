@@ -1,5 +1,7 @@
 class BannersController < ApplicationController
 
+	include ApplicationHelper
+
 
 	load_and_authorize_resource
   # GET /banners
@@ -47,12 +49,7 @@ class BannersController < ApplicationController
 
     respond_to do |format|
       if @banner.save
-				if @banner.disabled?
-					notice = t("banner.created_but_disabled")
-				else
-					notice = t("banner.created_and_enabled")
-				end
-        format.html { redirect_to @banner, notice: notice }
+        format.html { redirect_to @banner, notice: t(@banner.options_notice) }
         format.json { render json: @banner, status: :created, location: @banner }
       else
         format.html { render action: "new" }
@@ -71,15 +68,16 @@ class BannersController < ApplicationController
 
 				notice_message = t('banner.updated')
 
+=begin
 				if params[:banner].count == 1
 					notice_message = t("banner.disabled", :link => banner_path(@banner), :title => @banner.title) if params[:banner][:disabled] == true 
 					notice_message = t("banner.enabled", :link => banner_path(@banner), :title => @banner.title) if params[:banner][:disabled] == false 
 				end
-
 				redirect_path = request.env["HTTP_REFERER"]
 				redirect_path = banner_path(@banner) if request.env["HTTP_REFERER"]==edit_banner_url(@banner) 
+=end
 
-        format.html { redirect_to redirect_path, notice: notice_message }
+        format.html { redirect_to redirect_path( @banner, request), notice: t(@banner.options_notice(params))}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

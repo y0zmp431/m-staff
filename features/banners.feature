@@ -14,7 +14,7 @@
 		Если я оказался на странице Новый баннер
 			И я ввожу следующие значения: 
 				| name               | value         |
-				| banner[target_url] | article/test          |
+				| banner[target_url] | /articles          |
 				| banner[title]      | Первый     |
 				| banner[content]    | some images and text |
 			И убираю крестик в поле "banner[disabled]"
@@ -30,7 +30,7 @@
 		Если я оказался на странице Новый баннер
 			И я ввожу следующие значения: 
 				| name               | value         |
-				| banner[target_url] | article/test          |
+				| banner[target_url] | /article/test          |
 				| banner[title]      | Первый |
 				| banner[content]    | some images and text |
 			И убираю крестик в поле "banner[disabled]"
@@ -81,7 +81,7 @@
   Сценарий: Писатель может отредактировать баннер по ссылке из списка баннеров
 		Допустим я писатель
 			И существует баннер "1" с
-				| target_url | article/first |
+				| target_url | /article/first |
 				| content    | first article |
 				| banner_type       | test_banner |
 			И я перехожу на страницу Список баннеров
@@ -90,7 +90,7 @@
 			И я оказался на странице Редактирование баннера "1"
 			И я ввожу следующие значения: 
 				| name               | value      |
-				| banner[target_url] | article/first_and_beaty |
+				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[content]    | beaterfull first article |
 				| banner[banner_type]       | small |
@@ -98,7 +98,7 @@
 		То я должен оказаться на странице Баннер "first_and_beaty"
 			И я должен увидеть сообщение "Баннер сохранен"
 			И баннер "first_and_beaty" должен иметь следующие аттрибуты:
-				| target_url | article/first_and_beaty |
+				| target_url | /article/first_and_beaty |
 				| content    | beaterfull first article |
 				| banner_type       | small  |
 
@@ -107,7 +107,7 @@
   Сценарий: При сохранении(редактировании) баннера ссылка которого не открывается, появиться уведомление.
 		Допустим я писатель
 			И существует баннер "1" с
-				| target_url | article/first |
+				| target_url | /article/first |
 				| content    | first article |
 				| banner_type       | test_banner |
 			И я перехожу на страницу Список баннеров
@@ -116,7 +116,7 @@
 			И я оказался на странице Редактирование баннера "1"
 			И я ввожу следующие значения: 
 				| name               | value      |
-				| banner[target_url] | article/first_and_beaty |
+				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[content]    | beaterfull first article |
 				| banner[banner_type]       | small |
@@ -128,7 +128,7 @@
   Сценарий: При сохранении(редактировании) баннера без целевой ссылки, появиться уведомление.
 		Допустим я писатель
 			И существует баннер "1" с
-				| target_url | article/first |
+				| target_url | /article/first |
 				| content    | first article |
 				| banner_type       | test_banner |
 			И я перехожу на страницу Список баннеров
@@ -163,7 +163,7 @@
 		Если я на странице "Новый баннер"
 			И я ввожу следующие значения: 
 				| name               | value|
-				| banner[target_url] | article/first_and_beaty |
+				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[banner_type]       | small |
 			И кликаю кнопку "Сохранить"

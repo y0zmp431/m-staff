@@ -1,5 +1,4 @@
 
-
 ru:
   activerecord:
     models:
@@ -17,12 +16,15 @@ ru:
   Banner was successfully created: "Баннер сохранен"
   Banner was successfully updated: "Баннер сохранен"
   banner:
-    created_and_enabled: "Баннер сохранен и включен"
-    created_but_disabled: "Баннер сохранен но отключен" 
-    created: "Баннер сохранен"
+    was_enabled: "Баннер включен"
+    was_disabled: "Баннер отключен"
+    saved:
+      enabled:
+        ok: "Баннер сохранен и включен"
+        without_link: "Баннер сохранен и включен. (Баннер без ссылки и никуда не приведет)"
+        link_unavailable: "Баннер сохранен и включен. (Баннер указывает на страницу которая не открывается)"
+      disabled: "Баннер создан но отключен"
     updated: "Баннер сохранен"
     published: "Баннер включен"
     unpublished: "Баннер отключен"
-    enabled: "Баннер включен"
-    disabled: "Баннер отключен"
     
