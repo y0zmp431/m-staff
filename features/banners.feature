@@ -13,7 +13,6 @@
 		  И я кликаю ссылку "Новый баннер"
 		Если я оказался на странице Новый баннер
 			И я ввожу следующие значения: 
-				| name               | value         |
 				| banner[target_url] | /articles          |
 				| banner[title]      | Первый     |
 				| banner[content]    | some images and text |
@@ -29,7 +28,6 @@
 		  И я кликаю ссылку "Новый баннер"
 		Если я оказался на странице Новый баннер
 			И я ввожу следующие значения: 
-				| name               | value         |
 				| banner[target_url] | /article/test          |
 				| banner[title]      | Первый |
 				| banner[content]    | some images and text |
@@ -45,7 +43,6 @@
 		  И я кликаю ссылку "Новый баннер"
 		Если я оказался на странице Новый баннер
 			И я ввожу следующие значения: 
-				| name               | value         |
 				| banner[title]      | Первый |
 				| banner[content]    | some images and text |
 			И убираю крестик в поле "banner[disabled]"
@@ -89,7 +86,6 @@
 		  И я кликаю ссылку "Редактировать"
 			И я оказался на странице Редактирование баннера "1"
 			И я ввожу следующие значения: 
-				| name               | value      |
 				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[content]    | beaterfull first article |
@@ -115,7 +111,6 @@
 		  И я кликаю ссылку "Редактировать"
 			И я оказался на странице Редактирование баннера "1"
 			И я ввожу следующие значения: 
-				| name               | value      |
 				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[content]    | beaterfull first article |
@@ -136,7 +131,6 @@
 		  И я кликаю ссылку "Редактировать"
 			И я оказался на странице Редактирование баннера "1"
 			И я ввожу следующие значения: 
-				| name               | value      |
 				| banner[target_url] |  |
 				| banner[content]    | beaterfull first article |
 				| banner[title]      | beaterfull first|
@@ -162,7 +156,6 @@
 		Допустим я писатель
 		Если я на странице "Новый баннер"
 			И я ввожу следующие значения: 
-				| name               | value|
 				| banner[target_url] | /article/first_and_beaty |
 				| banner[title]      | first_and_beaty |
 				| banner[banner_type]       | small |

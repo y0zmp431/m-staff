@@ -12,12 +12,12 @@
 			| email     | test@tester.by | 
 			| password  | password | 
 			| password_confirmation | password | 
-			И покажи текст
+			#			И покажи текст
 		То пользователь с email "test@tester.by" с паролем "password" сможет войти на сайт
 
 	Сценарий: Пользователь может зарегистрироваться сам
 		Допустим я не зарегистрированный пользователь
-		Если я создаю пользователя указывая след. данные:
+		Если я регистрируюсь указывая след. данные:
 			| email | test@tester.by | 
 			| password | password | 
 			| password_confirmation | password | 
@@ -46,10 +46,9 @@
 		То должен увидеть ошибку "Пароль не совпадает с подтверждением"
 
   Сценарий: Не может существовать несколько пользователей с одним email
-		Допустим существует пользователь с email "user@mail.com" 
+		Допустим существует пользователь с e-mail "user@mail.com" 
 			И я на странице Регистрация
 		Если я ввожу следующие значения: 
-		  | name           | value        |
 			| user[email]    | user@mail.com|
 			| user[password] | password     |
 			| user[password_confirmation] | password     |
@@ -61,7 +60,6 @@
 		Допустим существует пользователь "user" 
 			И я на странице Регистрация
 		Если я ввожу следующие значения: 
-		  | name           | value         |
 			| user[login]    | user          |
 			| user[email]    | user@mail.com |
 			| user[password] | password      |
@@ -74,7 +72,6 @@
   Сценарий: По умолчанию создается активный пользователь с правами простого пользователя.
 		Допустим я на странице Регистрация
 		Если я ввожу следующие значения: 
-		  | name           | value        |
 			| user[login]    | new_user     |
 			| user[email]    | new@gmail.com|
 			| user[password] | password     |
@@ -82,7 +79,6 @@
 			| user[name]     | Василий Андреевич     |
 			И кликаю кнопку "Регистрация"
 		То должен быть создан новый пользователь "new_user" с:
-		  | name     | value        |
 			| email    | new@gmail.com|
 			| name     | Василий Андреевич     |
 			| disabled | false |
@@ -118,13 +114,11 @@
 		Допустим я администратор
 			И существует пользователь "user333"
 			Если я редактирую профиль пользователя "user333" вводя:
-				| name           | value        |
 				| user[login]    | edit_login     |
 				| user[email]    | edit@gmail.com|
 				| user[name]     | Редактор Андреевич     |
 				И кликаю кнопку "Сохранить"
 			То у пользователя "edit_login" должны быть следующие данные:
-				| name           | value        |
 				| login    | edit_login     |
 				| email    | edit@gmail.com|
 				| name     | Редактор Андреевич     |
@@ -165,13 +159,11 @@
 		Допустим я пользователь "user_profile" 
 			И я редактирую свой профиль
 		Если я ввожу следующие значения:
-				| name           | value        |
 				| user[login]    | p_login     |
 				| user[email]    | pedit@gmail.com|
 				| user[name]     | Редактор Профайлович|
 				И кликаю кнопку "Сохранить"
 		То у пользователя "p_login" должны быть следующие данные:
-				| name           | value        |
 				| login    | p_login     |
 				| email    | pedit@gmail.com|
 				| name     | Редактор Профайлович|

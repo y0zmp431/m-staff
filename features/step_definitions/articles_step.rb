@@ -2,12 +2,12 @@
 
 Допустим /^существует статья "(.*?)"$/ do |title|
 
-	article = FactoryGirl.create(:article, :title => title)
+	 assert FactoryGirl.create(:article, :title => title)
 end
 
 Допустим /^существует неопубликованная статья "(.*?)"$/ do |title|
 
-	article = FactoryGirl.create(:article, :title => title, :published => false)
+	assert FactoryGirl.create(:article, :title => title, :published => false)
 end
 
 Допустим /^существует статья "(.*?)" c:$/ do |title, table|

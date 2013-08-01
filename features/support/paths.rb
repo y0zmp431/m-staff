@@ -29,6 +29,8 @@ module NavigationHelpers
       '/users'
     when /Страница пользователя/
       '/account'
+    when /Новый пользователь/
+      '/users/new'
     when /Новая статья/
       '/articles/new'
     when /Список статей/

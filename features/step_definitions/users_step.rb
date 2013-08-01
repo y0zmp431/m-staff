@@ -3,14 +3,22 @@
 
 
 Допустим /^существует пользователь "(.*?)"$/ do |login|
-  puts "user found" if User.find_by_login(login)
 	user = User.find_by_login(login) || FactoryGirl.create(:user, login: login)
 	assert User.find_by_login login
 	#UserSession.create(user)
 	#assert UserSession.find("#{user.id}")
 end
 
-Допустим /^существует пользователь с email "(.*?)"$/ do |email|
+Допустим /^существует пользователь c\:$/ do |table|
+	user_attr = FactoryGirl.attributes_for :user
+	table.rows_hash.each do |row|
+		user_attr[row[0].to_sym] = row[1]
+		user_attr[:password_confirmation] = row[1] if row[0] == "password"
+  end
+	user = User.create user_attr
+end
+
+Допустим /^существует пользователь с e\-mail "(.*?)"$/ do |email|
   puts "user found" if User.find_by_email(email)
 	user = User.find_by_login(email) || FactoryGirl.create(:user, email: email)
 	assert User.find_by_email email
@@ -37,9 +45,9 @@ end
 	user = User.find_by_login login
   visit edit_user_path user
 	#puts page.body
-  table.hashes.each do |row|
+  table.rows_hash.each do |row|
 #    When %{I fill in "#{name}" with "#{value}"}
-		step %{я ввожу в поле "#{row[:name]}" значение "#{row[:value]}"}
+		step %{я ввожу в поле "#{row[0]}" значение "#{row[1]}"}
   end
 end
 

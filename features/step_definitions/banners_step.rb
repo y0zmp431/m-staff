@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 Допустим /^существует баннер "(.*?)"$/ do |title|
-	banner = FactoryGirl.create(:banner, :title => title)
+	assert FactoryGirl.create(:banner, :title => title)
 end
 
 Допустим /^существует баннер "(.*?)" с$/ do |title, table|
@@ -13,7 +13,7 @@ end
 end
 
 Допустим /^существует отключенный баннер "(.*?)"$/ do |title|
-	article = FactoryGirl.create(:banner, :title => title, :disabled => true)
+	assert FactoryGirl.create(:banner, :title => title, :disabled => true)
 end
 
 То /^баннер "(.*?)" должен иметь следующие аттрибуты:$/ do |title, table|

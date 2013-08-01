@@ -57,9 +57,9 @@ end
 # based on naming conventions.
 #
 Если /^(?:|я )ввожу следующие значения:$/ do |fields|
-  fields.hashes.each do |row|
+  fields.rows_hash.each do |row|
 #    When %{I fill in "#{name}" with "#{value}"}
-		step %{я ввожу в поле "#{row[:name]}" значение "#{row[:value]}"}
+		step %{я ввожу в поле "#{row[0]}" значение "#{row[1]}"}
   end
 end
 
@@ -83,9 +83,9 @@ end
 # The following steps would fill out the form:
 # When I select "November 23, 2004 11:20" as the "Preferred" date and time
 # And I select "November 25, 2004 10:30" as the "Alternative" date and time
-Если /^(?:|я )select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
-  select_datetime(datetime, :from => datetime_label)
-end
+#Если /^(?:|я )select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
+#  select_datetime(datetime, :from => datetime_label)
+#end
 
 # Use this step in conjunction with Rail's time_select helper. For example:
 # When I select "2:20PM" as the time
@@ -185,9 +185,6 @@ end
   if defined?(Spec::Rails::Matchers)
     response.should contain(text)
   else
-    #assert_contain "<input.+type=\"submit\""
-		#assert_contain text
-		#page.should have_selector(:xpath, "//input[@type='submit']")
 		page.should have_selector("form input[value='#{name}'][type='submit']")
   end
 end
@@ -196,13 +193,6 @@ end
 		page.should have_selector("a[href='#{path_to page_name}']")
 end
 
-#То /^(?:|я )должен увидеть ссылку на страницу "([^\"]*)"$/ do |pag#e_name|
-#		page.should have_selector("a[href='#{path_to page_name}']")
-#end
-
-#То /^не должно быть ссылки на страницу "(.*?)"$/ do |page_name|
-#		page.should have_no_selector("a[href='#{path_to page_name}']")
-#end
 То /^не должно быть ссылки на страницу (.+)$/ do |page_name|
 		page.should have_no_selector("a[href='#{path_to page_name}']")
 end
@@ -241,25 +231,6 @@ end
   end
 end
 
-То /^(?:|я )должен увидеть текст \/([^\/]*)\/$/ do |regexp|
-  regexp = Regexp.new(regexp)
-  if defined?(Spec::Rails::Matchers)
-    response.should contain(regexp)
-  else
-    assert_match(regexp, response_body)
-  end
-end
-
-То /^(?:|я )должен увидеть текст \/([^\/]*)\/ в пределах "([^\"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
-    regexp = Regexp.new(regexp)
-    if defined?(Spec::Rails::Matchers)
-      content.should contain(regexp)
-    else
-      assert_match(regexp, content)
-    end
-  end
-end
 
 То /^(?:|на странице )не должно быть текста "([^\"]*)"$/ do |text|
   if defined?(Spec::Rails::Matchers)
@@ -280,25 +251,6 @@ end
   end
 end
 
-То /^(?:|на странице )не должно быть текста \/([^\/]*)\/$/ do |regexp|
-  regexp = Regexp.new(regexp)
-  if defined?(Spec::Rails::Matchers)
-    response.should_not contain(regexp)
-  else
-    assert_not_contain(regexp)
-  end
-end
-
-То /^(?:|на странице )не должно быть текста \/([^\/]*)\/ в пределах "([^\"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
-    regexp = Regexp.new(regexp)
-    if defined?(Spec::Rails::Matchers)
-      content.should_not contain(regexp)
-    else
-      assert_no_match(regexp, content)
-    end
-  end
-end
 
 То /^поле "([^\"]*)" должно содержать "([^\"]*)"$/ do |field, value|
   if defined?(Spec::Rails::Matchers)
