@@ -1,6 +1,7 @@
 Base::Application.routes.draw do
 
   get "pages/index"
+  get "pages/test"
 
   resources :photos do
     get :autocomplete_dog_name, :on => :collection
