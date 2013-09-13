@@ -1,5 +1,14 @@
 Base::Application.routes.draw do
 
+  resources :photos do
+    get :autocomplete_dog_name, :on => :collection
+  end
+
+
+  resources :dogs do
+  end
+
+
   resources :banners do
 		member do
 			get 'disable', :action => 'update', :defaults => { :banner => {:disabled => true} }
@@ -17,6 +26,7 @@ Base::Application.routes.draw do
 			get 'unpublish', :action => 'update', :defaults => { :article => {:published => false} }
 			get 'publish', :action => 'update', :defaults => { :article => {:published => true} }
 		end
+    get :autocomplete_dog_name, :on => :collection
 	end
 
 	pages = %w[index]

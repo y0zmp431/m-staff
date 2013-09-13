@@ -1,25 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Base</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+	<title><%= yield :title %> Aleksa's house</title>
+	<meta name="keywords" content="Питомник китайских хохлатых беларусь">
+	<META NAME="description" CONTENT="Питомник китайских хохлатых Aleksa's house">
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="login_bar">
-		<% if current_user %>
-			<%= current_user.name %> |
-			<%= link_to t(:logout), logout_path %>
-		<% else %>
-			<%= link_to t(:login), login_path %>
-		<% end %>
+	<header>
+	 <div class="header-wrapper">
+		<div class="logo">
+			<hgroup>
+			<h1>Aleksa's House</h1>
+			<h2>питомник китайских хохлатых собачек</h2>
+			</hgroup>
+		</div>
+		<nav class="main">
+		<ul>
+		<li><a href="blog">Блог</a></li>
+		<li><a href="blog">Собаки питомника</a></li>
+		<li><a href="blog">Щенки</a></li>
+		<li><a href="blog">О питомнике</a></li>
+		</ul>
+		</nav>
+		</div>
+	</header>
+	<div class="content">
+	<%= image_tag asset_path("handh.jpg"), :class => :main %>
+	</div>
+  
+<p id="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>
+  <%= yield %>
+	<div class="sub-content">
+
+		<div class="my_width">
+			<article>
+			<p>Питомник Алексас Хаус по настоящему любит китисобачек. Китайцы очень милые и омерзительные существа. Они очень сильно привязываются к хозяевам. Эти собачки очень общительны и игривы. </p>
+			<p>Хаскок(а ешка это усугубленный концентрат Хаски) не возможно выставлять на выставках — у нее свои интересы, надо все изнюхать. Хаста также известна под именами Мотохаря, Мать, СантаЛюча.</p>
+			<!-- Бэски прирожденные социопаты, хотя со временем это свойство может потерять силу. Бэски очень горячие, способны потеряться среди зимы. Шанька — дурнаморда, отличается дурной мордой и своей дурнотой. Плюс к этому она прямой потомок Бэски со всеми вытекающими. 
+			<p>Наш питомник всегда подберет какую-нибудь мерзостность вам подстать.</p>
+Ешки — самые маленькие и омерзительные из них. Помимо размера они отличаются скверным характером и выражением своей маленькой моськи. Момки творят че хотят, прыгучи и поедают кактусы. ДЖинн очень любит маму и любит пожаловаться на жизнь. 
+			-->
+			</article>
+		</div>
+	</div>
+	<!--
+
+		<div class="preview1">
+			<h2>Iroslava MotoHaria St. Lucia</h2>
+		<div class="image" style="background:url(<%= asset_path "santa_sh.jpg" %>)">
+		</div>
+		</div>
+
+		<div class="preview1">
+			<h2>Akehiko Katcuo Aleksa's House ♂</h2>
+		<div class="image" style="background:url(<%= asset_path "han_sh.jpg" %>)">
+		</div>
+		</div>
+
+		<div class="preview">
+			<%= image_tag asset_path "bella_sh.jpg" %>
+			<h2>Ирослава Арнелла ♀</h2>
+			<div class="options">
+			</div>
+		</div>
+
+		<div class="preview">
+			<%= image_tag asset_path "nomka_sh.jpg" %>
+			<h2>Амелинка Номистар Алекса'c Хаус</h2>
+			<div class="options">
+			</div>
+		</div>
+
+		<div class="preview">
+			<%= image_tag asset_path "chandr_sh.jpg" %>
+			<h2>Алик Чандрик Алекса'c Хаус ♂</h2>
+			<div class="options">
+			</div>
+		</div>
+
+		<div class="clear"></div>
+		-->
+
+	<!--
+	-->
+		<!--
+	<div id="head-wrapper2">
+	<div id="head-wrapper3">
+		<h1>Питомник китайских хохлатых собачек</h1>
+		<h1 class="left">Ginger bis alfa laval bonus vest stay</h1>
+		<h1 class="afterA">О питомнике</h1>
+	</div>
+	</div>
+		<h1 class="center">Собаки питомника</h1>
+	</div>
+	<ul id="menu">
+				<li><a href="">Наши собаки</a>
+				<li><a href="">Щенки</a>
+				<li><a href="">О питомнике</a>
+				<li><a href="">Статьи</a>
+				<li><a href="">Ссылки</a>
+	</ul>
+		</div>
+	</div>
+	<div id="main_img">
 	</div>
 
-<p id="notice"><%= notice %></p>
-<p id="alert"><%= alert %></p>
-
+	<div id="content-wrapper">
+		-->
+		<!--
+	<div id="content">
+		<h1>Ирослава Арнелла Алексас Хаус</h1>
+		<em>12.12.10 Голая сука, <a alt="Юный чемпион беларуси">ЮЧБ</a>, 5x<a alt="Кандидат в чемпионы">CAC</a>, <a alt="Родословная">Родословная</a></em>
+		<p>Белла появилась у нас уже взрослой и сразу очаровала нас своим характером. Практически все, что мы с ней делали вызывало взрыв смеха: Одев на нее комбинезон, мы обнаруживали, что собака окаменела. Она просто не сдвигалась с места, или, что еще хуже просто падала или кувыркалась не желая идти.
+		<p>Прошло немного времени и Белла освоилась. Она стала беситься и получила прозвиче Бэска, Бесанная Беска. Она любит когда ей натирают спину и любит садиться на мель, особенно когда беремчатая.</p>
+		<p>Щенульки у бэллы всегда красивые, как правило в помете есть один или два идеально голых, как и сама Белла, которым не требуется обсолютно никаких эпиляций.</p>
+		-->
+		<!--
+		<h1>Ирослава Арнелла Алексас Хаус</h1>
 <%= yield %>
-
+Create dbf from text bash software: migrate DBF databases to MySQL server, Ebook on Bash scripting under Linux or UNIX, DBF plugin for Total Commander
+	</div>
+	</div>
+	<div class="clear">
+	</div>
+		-->
+		<footer>
+		<div>
+		<p>Aleksa's House</p>	
+		<p>+375 29 692-32-33</p>	
+		<p>aleksashouse@gmail.com</p>	
+		</div>
+		</footer>
 </body>
 </html>

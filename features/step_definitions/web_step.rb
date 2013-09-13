@@ -104,15 +104,20 @@ end
 
 # Use this step in conjunction with Rail's date_select helper.  For example:
 # When I select "February 20, 1981" as the date
-Если /^(?:|я )выбираю дату"([^\"]*)"$/ do |date|
-  select_date(date)
-end
+#Если /^(?:|я )выбираю дату "([^\"]*)"$/ do |date|
+#  select_date(date)
+#end
+
+#Если /^я выбираю дату "(.*?)"$/ do |date|
+#  select_date(date)
+#end
+
 
 # Use this step when using multiple date_select helpers on one page or
 # you want to specify the name of the date on the form. For example:
 # When I select "April 26, 1982" as the "Date of Birth" date
 Если /^(?:|я )выбираю дату "([^\"]*)" в поле "([^\"]*)"$/ do |date, date_label|
-  select_date(date, :from => date_label)
+  set_date(date, :from => date_label)
 end
 
 Если /^(?:|я )устанавливаю крестик в поле "([^\"]*)"$/ do |field|
@@ -135,7 +140,7 @@ end
 # passed to attach_file() you will get a "Photo file is not one of the allowed file types."
 # error message
 Если /^(?:|я )выбираю файл "([^\"]*)" в поле "([^\"]*)"$/ do |path, field|
-  type = path.split(".")[1]
+  type = path.split(".")[1].downcase
 
   case type
   when "jpg"
@@ -148,7 +153,7 @@ end
     type = "image/gif"
   end
  
-  attach_file(field, path, type)
+  attach_file(field, path)
 end
 
 Если /^я оказался на странице (.+)$/ do |page_name|
@@ -292,6 +297,10 @@ end
   else
     assert_equal path_to(page_name), current_path
   end
+end
+
+То /^(?:|я )должен оказаться на странице c URL (.+)$/ do |url|
+    assert_equal url, current_path
 end
 
 То /^показать страницу$/ do

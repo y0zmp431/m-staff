@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726082654) do
+ActiveRecord::Schema.define(:version => 20130907190026) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -20,10 +20,20 @@ ActiveRecord::Schema.define(:version => 20130726082654) do
     t.string   "section"
     t.text     "short_text"
     t.text     "text"
-    t.boolean  "disabled",   :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "published",  :default => true
+    t.boolean  "disabled",           :default => false, :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "section_id"
+    t.boolean  "published",          :default => true
+  end
+
+  create_table "articles_dogs", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "dog_id"
   end
 
   create_table "banners", :force => true do |t|
@@ -52,13 +62,61 @@ ActiveRecord::Schema.define(:version => 20130726082654) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "orders", :force => true do |t|
-    t.string   "title"
-    t.string   "status"
+  create_table "dogs", :force => true do |t|
+    t.string   "url"
+    t.string   "name"
+    t.string   "fullname"
+    t.boolean  "male"
+    t.boolean  "for_sale",      :default => false, :null => false
+    t.boolean  "for_love",      :default => false, :null => false
+    t.boolean  "from_us",       :default => true,  :null => false
+    t.datetime "date_of_birth"
+    t.text     "desc"
+    t.string   "pedigree"
+    t.boolean  "disabled",      :default => false, :null => false
+    t.text     "owner_desc"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "dogs_photos", :id => false, :force => true do |t|
+    t.integer "dog_id"
+    t.integer "photo_id"
+  end
+
+  create_table "news", :force => true do |t|
     t.integer  "user_id"
+    t.string   "title"
+    t.string   "url"
+    t.text     "short_text"
+    t.text     "full_text"
+    t.boolean  "active",     :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "photos", :force => true do |t|
     t.boolean  "disabled"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "index_of_order"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "url",                                  :null => false
+    t.string   "title",                                :null => false
+    t.boolean  "active",             :default => true, :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "section_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "user_sessions", :force => true do |t|

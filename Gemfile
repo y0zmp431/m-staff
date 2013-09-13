@@ -21,13 +21,15 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+#gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem "rails3-jquery-autocomplete"
 
 gem "authlogic"
 gem "cancan"
 gem "cells"
 gem "stringex"
 gem "role_model"
+
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
@@ -41,6 +43,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'watir'
 	gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Disabled:</b>
+  <%= @photo.disabled %>
+</p>
+
+<p>
+  <b>Index of order:</b>
+  <%= @photo.index_of_order %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

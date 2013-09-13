@@ -1,6 +1,7 @@
 
 class ArticlesController < ApplicationController
 	load_and_authorize_resource :find_by => :url
+  autocomplete :dog, :name
   # GET /articles
   # GET /articles.json
   def index

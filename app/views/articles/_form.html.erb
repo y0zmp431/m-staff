@@ -45,6 +45,17 @@
     <%= f.label :text %><br />
     <%= cktext_area_tag('article[text]', @article['text']) %>
   </div>
+  <div class="field" id="list_of_dogs">
+    <%= label_tag :dogs %>:
+    <span id="list_dog_ids">
+      <% @article.dogs.each do |dog| %>
+        <%= link_to dog.name, "", :class => :delete_dog_id, :for => dog.id %>
+      <% end %>
+    </span>
+    <br />
+    <%= autocomplete_field_tag :dog_name, '', autocomplete_dog_name_articles_path %>
+  </div>
+
   <div class="field">
     <%= f.label :published %><br />
     <%= f.check_box :published %>

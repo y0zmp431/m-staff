@@ -11,6 +11,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
    
+    when /с URL "(.+)"/
+      $1
     when /Главная/
       '/'     
     when /Авторизация/
@@ -59,6 +61,14 @@ module NavigationHelpers
       /\/snippets\/\d+/
     when /Выбрать тему (.+)/
       /\/theme\/switch_to\?theme\=(.+)/
+
+    when /Список собак/
+      dogs_path
+    when /Новый песик/
+      new_dog_path
+    when /собаки "(.+)"/
+      dog_path Dog.find_by_name $1
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
