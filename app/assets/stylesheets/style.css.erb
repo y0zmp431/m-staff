@@ -14,6 +14,12 @@
 	url(/Gabriela-Regular.ttf);
 }
 
+.float_l{
+  float:left;
+}
+.float_r{
+  float:right;
+}
 html, body{
 	height:100%;
 	background:#fff;
@@ -86,18 +92,19 @@ nav.main a:hover{
   width:800px;
 }
 footer{
+  clear:both;
 	height:300px;
 	background:url(<%= asset_path "group_a.jpg" %>) no-repeat left bottom #010101;
-	border-top:solid 1px #777;
 	font-family: 'HennyPenny', sans-serif;
 	color:#f09;
+  width:100%;
 }
 footer>div{
+  margin-left:550px;
 	padding:30px 0 0 0;
-	text-align:center;
 }
-footer p{
-	font-size:14pt;
+footer h1, footer p{
+	font:10pt sans-serif;
 }
 .sub-content{
 	clear:both;
@@ -309,4 +316,16 @@ width for content
 }
 .ui-helper-hidden-accessible{
   color:#aaf;
+}
+.polaroid{
+  padding:10px;
+  border-radius:3px;
+  border:solid 1px rgba(100,100,100,0.1);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+}
+.polaroid.h{
+  padding-bottom:30px;
+}
+.polaroid img{
+  border-radius:3px;
 }
