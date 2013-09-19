@@ -20,15 +20,18 @@
 .float_r{
   float:right;
 }
+.clear{
+  clear:both;
+}
 html, body{
 	height:100%;
 	background:#fff;
 }
 body{
-	padding:0;
 	background:#fff;
 	padding:0;
 	margin:0;
+  min-height:100%;
 }
 header{
 	margin:0 auto;
@@ -87,13 +90,22 @@ nav.main a:hover{
 }
 .content{
 	clear:both;
-  min-height:400px;
   margin:0 auto;
   width:800px;
 }
+.wrap{
+  min-height:100%;
+  border:solid 1px red;
+}
+.blank_for_footer{
+	clear:both;
+  height:300px;
+}
 footer{
   clear:both;
+  position:relative;
 	height:300px;
+  margin-top:-300px;
 	background:url(<%= asset_path "group_a.jpg" %>) no-repeat left bottom #010101;
 	font-family: 'HennyPenny', sans-serif;
 	color:#f09;
@@ -254,7 +266,6 @@ width for content
 	*/
 }
 #content{
-	position:absolute;
 	/*
 	border:solid 1px #aa2;
 	margin:30px 10px 10px 20px;
