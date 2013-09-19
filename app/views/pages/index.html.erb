@@ -5,7 +5,7 @@
 		<a class="big_banner_link" href="<%= @banner.target_url %>" >
 		<% end %>
 
-		<h1 id="default_h1"><%= @banner.title %></h1>
+    <!--<h1 id="default_h1"><%= @banner.title %></h1>-->
 		<%= @banner.content.html_safe %>
 		<% if ! @banner.target_url.blank? %>	
 			</a>
