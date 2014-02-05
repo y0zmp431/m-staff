@@ -73,12 +73,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        
 				if request.referer == edit_user_url(@user)
 					path = user_path @user
 				else
-					path = user_path @user
-					path = request.referer
+					path = :back 
 				end
+
         format.html { redirect_to path, notice: t('User was successfully updated.') }
         format.json { head :no_content }
       else

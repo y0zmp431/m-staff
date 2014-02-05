@@ -12,19 +12,23 @@ class Ability
          can :read, :all
 			 elsif user.is? :writer
 				 can :manage, Article
-				 can :manage, Banner
+				 can :manage, Atricle 
          can :read, :all
 			 elsif user.is? :user
-				 can :read, Article
-				 #cannot :read, Article, :published => false 
+				 can :read, Article, :published => true
+				 cannot :read_disabled, Article
+				 cannot :read, Article, :published => false 
 				 can [:read, :update], User, :id => user.id 
 			 else
-				 can :read, Article
-				 cannot :read, :articles, :published => false 
+				 #can :read, Article
 				 can :read, Article, :published => true 
+				 cannot :read, Article, :published => false 
 				 can :create, User
 				 can :recovery, User
        end
+       #cannot :read, Banner, Banner.where(:disabled => true) do |banner|
+       #  banner.disabled?
+       #end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are

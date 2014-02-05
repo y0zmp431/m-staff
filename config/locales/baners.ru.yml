@@ -5,6 +5,7 @@ ru:
       banner:
     attributes:
       banner:
+        banner_type: Тип баннера
         target_url: Url цели(Куда ведет баннер) 
         title: Название
         content: Контент 
@@ -12,6 +13,8 @@ ru:
 
   Listing_banners: Список баннеров 
   New Banner: "Новый баннер"
+  New banner: "Новый баннер"
+  Editing banner: "Правка баннера"
   Banner not save: "Баннер не сохранен"
   Banner was successfully created: "Баннер сохранен"
   Banner was successfully updated: "Баннер сохранен"
