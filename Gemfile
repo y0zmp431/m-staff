@@ -28,6 +28,7 @@ gem "cancan"
 gem "cells"
 gem "stringex"
 gem "role_model"
+gem "acts-as-taggable-on"
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby

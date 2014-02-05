@@ -7,6 +7,7 @@ ru:
       article:
         title: Заголовок 
         section: Раздел
+        tag_list : Тэги 
         short_text: Краткое описание
         text: Текст
         disabled: Не публиковать 
