@@ -32,7 +32,7 @@ gem "acts-as-taggable-on"
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem "ckeditor", "3.7.1"
+gem "ckeditor"
 gem "paperclip"
 #gem "i18n", "~> 0.6.0"
 gem 'russian', "~> 0.6.0"

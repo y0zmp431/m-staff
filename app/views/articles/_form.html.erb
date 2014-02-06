@@ -47,7 +47,7 @@
   </div>
   <div class="field">
     <%= f.label :text %><br />
-    <%= cktext_area_tag('article[text]', @article['text']) %>
+    <%= f.cktext_area :text, :id => 'text_cktexteditor' %>
   </div>
   <div class="field">
     <%= f.label :published %><br />
