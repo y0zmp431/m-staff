@@ -32,7 +32,8 @@ gem "acts-as-taggable-on"
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem "ckeditor"
+gem "tinymce-rails"
+#gem "ckeditor"
 gem "paperclip"
 #gem "i18n", "~> 0.6.0"
 gem 'russian', "~> 0.6.0"

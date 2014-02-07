@@ -47,7 +47,8 @@
   </div>
   <div class="field">
     <%= f.label :text %><br />
-    <%= f.cktext_area :text, :id => 'text_cktexteditor' %>
+    <%= f.text_area :text, :class => "tinymce" %>
+<%= tinymce %>
   </div>
   <div class="field">
     <%= f.label :published %><br />

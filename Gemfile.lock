@@ -53,9 +53,6 @@ GEM
     cells (3.9.1)
       actionpack (>= 3.0)
       railties (>= 3.0)
-    ckeditor (4.0.9)
-      mime-types
-      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -108,7 +105,6 @@ GEM
     mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    orm_adapter (0.5.0)
     paperclip (4.0.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -176,6 +172,8 @@ GEM
       ref
     thor (0.18.1)
     tilt (1.4.1)
+    tinymce-rails (4.0.16)
+      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -195,7 +193,6 @@ DEPENDENCIES
   cancan
   capybara
   cells
-  ckeditor
   coffee-rails
   cucumber-rails
   database_cleaner
@@ -213,4 +210,5 @@ DEPENDENCIES
   spork-rails
   stringex
   therubyracer
+  tinymce-rails
   uglifier

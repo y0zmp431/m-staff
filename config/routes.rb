@@ -10,8 +10,6 @@ Base::Application.routes.draw do
 
   get "users/recovery"
 
-  mount Ckeditor::Engine => '/ckeditor'
-
   resources :articles do
 		member do
 			get 'unpublish', :action => 'update', :defaults => { :article => {:published => false} }
