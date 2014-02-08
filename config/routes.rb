@@ -1,5 +1,7 @@
 Base::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :banners do
 		member do
 			get 'disable', :action => 'update', :defaults => { :banner => {:disabled => true} }

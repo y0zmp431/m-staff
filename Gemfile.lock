@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: b19f776a43e188e48fd409353366f05bdab3090d
+  specs:
+    ckeditor (4.0.10)
+      mime-types
+      orm_adapter (~> 0.5.0)
+
+GIT
   remote: git://github.com/rweng/jquery-datatables-rails.git
   revision: 788a7b24caf8fe58a5493aa3f6a065879a9f752a
   specs:
@@ -105,7 +113,8 @@ GEM
     mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    paperclip (4.0.0)
+    orm_adapter (0.5.0)
+    paperclip (3.5.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -172,8 +181,6 @@ GEM
       ref
     thor (0.18.1)
     tilt (1.4.1)
-    tinymce-rails (4.0.16)
-      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -193,6 +200,7 @@ DEPENDENCIES
   cancan
   capybara
   cells
+  ckeditor!
   coffee-rails
   cucumber-rails
   database_cleaner
@@ -201,7 +209,7 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   mysql2
-  paperclip
+  paperclip (~> 3.5.3)
   rails (= 3.2.12)
   role_model
   rspec-rails
@@ -210,5 +218,4 @@ DEPENDENCIES
   spork-rails
   stringex
   therubyracer
-  tinymce-rails
   uglifier
