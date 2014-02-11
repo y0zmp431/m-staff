@@ -1,0 +1,47 @@
+%h1= t :Listing_articles
+- if can? :manage, Article
+  - if params.count == 2
+    %b.selected_option= t 'Published'
+  - else
+    = link_to t('Published'), articles_path
+  |
+  - if params[:unpublished]
+    %b.selected_option= t 'Unpublished'
+  - else
+    = link_to t('Unpublished'), articles_path( :unpublished => true )
+%table
+  %tr
+    %th= t :User
+    - if false
+      %th= t :Url
+    %th= t :Title
+    %th= t :Section
+    - if false
+      %th= t :Short_text
+      %th= t :Text
+    %th= t :Published
+    %th
+    %th
+    %th
+  - @articles.each do |article|
+    %tr
+      %td= article.user.login
+      - if false
+        %td= article.url
+      %td= link_to article.title, article
+      %td= article.section
+      - if false
+        %td= article.short_text
+        %td= article.text
+      %td= article.published
+      %td
+        - if can? :manage, Article
+          = link_to t('Show'), article
+          |
+          \#{link_to t('Edit'), edit_article_path(article)} |
+          \#{link_to_if( article.published, t('Unpublish'), unpublish_article_path(article) ) do link_to t('Publish'), publish_article_path(article) end}
+%br/
+- if can? :create, Article
+  = link_to t('New article'), new_article_path
+- if false
+  %td= link_to t('Destroy'), article, confirm: t('Are you sure?'), method: :delete

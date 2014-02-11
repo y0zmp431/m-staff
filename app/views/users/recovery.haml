@@ -1,0 +1,12 @@
+%h1= t "Recovery password"
+%p#alert= alert
+%p#alert= flash[:error]
+= form_tag "/recovery_passwd" do
+  .field
+    = label_tag :email
+    %br/
+    = text_field_tag :email
+    %br/
+  .actions
+    = submit_tag t("Send")
+  %p= t "New password will be sent to the specified e-mail."
