@@ -51,9 +51,9 @@ ru:
   Last login ip: "Последний IP"
   User was successfully created: "Регистрация завершена успешно"
   message:
-    recovered: "Новый пароль отправлен на < %{email} >"
+    recovered: "Новый пароль отправлен на %{email}"
 
-    user_not_found: "На сайте нет пользователя с почтой < %{email} >"
+    user_not_found: "На сайте нет пользователя с почтой %{email}"
 
   New password will be sent to the specified e-mail: "Пароль будет отравлен на e-mail"
 
