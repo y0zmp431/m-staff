@@ -4,41 +4,53 @@
 	<title><%= yield :title %> Aleksa's house</title>
 	<meta name="keywords" content="Питомник китайских хохлатых беларусь">
 	<META NAME="description" CONTENT="Питомник китайских хохлатых Aleksa's house">
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "style" %>
+  <%= stylesheet_link_tag    "mobile", :media => "only screen and (max-device-width: 799px)" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="wrap">
 	<header>
-	 <div class="header-wrapper">
-		<div class="logo">
-			<hgroup>
+	 <div class="container">
+    <hgroup class="logo">
 			<h1>Aleksa's House</h1>
 			<h2>питомник китайских хохлатых собачек</h2>
-			</hgroup>
-		</div>
+    </hgroup>
 		<nav class="main">
-		<ul>
 		<!--<li><a href="blog">Блог</a></li>
 		<li><a href="blog">Собаки питомника</a></li>
     -->
-    <li><a href="/">Щенки</a></li>
-    <li><a href="/articles/about_us">О питомнике</a></li>
+    <a href="/">Щенки</a>
+    <a href="/">Поиск</a>
+    <a href="/articles/about_us">О питомнике</a>
+    <a href="/">Связь</a>
 		</ul>
 		</nav>
 		</div>
+    <div class="clear"></div>
 	</header>
-
-	<div class="content">
-
+  <div class="main_banner">
+  </div>
+<!--
+	<div class="content_background">
   <p id="alert"><%= alert %></p>
   <p id="notice"><%= notice %></p>
-  <%= yield %>
+    ssss
+  </div>
+	<div class="content_wrapper">
+    <div class="content_background">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="option_content">
+      <%= yield :option_content %> 
+    </div>
 
-<div class="blank_for_footer"></div>
+  <div class="blank_for_footer"></div>
 	</div>
   
+  -->
   <!--
 	<%  image_tag asset_path("handh.jpg"), :class => :main %>
 	<div class="sub-content">
@@ -49,18 +61,51 @@
 		</div>
 	</div>
   -->
-</div><!-- wrap -->
+<div class="container col_wrapper">
+  <div class="col">
+    <h3>Щенки</h3>
+    <ul>
+      <li><a href="">Глам Шайн</a></li>
+      <li><a href="">Шиби Шик</a></li>
+      <li><a href="">Принц Гадский</a></li>
+      <li><a href="">Хэли Бэри</a></li>
+      <li><a href="">Шунтик Бешенная Белка</a></li>
+      <li><a href="">Дивный Эльф</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3>Вязки</h3>
+    <ul>
+      <li><a href="">Хихихико Катцуо</a></li>
+      <li><a href="">Джинджер Джипс</a></li>
+      <li><a href="">Жгучий Гуччи</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3>Связь</h3>
+		<p>Velcom: +375 29 692-32-33</p>	
+		<p>MTC: +375 29 692-32-33</p>	
+		<p>aleksashouse@gmail.com</p>	
+    <!--
+    <h3>Вязки</h3>
+    <ul>
+      <li><a href="">Хихихико Катцуо</a></li>
+      <li><a href="">Джинджер Джипс</a></li>
+      <li><a href="">Жгучий Гуччи</a></li>
+    </ul>
+    -->
+  </div>
+</div>
 
 		<footer>
-		<div>
       <h1>Монопородный питомник китайских хохлатых собачек
         «Aleksa's House»</h1>	
     <p>Cвидетельство БКО №770/2010(48/10)</p> 
 		<p>Velcom: +375 29 692-32-33</p>	
-		<p>MTC: +375 29 692-32-33</p>	
+		<p>MTC: +375 29 792-32-55</p>	
+		<p>Life:): +375 25 908-22-78</p>	
 		<p>aleksashouse@gmail.com</p>	
     <p>Брест 2013 ©</p>
-		</div>
 		</footer>
 </body>
 </html>
