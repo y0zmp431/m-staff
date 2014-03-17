@@ -17,6 +17,8 @@ ru:
         pedigree: Ссылка на родословку
         disabled: Не публиковать 
         owner_desc: Информация о владельце
+  Dogs: Собаки
+  Photo hasnt dogs: На фото не отмечены собаки
   Add dog: Добавить пса
   male: Кобель
   female: Девочка

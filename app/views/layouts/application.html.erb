@@ -4,8 +4,7 @@
 	<title><%= yield :title %> Aleksa's house</title>
 	<meta name="keywords" content="Питомник китайских хохлатых беларусь">
 	<META NAME="description" CONTENT="Питомник китайских хохлатых Aleksa's house">
-  <%= stylesheet_link_tag    "style" %>
-  <%= stylesheet_link_tag    "mobile", :media => "only screen and (max-device-width: 799px)" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -21,47 +20,25 @@
 		<li><a href="blog">Собаки питомника</a></li>
     -->
     <a href="/">Щенки</a>
-    <a href="/">Поиск</a>
+    <!--<a href="/">Поиск</a>-->
     <a href="/articles/about_us">О питомнике</a>
-    <a href="/">Связь</a>
+    <!--<a href="/">Связь</a>-->
 		</ul>
 		</nav>
 		</div>
     <div class="clear"></div>
 	</header>
+  <!--
   <div class="main_banner">
   </div>
-<!--
-	<div class="content_background">
-  <p id="alert"><%= alert %></p>
-  <p id="notice"><%= notice %></p>
-    ssss
+  -->
+
+  <div class="container content">
+    <%= yield %>
+    <div class="clear"></div>
   </div>
-	<div class="content_wrapper">
-    <div class="content_background">
-      <div class="content">
-        <%= yield %>
-      </div>
-    </div>
-    <div class="option_content">
-      <%= yield :option_content %> 
-    </div>
 
-  <div class="blank_for_footer"></div>
-	</div>
-  
-  -->
-  <!--
-	<%  image_tag asset_path("handh.jpg"), :class => :main %>
-	<div class="sub-content">
-
-		<div class="my_width">
-			<article>
-			</article>
-		</div>
-	</div>
-  -->
-<div class="container col_wrapper">
+<!--<div class="container col_wrapper">
   <div class="col">
     <h3>Щенки</h3>
     <ul>
@@ -86,26 +63,27 @@
 		<p>Velcom: +375 29 692-32-33</p>	
 		<p>MTC: +375 29 692-32-33</p>	
 		<p>aleksashouse@gmail.com</p>	
-    <!--
     <h3>Вязки</h3>
     <ul>
       <li><a href="">Хихихико Катцуо</a></li>
       <li><a href="">Джинджер Джипс</a></li>
       <li><a href="">Жгучий Гуччи</a></li>
     </ul>
-    -->
   </div>
 </div>
+    -->
 
-		<footer>
-      <h1>Монопородный питомник китайских хохлатых собачек
-        «Aleksa's House»</h1>	
+<footer class="">
+  <div class="container">
+    <h3>Монопородный питомник китайских хохлатых собачек
+        «Aleksa's House»</h3>	
     <p>Cвидетельство БКО №770/2010(48/10)</p> 
 		<p>Velcom: +375 29 692-32-33</p>	
 		<p>MTC: +375 29 792-32-55</p>	
 		<p>Life:): +375 25 908-22-78</p>	
 		<p>aleksashouse@gmail.com</p>	
     <p>Брест 2013 ©</p>
-		</footer>
+  </div>
+</footer>
 </body>
 </html>

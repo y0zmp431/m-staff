@@ -1,15 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="fc">
+  <%= link_to @photo.image.url(:origin) do %>
+      <div class="polaroid <%= @photo.orientation %> float_l">
+        <%= image_tag @photo.image.url(:medium)%>
+      </div>
+  <% end %>
+</div>
 
+<div class="fc">
 <p>
-  <b>Disabled:</b>
-  <%= @photo.disabled %>
+<% if @photo.dogs %>
+<b><%= t 'On the photo' %>:</b>
+<% @photo.dogs.each do |dog, index| %>
+  <%= link_to dog.name, dog %>
+<% end %>
 </p>
-
+<% else %>
+  <p><%= t 'Photo hasnt dogs' %></p>
+<% end %>
 <p>
-  <b>Index of order:</b>
+  <%= t 'disabled' if @photo.disabled %>
+</p>
+<% if @photo.index_of_order %>
+<p>
+<b><%= t 'Index of order' %>:</b>
   <%= @photo.index_of_order %>
 </p>
+<% end %>
 
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= link_to t('Edit'), edit_photo_path(@photo) %> |
+<%= link_to t('Back'), photos_path %> |
+<%= link_to t('Destroy'), @photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

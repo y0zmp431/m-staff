@@ -1,21 +1,20 @@
 <style>
-  .content{
-    width:100%;
+  header{
+    background:#fff;
   }
-  .thumbnail{
-    display: -moz-inline-box;
-    display: inline-block;
-    margin:5px;
+  html, body{
+    background: url(<%= asset_path "whitewood.jpg" %>) repeat #555;
   }
-  .gallery{
-    text-align:center;
-    width:100%;
-    padding:20px 0;
+  .content_background{
+    background:#fff;
+  }
+  .galery{
+    border-top:5px solid #aaa;
   }
 </style>
 
-<div class="gallery">
-<% @photos.each do |photo| %>
+<div class="galery">
+<% photos.each do |photo| %>
   <%= link_to photo_path(photo), :class => :thumbnail do %>
       <div class="polaroid <%= photo.orientation %> rotate_<%= rand 6 %> float_l">
         <%= image_tag photo.image.url(:medium), :title => (photo.dogs.each{ |d| "AAAAAAAAAA #{d.name}" } )%>
@@ -25,4 +24,3 @@
 </div>
 
 <div class="clear"></div>
-<%= link_to 'New Photo', new_photo_path %>
