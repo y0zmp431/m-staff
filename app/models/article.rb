@@ -4,7 +4,8 @@ class Article < ActiveRecord::Base
 	acts_as_url :title, :only_when_blank => true, :allow_duplicates => true
   acts_as_taggable
 	validates :title, :url, :text, :presence => true
-	validates_associated :user;
+	validates_associated :user
+  validates_format_of :url, :with => /^[-_a-zA-Z]+$/, :message => :url_format
 	validates :title, :url, :uniqueness => { :case_sensitive => false }
 
 	scope :published, -> { where :published => true}
