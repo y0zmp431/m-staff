@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @dog.fullname %></h1>
-<div class="w-golden-small">
+<div class="w-golden-small float_l">
 <h3>
 <hgroup>
   <%= @dog.name %>, 
@@ -36,8 +36,7 @@
 <%= link_to t('Back'), dogs_path %>
 
 </div>
-<div class="w-golden-large">
-  <%= image_tag @dog.photos.first.image :medium %>
+<div class="w-golden-large float_r">
 </div>
 
 
