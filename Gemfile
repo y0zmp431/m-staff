@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 gem "authlogic"
+gem "scrypt"
 gem "cancan"
 gem "cells"
 gem "stringex"
