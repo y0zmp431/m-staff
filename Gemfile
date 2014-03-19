@@ -26,6 +26,7 @@ gem 'jquery-ui-rails'
 gem "rails3-jquery-autocomplete"
 
 gem "authlogic"
+gem "scrypt"
 gem "cancan"
 gem "cells"
 gem "stringex"
