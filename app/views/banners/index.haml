@@ -1,0 +1,23 @@
+%h1= t 'Listing banners'
+%table
+  %tr
+    %th= t 'Target url'
+    %th= t 'Title'
+    %th= t 'Content'
+    %th= t 'Disabled'
+    %th
+  - @banners.each do |banner|
+    %tr
+      %td= banner.target_url
+      %td= banner.title
+      %td= banner.content
+      %td= banner.disabled
+      %td
+        - if can? :manage, Banner
+          = link_to 'Show', banner
+          = link_to t('Edit'), edit_banner_path(banner)
+          = link_to_if( banner.disabled, t('Enable'), enable_banner_path(banner) ) do |
+            link_to t('Disable'), disable_banner_path(banner)                         |
+            end                                                                       |
+%br/
+= link_to t('New Banner'), new_banner_path

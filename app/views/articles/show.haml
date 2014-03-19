@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1= @article.title
+%div
+  %b= @article.user.name
+  | #{l @article.created_at}
+- if false
+  %p
+    %b Url:
+    = @article.url
+  %p
+    %b Section:
+    = @article.section
+  %p
+    %b Short text:
+    = @article.short_text
+%p
+  = @article.text.html_safe
+- if can? :manage, Article
+  = link_to t('Edit'), edit_article_path(@article)
+  |
+  \#{link_to_if( @article.published, t('Unpublish'), unpublish_article_path(@article) ) do link_to t('Publish'), publish_article_path(@article) end} |
+= link_to t('Back'), articles_path

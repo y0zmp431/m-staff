@@ -11,6 +11,7 @@ Base::Application.routes.draw do
   resources :dogs do
   end
 
+  #mount Ckeditor::Engine => '/ckeditor'
 
   resources :banners do
 		member do
@@ -21,8 +22,6 @@ Base::Application.routes.draw do
 
 
   get "users/recovery"
-
-  mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles do
 		member do

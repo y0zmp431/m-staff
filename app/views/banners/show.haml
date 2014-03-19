@@ -1,0 +1,31 @@
+%p#notice= notice
+%p
+  %b
+    = t 'Banner_type'
+    \:
+  = @banner.banner_type
+%p
+  %b
+    = t 'Target url'
+    \:
+  = @banner.target_url
+%p
+  %b
+    = t 'Title'
+    \:
+  = @banner.title
+%p
+  %b
+    = t 'Content'
+    \:
+  = @banner.content
+%p
+  %b
+    = t 'Disabled'
+    \:
+  = @banner.disabled
+- if can? :manage, Banner
+  = link_to t('Edit'), edit_banner_path(@banner)
+  |
+  \#{link_to_if( @banner.disabled, t('Enable'), enable_banner_path(@banner) ) do link_to t('Disable'), disable_banner_path(@banner) end} |
+= link_to t('Back'), banners_path

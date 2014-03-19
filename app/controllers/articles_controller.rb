@@ -7,10 +7,11 @@ class ArticlesController < ApplicationController
   def index
 		if params[:unpublished] 
 			@articles = Article.unpublished
+      raise CanCan::AccessDenied if cannot? :read, @articles 
 		else
 			@articles = Article.published
 		end
-    @articles= @articles.all
+    @articles = @articles.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,10 +85,13 @@ class ArticlesController < ApplicationController
 					notice_message = t("article.published", :link => article_path(@article), :title => @article.title) if params[:article][:published] == true 
 				end
 				
-				redirect_path = :back
-				redirect_path = article_path(@article) if @article.url != old_url 
+				if @article.url != old_url or request.referer == edit_article_url(@article)
+          path = article_path(@article) 
+        else
+          path = :back
+        end
 
-        format.html { redirect_to redirect_path, notice: notice_message.html_safe }
+        format.html { redirect_to path, notice: "#{notice_message.html_safe} http_ref=#{request.headers["HTTP_REFERER"]}" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

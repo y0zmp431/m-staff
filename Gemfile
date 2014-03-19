@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'mysql2'
 
-
+gem 'haml-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -30,12 +30,13 @@ gem "cancan"
 gem "cells"
 gem "stringex"
 gem "role_model"
+gem "acts-as-taggable-on"
 
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem "ckeditor"
-gem "paperclip"
+gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
+gem "paperclip", "~> 3.5.3"
 #gem "i18n", "~> 0.6.0"
 gem 'russian', "~> 0.6.0"
 

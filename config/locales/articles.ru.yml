@@ -7,13 +7,18 @@ ru:
       article:
         title: Заголовок 
         section: Раздел
+        tag_list : Тэги 
         short_text: Краткое описание
         text: Текст
         disabled: Не публиковать 
         published: Публиковать 
+    errors:
+      messages:
+        url_format: 'URL должен содержать только латинские буквы, цифры, «-» и «_»'
 
   Listing_articles: Статьи
   New article: "Новая статья"
+  Editing article: "Редактирование статьи"
   Article not save: "Статья не сохранена"
   Article was successfully created: "Статья сохранена"
   Article was successfully updated: "Статья сохранена"
@@ -21,6 +26,7 @@ ru:
     updated: "Статья сохранена"
     published: "Статья <a href='%{link}' >«%{title}»</a> опубликована"
     unpublished: "Отменена публикация статьи <a href='%{link}' >«%{title}»</a>"
+  Fail url format: "URL должен содержать только латинские буквы, цифры, «-» и «_»"
   Published: "Опубликованные"
   Unpublished: "Неопубликованные"
   Publish: "Опубликовать"

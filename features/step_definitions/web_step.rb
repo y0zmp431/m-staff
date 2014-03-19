@@ -207,7 +207,7 @@ end
   if defined?(Spec::Rails::Matchers)
     response.should contain(text)
   else
-		page.should have_text text
+		page.text.should have_text text
   end
 end
 
