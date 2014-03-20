@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+	load_and_authorize_resource :find_by => :url
   # GET /dogs
   # GET /dogs.json
   def index

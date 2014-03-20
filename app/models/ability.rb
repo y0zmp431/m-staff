@@ -9,22 +9,26 @@ class Ability
          can :manage, :all
 			 elsif user.is? :moderator
 				 can :manage, Article
+				 can :manage, Dog
          can :read, :all
 			 elsif user.is? :writer
 				 can :manage, Article
 				 can :manage, Atricle 
+				 can :manage, Dog
          can :read, :all
 			 elsif user.is? :user
 				 can :read, Article, :published => true
 				 cannot :read_disabled, Article
 				 cannot :read, Article, :published => false 
 				 can [:read, :update], User, :id => user.id 
+				 can :read, Dog
 			 else
 				 #can :read, Article
 				 can :read, Article, :published => true 
 				 cannot :read, Article, :published => false 
 				 can :create, User
 				 can :recovery, User
+				 can :read, Dog
        end
        #cannot :read, Banner, Banner.where(:disabled => true) do |banner|
        #  banner.disabled?
