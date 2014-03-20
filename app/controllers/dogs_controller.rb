@@ -3,7 +3,7 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs = Dog.all
+    @dogs = Dog.find_with_params params
 
     respond_to do |format|
       format.html # index.html.erb

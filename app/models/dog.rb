@@ -12,6 +12,14 @@ class Dog < ActiveRecord::Base
 		url # or whatever you set :url_attribute to
 	end
 
+  def self.find_with_params params
+    if params[:show_hidden]
+      where :disabled => true
+    else 
+      where :disabled => false
+    end
+  end
+
   def sex
     return "male" if self.male
      "female" 

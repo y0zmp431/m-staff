@@ -27,6 +27,9 @@ ru:
   pedigree: родословная
   Owner desc: Данные о владельце
 
+  Showed dogs: "Открытый список собак"
+  Hidden dogs: "Скрытые собаки"
+
   Dog was successfully created: "%{dog_name} на сайте"
   dog:
     updated: "Статья сохранена"
