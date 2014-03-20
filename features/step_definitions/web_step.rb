@@ -140,20 +140,7 @@ end
 # passed to attach_file() you will get a "Photo file is not one of the allowed file types."
 # error message
 Если /^(?:|я )выбираю файл "([^\"]*)" в поле "([^\"]*)"$/ do |path, field|
-  type = path.split(".")[1].downcase
-
-  case type
-  when "jpg"
-    type = "image/jpg"
-  when "jpeg"
-    type = "image/jpeg"
-  when "png"
-    type = "image/png"
-  when "gif"
-    type = "image/gif"
-  end
- 
-  attach_file(field, path)
+  attach_file(field, Rails.root + path)
 end
 
 Если /^я оказался на странице (.+)$/ do |page_name|
