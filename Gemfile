@@ -40,6 +40,7 @@ gem 'russian', "~> 0.6.0"
 
 group :development, :test do
 	gem 'rspec-rails'
+  gem 'sqlite3', '~> 1.3.9'
 end
 
 group :test do
