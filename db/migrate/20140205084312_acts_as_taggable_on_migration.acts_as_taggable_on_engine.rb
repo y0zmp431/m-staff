@@ -1,11 +1,11 @@
 # This migration comes from acts_as_taggable_on_engine (originally 1)
 class ActsAsTaggableOnMigration < ActiveRecord::Migration
   def self.up
-    create_table :tags, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8'  do |t|
+    create_table :tags  do |t|
       t.string :name
     end
 
-    create_table :taggings, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8'  do |t|
+    create_table :taggings  do |t|
       t.references :tag
 
       # You should make sure that the column created is

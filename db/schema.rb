@@ -52,15 +52,6 @@ ActiveRecord::Schema.define(:version => 20140205084313) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "orders", :force => true do |t|
-    t.string   "title"
-    t.string   "status"
-    t.integer  "user_id"
-    t.boolean  "disabled"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -77,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20140205084313) do
     t.string "name"
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["name"], :name => "name", :unique => true
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
