@@ -17,7 +17,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    current_user_session.destroy
+    current_user_session.destroy unless current_user_session.nil?
     redirect_to :root
   end
 end
