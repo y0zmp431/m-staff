@@ -9,7 +9,7 @@
 	#assert UserSession.find("#{user.id}")
 end
 
-Допустим /^существует пользователь c\:$/ do |table|
+Допустим(/^существует пользователь с:$/) do |table|
 	user_attr = FactoryGirl.attributes_for :user
 	table.rows_hash.each do |row|
 		user_attr[row[0].to_sym] = row[1]
@@ -17,6 +17,7 @@ end
   end
 	user = User.create user_attr
 end
+
 
 Допустим /^существует пользователь с e\-mail "(.*?)"$/ do |email|
   puts "user found" if User.find_by_email(email)
