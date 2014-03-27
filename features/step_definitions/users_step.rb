@@ -16,7 +16,7 @@ end
 		user_attr[row[0].to_sym] = row[1]
 		user_attr[:password_confirmation] = row[1] if row[0] == "password"
   end
-	assert User.create_with( user_attr )
+	assert User.create( user_attr )
 end
 
 
