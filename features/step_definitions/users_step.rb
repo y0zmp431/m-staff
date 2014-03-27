@@ -9,6 +9,7 @@
 	#assert UserSession.find("#{user.id}")
 end
 
+
 Допустим(/^существует пользователь с:$/) do |table|
 	user_attr = FactoryGirl.attributes_for :user
 	table.rows_hash.each do |row|

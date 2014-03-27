@@ -10,7 +10,7 @@ end
 	assert FactoryGirl.create(:article, :title => title, :published => false)
 end
 
-Допустим /^существует статья "(.*?)" c:$/ do |title, table|
+Допустим /^существует статья "(.*?)" с:$/ do |title, table|
 	article = FactoryGirl.build(:article, :title => title)
 	table.rows_hash.each do |row|
 		article.update_attribute row[0].to_sym, row[1]
