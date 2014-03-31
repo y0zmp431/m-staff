@@ -1,3 +1,57 @@
 // Place all the styles related to the dogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.dog{
+  //padding:0 20px;
+  line-height:120%;
+  font-size:120%;
+  h1{
+    font-family: HennyPenny;
+    font-size:150%;
+    text-align:center;
+    line-height:100%;
+  }
+  .avatar{
+    text-align:center;
+    padding:40px;
+    img{
+      width:70%; 
+      max-width:250px;
+      min-width:150px;
+      border-radius:50%;
+      overflow:hidden;
+    }
+  }
+  .desc{
+    max-width:600px;
+    padding:20px;
+  }
+}
+
+.dog_galery{
+  background: image-url("whitewood.jpg") repeat #555;
+}
+.dog_title{
+  padding-bottom:20px;
+}
+
+@media screen and (min-width: 600px) {
+  .dog{
+    h1{
+      text-align:left;
+    }
+    .desc{
+      padding:0px;
+      padding:50px 0;
+    }
+    .avatar{
+    }
+  }
+}
+@media screen and (min-width: 860px) {
+  .dog{
+    .desc{
+      margin:0;
+    }
+  }
+}

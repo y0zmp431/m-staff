@@ -1,18 +1,3 @@
-<style>
-  header{
-    background:#fff;
-  }
-  html, body{
-    background: url(<%= asset_path "whitewood.jpg" %>) repeat #555;
-  }
-  .content_background{
-    background:#fff;
-  }
-  .galery{
-    border-top:5px solid #aaa;
-  }
-</style>
-
 <div class="galery">
 <% photos.each do |photo| %>
   <%= link_to photo_path(photo), :class => :thumbnail do %>

@@ -1,0 +1,42 @@
+%p#notice= notice
+.dog
+  .avatar.unit.w-golden-small.float_l
+    = image_tag @dog.avatar(:medium)
+  .desc.unit.w-golden-large.float_l
+    .dog_title
+      %h1= @dog.fullname
+    .dog_desc
+      %em
+        = succeed "," do
+          = @dog.name
+        = succeed "," do
+          = t @dog.sex.downcase
+        = succeed "," do
+          = l @dog.date_of_birth, :format => :date
+        = link_to t("pedigree"), @dog.pedigree
+        - if can? :manage, Dog
+          ,[
+          - if @dog.for_sale
+            = t "sale"
+          - else
+            = t "don't sale"
+          ]
+      %p
+        = @dog.desc
+      - unless @dog.owner_desc.blank?
+        %p
+          %b
+            = t "Owner desc"
+            \:
+          = @dog.owner_desc
+      - if can? :manage, Dog
+        .actions
+          = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
+          |
+          = link_to t('Edit'), edit_dog_path(@dog)
+          |
+          = link_to t('Back'), dogs_path
+
+-# content_for :option_content do
+  .dog_galery
+    = render 'photos/galery', photos: @dog.photos

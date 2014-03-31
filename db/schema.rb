@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140205084313) do
+ActiveRecord::Schema.define(:version => 20140320190342) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -67,16 +67,20 @@ ActiveRecord::Schema.define(:version => 20140205084313) do
     t.string   "name"
     t.string   "fullname"
     t.boolean  "male"
-    t.boolean  "for_sale",      :default => false, :null => false
-    t.boolean  "for_love",      :default => false, :null => false
-    t.boolean  "from_us",       :default => true,  :null => false
+    t.boolean  "for_sale",            :default => false, :null => false
+    t.boolean  "for_love",            :default => false, :null => false
+    t.boolean  "from_us",             :default => true,  :null => false
     t.datetime "date_of_birth"
     t.text     "desc"
     t.string   "pedigree"
-    t.boolean  "disabled",      :default => false, :null => false
+    t.boolean  "disabled",            :default => false, :null => false
     t.text     "owner_desc"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "dogs_photos", :id => false, :force => true do |t|

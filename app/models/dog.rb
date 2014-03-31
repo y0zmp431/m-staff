@@ -1,9 +1,13 @@
 # encoding: utf-8
 #
 class Dog < ActiveRecord::Base
-  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url
+  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 	acts_as_url :name, :only_when_blank => true
 	validates :name, :url, :presence => true
 	validates :name, :url, :uniqueness => { :case_sensitive => false }
