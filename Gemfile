@@ -49,7 +49,6 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 	gem "spork-rails"
-	gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password
