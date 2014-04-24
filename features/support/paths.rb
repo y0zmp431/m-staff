@@ -53,12 +53,12 @@ module NavigationHelpers
       '/banners?target_link=test'
     when /Редактирование баннера "(.+)"/
       edit_banner_path(Banner.find_by_title($1))
-    when /Добавить новый снипет/
-      '/snippets/new'
-    when /Просмотр снипета/
-      /\/snippets\/\d+/
-    when /Выбрать тему (.+)/
-      /\/theme\/switch_to\?theme\=(.+)/
+
+    when /Связь/
+      '/contacts'
+    when /Редактирование контактной информации/
+      '/contacts/edit'
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

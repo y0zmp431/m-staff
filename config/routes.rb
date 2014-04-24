@@ -1,5 +1,10 @@
 Base::Application.routes.draw do
 
+  get "/contacts" => "contacts#show"
+  get "/contacts/edit" => "contacts#edit"
+  put "/contacts" => "contacts#update"
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :banners do
