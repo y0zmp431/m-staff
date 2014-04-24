@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140205084313) do
+ActiveRecord::Schema.define(:version => 20140424052540) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(:version => 20140205084313) do
     t.string   "section"
     t.text     "short_text"
     t.text     "text"
-    t.boolean  "disabled",   :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.boolean  "published",  :default => true
   end
 
@@ -65,10 +64,11 @@ ActiveRecord::Schema.define(:version => 20140205084313) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "taggings_count", :default => 0
   end
 
-  add_index "tags", ["name"], :name => "name", :unique => true
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
