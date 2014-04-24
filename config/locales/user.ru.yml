@@ -34,6 +34,8 @@ ru:
   Login failed: "Неправильный логин или пароль"
   User: "Пользователь"
   New User: "Новый пользователь"
+  New user: "Новый пользователь"
+  Editing user: "Редактирование пользователя"
   Listing_users: "Пользователи"
   user: "Пользователь"
   Name: "Имя"
@@ -49,9 +51,9 @@ ru:
   Last login ip: "Последний IP"
   User was successfully created: "Регистрация завершена успешно"
   message:
-    recovered: "Новый пароль отправлен на < %{email} >"
+    recovered: "Новый пароль отправлен на %{email}"
 
-    user_not_found: "На сайте нет пользователя с почтой < %{email} >"
+    user_not_found: "На сайте нет пользователя с почтой %{email}"
 
   New password will be sent to the specified e-mail: "Пароль будет отравлен на e-mail"
 

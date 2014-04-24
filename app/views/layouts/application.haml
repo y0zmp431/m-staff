@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Base
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .login_bar
+      - if current_user
+        = current_user.name
+        |
+        \#{link_to t(:logout), logout_path}
+      - else
+        = link_to t(:login), login_path
+    %p#notice= notice
+    %p#alert= alert
+    = yield
+    %script{:charset => "UTF-8", :type => "text/javascript"}
+      $(document).ready(function(){
+      $('form[data-remote]').bind('ajax:before', function(){
+      for (instance in CKEDITOR.instances){
+      CKEDITOR.instances[instance].updateElement();
+      }
+      });
+      });

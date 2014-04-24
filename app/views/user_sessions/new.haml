@@ -1,0 +1,22 @@
+= form_for @user_session, :url => :login do |f|
+  - if @user_session.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user_session.errors.count, "error")
+        prohibited:
+      %ul
+        - @user_session.errors.full_messages.each do |msg|
+          %li= msg
+  = f.label t :Login_or_email
+  %br/
+  = f.text_field :login
+  %br/
+  %br/
+  = f.label t :password
+  %br/
+  = f.password_field :password
+  %br/
+  %br/
+  = f.submit t "login"
+  = link_to t("Forgot password?"), :recovery_passwd
+  = link_to t("Signup"), :singup

@@ -1,0 +1,64 @@
+= form_for(@article) do |f|
+  - if @article.errors.any?
+    #error_explanation
+      /
+        <h2><haml:loud> pluralize(@article.errors.count, &amp;quot;error&amp;quot;) </haml:loud> prohibited this article from being saved:</h2>
+      %h2
+        = t "Article not save"
+        - if @article.errors.count > 1
+          = t :because_next_errors
+        - else
+          = t :because_next_error
+      %ul
+        - @article.errors.full_messages.each do |msg|
+          %li= msg
+  - if false
+    .field
+      = f.label :user_id
+      %br/
+      = f.number_field :user_id
+  .field
+    = f.label :url
+    %br/
+    = f.text_field :url
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :section
+    %br/
+    = f.text_field :section
+  .field
+    = f.label :tag_list
+    %br/
+    = f.text_field :tag_list
+  .field
+    = f.label :short_text
+    %br/
+    = f.text_area :short_text
+  .field
+    = f.label :text
+    %br/
+    = f.cktext_area :text
+  #list_of_dogs.field
+    = label_tag :dogs
+    %span#list_dog_ids
+      = @article.dogs.each do |dog|
+        = link_to dog.name, "", :class => :delete_dog_id, :for => dog.id
+    %br/
+    = autocomplete_field_tag :dog_name, '', autocomplete_dog_name_articles_path
+  .field
+    = f.label :published
+    %br/
+    = f.check_box :published
+  .actions
+    = f.submit t('Save')
+%script{:charset => "UTF-8", :type => "text/javascript"}
+  $(document).ready(function(){
+  $('form[data-remote]').bind('ajax:before', function(){
+  for (instance in CKEDITOR.instances){
+  CKEDITOR.instances[instance].updateElement();
+  }
+  });
+  });

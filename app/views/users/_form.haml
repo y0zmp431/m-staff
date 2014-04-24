@@ -1,0 +1,49 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :login
+    %br/
+    = f.text_field :login
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+  = f.label t(:password), f.object.new_record? ? nil : t("Change password")
+  %br/
+  = f.password_field :password
+  %br/
+  %br/
+  = f.label t(:password_confirmation)
+  %br/
+  = f.password_field :password_confirmation
+  %br/
+  .field
+    = f.label t(:Name)
+    %br/
+    = f.text_field :name
+  - if can? :manage, User
+    .field
+      = f.check_box :disabled
+      = f.label :disabled
+      %br/
+    %p
+      = f.label t(:roles)
+      %br/
+      - for role in User.valid_roles
+        %label
+          = check_box_tag "user[roles][]", role, @user.roles.include?(role)
+          = h role.to_s.humanize
+        %br/
+      = hidden_field_tag "user[roles][]", ""
+  .actions
+    - if request.fullpath == "/signup"
+      = f.submit t("Signup")
+    - else
+      = f.submit t('Save')

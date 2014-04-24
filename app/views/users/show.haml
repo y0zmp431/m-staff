@@ -1,0 +1,77 @@
+%p#notice= notice
+%p
+  %b Login:
+  = @user.login
+%p
+  %b Email:
+  = @user.email
+%p
+  %b
+    = t :Name
+    \:
+  = @user.name
+%p
+  %b
+    = t :disabled
+    \:
+  = @user.disabled
+%p
+  %b
+    = t :roles
+    \:
+  %ul
+    - @user.roles.each do |role|
+      %li
+        = role
+%p
+  %b
+    = t "Login count"
+    \:
+  = @user.login_count
+%p
+  %b
+    = t "Failed login count"
+    \:
+  = @user.failed_login_count
+%p
+  %b
+    = t "Last request at"
+    \:
+  - if @user.last_request_at
+    = l @user.last_request_at
+  - else
+    \-
+%p
+  %b
+    = t "Current login at"
+    \:
+  - if @user.current_login_at
+    = @user.current_login_at
+  - else
+    \-
+%p
+  %b
+    = t "Last login at"
+    \:
+  - if @user.last_login_at
+    = @user.last_login_at
+  - else
+    \-
+%p
+  %b
+    = t "Current login ip"
+    \:
+  = @user.current_login_ip
+%p
+  %b
+    = t "Last login ip"
+    \:
+  = @user.last_login_ip
+- if can? :manage, User
+  = link_to_if( @user.disabled, t('Enable'), enable_user_path(@user) ) do
+    = link_to t('Disable'), disable_user_path(@user)
+|
+- if can? :edit, User, :id => @user.id
+  = link_to t('Edit'), edit_user_path(@user)
+  |
+= link_to t('Back'), users_path

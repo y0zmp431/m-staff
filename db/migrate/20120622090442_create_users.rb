@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :users, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8'  do |t|
+    create_table :users do |t|
 			t.string    :login,               :null => false                # optional, you can use email instead, or both
       t.string	  :name,                :null => false
       t.boolean   :active,               :null => false, :default => 0
