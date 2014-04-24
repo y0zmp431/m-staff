@@ -11,13 +11,11 @@ end
 end
 
 Допустим /^существует статья "(.*?)" с:$/ do |title, table|
-	article = FactoryGirl.build(:article, :title => title)
+  attributes = {:title => title}
 	table.rows_hash.each do |row|
-		article.update_attribute row[0].to_sym, row[1]
+		attributes[row[0].to_sym] = row[1]
 	end
-	@writer = User.find_by_login("writer") || FactoryGirl.create(:writer) 
-	article.user = @writer
-	assert article.save
+	assert FactoryGirl.create(:article, attributes)
 end
 
 Если /^я вижу ссылку на статью "(.*?)"$/ do |title|
