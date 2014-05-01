@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %b Disabled:
+  = @photo.disabled
+%p
+  %b Index of order:
+  = @photo.index_of_order
+= link_to 'Edit', edit_photo_path(@photo)
+|
+\#{link_to 'Back', photos_path}

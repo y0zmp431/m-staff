@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907190026) do
+ActiveRecord::Schema.define(:version => 20140424052540) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -20,15 +20,9 @@ ActiveRecord::Schema.define(:version => 20130907190026) do
     t.string   "section"
     t.text     "short_text"
     t.text     "text"
-    t.boolean  "disabled",           :default => false, :null => false
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "section_id"
-    t.boolean  "published",          :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "published",  :default => true
   end
 
   create_table "articles_dogs", :id => false, :force => true do |t|
@@ -84,17 +78,6 @@ ActiveRecord::Schema.define(:version => 20130907190026) do
     t.integer "photo_id"
   end
 
-  create_table "news", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.string   "url"
-    t.text     "short_text"
-    t.text     "full_text"
-    t.boolean  "active",     :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
   create_table "photos", :force => true do |t|
     t.boolean  "disabled"
     t.integer  "index_of_order"
@@ -106,17 +89,14 @@ ActiveRecord::Schema.define(:version => 20130907190026) do
     t.datetime "image_updated_at"
   end
 
-  create_table "sections", :force => true do |t|
-    t.string   "url",                                  :null => false
-    t.string   "title",                                :null => false
-    t.boolean  "active",             :default => true, :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.integer  "section_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true

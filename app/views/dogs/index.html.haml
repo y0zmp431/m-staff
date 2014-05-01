@@ -1,0 +1,37 @@
+%h1 Listing dogs
+%table
+  %tr
+    %th Url
+    %th Name
+    %th Fullname
+    %th Male
+    %th For sale
+    %th For love
+    %th From us
+    %th Date of birth
+    %th Desc
+    %th Pedigree
+    %th Disabled
+    %th Owner desc
+    %th
+    %th
+    %th
+  - @dogs.each do |dog|
+    %tr
+      %td= dog.url
+      %td= dog.name
+      %td= dog.fullname
+      %td= dog.male
+      %td= dog.for_sale
+      %td= dog.for_love
+      %td= dog.from_us
+      %td= dog.date_of_birth
+      %td= dog.desc
+      %td= dog.pedigree
+      %td= dog.disabled
+      %td= dog.owner_desc
+      %td= link_to 'Show', dog
+      %td= link_to 'Edit', edit_dog_path(dog)
+      %td= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to t('Add dog'), new_dog_path
