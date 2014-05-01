@@ -43,6 +43,7 @@ gem 'russian', "~> 0.6.0"
 
 group :development, :test do
 	gem 'rspec-rails'
+  gem 'sqlite3', '~> 1.3.9'
 end
 
 group :test do
@@ -52,11 +53,10 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 	gem "spork-rails"
-	gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

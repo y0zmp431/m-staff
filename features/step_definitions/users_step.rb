@@ -9,17 +9,19 @@
 	#assert UserSession.find("#{user.id}")
 end
 
-Допустим /^существует пользователь c\:$/ do |table|
+
+Допустим(/^существует пользователь с:$/) do |table|
 	user_attr = FactoryGirl.attributes_for :user
 	table.rows_hash.each do |row|
 		user_attr[row[0].to_sym] = row[1]
 		user_attr[:password_confirmation] = row[1] if row[0] == "password"
   end
-	user = User.create user_attr
+	assert User.create( user_attr )
 end
 
+
 Допустим /^существует пользователь с e\-mail "(.*?)"$/ do |email|
-  puts "user found" if User.find_by_email(email)
+  #puts "user found" if User.find_by_email(email)
 	user = User.find_by_login(email) || FactoryGirl.create(:user, email: email)
 	assert User.find_by_email email
 	#UserSession.create(user)
@@ -84,7 +86,7 @@ end
 end
 
 То /^должен быть создан пользователь "(.*?)"$/ do |login|
-	puts "roles = #{User.find_by_login(login).roles}"
+	#puts "roles = #{User.find_by_login(login).roles}"
 	assert_not_nil User.find_by_login login
 end
 

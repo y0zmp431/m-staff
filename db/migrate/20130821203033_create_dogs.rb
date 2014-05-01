@@ -1,6 +1,6 @@
 class CreateDogs < ActiveRecord::Migration
   def change
-    create_table :dogs, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8'  do |t|
+    create_table :dogs do |t|
       t.string :url
       t.string :name
       t.string :fullname

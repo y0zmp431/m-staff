@@ -1,6 +1,7 @@
 %h1 Listing dogs
 - if can? :manage, Dog
   .manage_options
+    = link_to t('Add dog'), new_dog_path
     -if params[:show_hidden]
       = link_to t("Showed dogs"), dogs_path
       /
@@ -45,4 +46,4 @@
       %td= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 - if can? :manage, Dog
-  = link_to t('Add dog'), new_dog_path
+  =# link_to t('Add dog'), new_dog_path

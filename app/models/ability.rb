@@ -26,6 +26,7 @@ class Ability
 				 #can :read, Article
 				 can :read, Article, :published => true 
 				 cannot :read, Article, :published => false 
+				 can :read, Dog, :disabled => false 
 				 can :create, User
 				 can :recovery, User
 				 can :read, Dog

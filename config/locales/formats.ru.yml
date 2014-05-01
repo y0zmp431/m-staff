@@ -1,0 +1,10 @@
+ru:
+  time:
+    formats:
+      #text: "%e %b %Y"
+      date: "%e %b %Y"
+      text: "%e %b %Y"
+      text_with_time: "%e %b %Y %H:%M:%S"
+  date:
+    formats:
+      text: "%e %b %Y"

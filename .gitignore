@@ -9,3 +9,5 @@ config/database.yml
 .DS_Store
 public/ckeditor_assets
 public/system
+public/system/dogs
+public/system/photos

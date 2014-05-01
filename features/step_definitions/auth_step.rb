@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 #Допустим /^я пользователь с логином "([^\"]*)" и паролем "([^\"]*)" $/ do |login, passw|
-Допустим /^я пользователь c логином "(.*?)" и паролем "(.*?)"$/ do |login, passw|
+Допустим /^я пользователь с логином "(.*?)" и паролем "(.*?)"$/ do |login, passw|
 	user = FactoryGirl.create(:user, login: login, password: passw, password_confirmation: passw)
   step %{я на странице Авторизация}
   step %{я ввожу в поле "user_session[login]" значение "#{user.login}"}
@@ -10,7 +10,7 @@
 	assert_equal controller.session["user_credentials"], user.persistence_token
 end
 
-Допустим /^я пользователь c\:$/ do |table|
+Допустим /^я пользователь с\:$/ do |table|
 	user_attr = FactoryGirl.attributes_for :user
 	table.rows_hash.each do |row|
 		user_attr[row[0].to_sym] = row[1]

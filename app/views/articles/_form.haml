@@ -41,6 +41,13 @@
     = f.label :text
     %br/
     = f.cktext_area :text
+  #list_of_dogs.field
+    = label_tag :dogs
+    %span#list_dog_ids
+      = @article.dogs.each do |dog|
+        = link_to dog.name, "", :class => :delete_dog_id, :for => dog.id
+    %br/
+    = autocomplete_field_tag :dog_name, '', autocomplete_dog_name_articles_path
   .field
     = f.label :published
     %br/

@@ -15,3 +15,8 @@ end
   dog = Dog.find_by_name( name )
   assert_equal dog.photos.count, 1
 end
+
+То(/^у собаки "(.*?)" должна быть аватарка$/) do |name|
+  dog = Dog.find_by_name( name )
+  assert dog.avatar_file_name
+end
