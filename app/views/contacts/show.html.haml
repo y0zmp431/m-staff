@@ -1,0 +1,89 @@
+.test
+  .contacts_list
+    .unit.w-1-4
+      .contact_logo
+        %i.fa.fa-phone
+      .contact_text
+        = link_to @contact.main_phone, "tel:#{@contact.main_phone}"
+        %br
+        - unless @contact.phones.nil?
+          - @contact.phones.split(", ").each do |phone|
+            = link_to phone, "tel:#{phone}"
+            %br
+
+    .unit.w-1-4
+      .contact_logo
+        @
+      .contact_text
+        = @contact.email
+
+    .unit.w-1-4
+      .contact_logo
+        %i.fa.fa-skype
+      .contact_text
+        = @contact.skype
+
+    .unit.w-1-4
+      .contact_logo
+        %i.fa.fa-point-map
+      .contact_text.light
+        = @contact.adress.html_safe if @contact.adress
+  .clear
+
+- if false
+  %p
+    -#= @contact.desc
+
+  -content_for :custom_article_body do
+    .contacts_items
+      .w-1-3.unit
+        .item
+          =image_tag "map.jpg"
+          .contact_text
+            = @contact.adress
+
+      .w-1-3.unit
+        .item
+          =image_tag "street.jpg"
+      .w-1-3.unit
+        .item
+          %table.contacts_list
+            %tr.phone
+              %td.contact_logo
+                %i.fa.fa-phone
+              %td.contact_text
+                = link_to @contact.main_phone, "tel:#{@contact.main_phone}"
+                %br
+                - @contact.phones.split(", ").each do |phone|
+                  = link_to phone, "tel:#{phone}"
+                  %br
+            %tr.gmail
+              %td.contact_logo
+                @
+              %td.contact_text.light
+                = @contact.email
+            %tr.skype
+              %td.contact_logo
+                %i.fa.fa-skype
+              %td.contact_text
+                = @contact.skype
+            /
+              %tr.google
+                %td.contact_logo
+                  %b Gtalk
+                %td.contact_text
+                  = @contact.gtalk
+              %tr
+                %td.contact_logo
+                  %i.fa.fa-map-marker
+                %td.contact_text
+                  = @contact.adress
+            %tr.instagram
+              %td.contact_logo
+                %i.fa.fa-instagram
+              %td.contact_text.light
+                = @contact.adress
+-if can? :manage, Contact
+  .contacts_actions
+    = link_to t('Edit'), contacts_edit_path
+.clear

@@ -55,12 +55,6 @@ module NavigationHelpers
       '/banners?target_link=test'
     when /Редактирование баннера "(.+)"/
       edit_banner_path(Banner.find_by_title($1))
-    when /Добавить новый снипет/
-      '/snippets/new'
-    when /Просмотр снипета/
-      /\/snippets\/\d+/
-    when /Выбрать тему (.+)/
-      /\/theme\/switch_to\?theme\=(.+)/
 
     when /Список собак/
       dogs_path
@@ -68,6 +62,11 @@ module NavigationHelpers
       new_dog_path
     when /собаки "(.+)"/
       dog_path Dog.find_by_name $1
+
+    when /Связь/
+      '/contacts'
+    when /Редактирование контактной информации/
+      '/contacts/edit'
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
