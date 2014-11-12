@@ -1,10 +1,8 @@
-%p#notice= notice
-.dog
-  .avatar.unit.w-golden-small.float_l
+.dog.w-1-4.float_l.dog_page_item{class: "#{@dog.male? ? "blue":"pink"}"}
+  .avatar
     = image_tag @dog.avatar(:medium)
-  .desc.unit.w-golden-large.float_l
-    .dog_title
-      %h1= @dog.fullname
+    %h1= @dog.fullname
+  .desc
     .dog_desc
       %em
         = succeed "," do
@@ -37,6 +35,4 @@
           |
           = link_to t('Back'), dogs_path
 
--# content_for :option_content do
-  .dog_galery
-    = render 'photos/galery', photos: @dog.photos
+= render 'photos/galery', photos: @dog.photos

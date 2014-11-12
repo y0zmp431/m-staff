@@ -1,4 +1,3 @@
-%h1 Listing dogs
 - if can? :manage, Dog
   .manage_options
     = link_to t('Add dog'), new_dog_path
@@ -10,40 +9,51 @@
       = t "Showed dogs"
       /
       = link_to t("Hidden dogs"), dogs_path(:show_hidden => true)
-%table
-  %tr
-    %th Url
-    %th Name
-    %th Fullname
-    %th Male
-    %th For sale
-    %th For love
-    %th From us
-    %th Date of birth
-    %th Desc
-    %th Pedigree
-    %th Disabled
-    %th Owner desc
-    %th
-    %th
-    %th
+
+
+.dogs_list
   - @dogs.each do |dog|
-    %tr
-      %td= dog.url
-      %td= dog.name
-      %td= dog.fullname
-      %td= dog.male
-      %td= dog.for_sale
-      %td= dog.for_love
-      %td= dog.from_us
-      %td= dog.date_of_birth
-      %td= dog.desc
-      %td= dog.pedigree
-      %td= dog.disabled
-      %td= dog.owner_desc
-      %td= link_to 'Show', dog
-      %td= link_to 'Edit', edit_dog_path(dog)
-      %td= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+    .dog
+      .avatar.unit.w-golden-small.float_l
+        = image_tag dog.avatar(:medium)
+      .desc.unit.w-golden-large.float_l
+        .dog_title
+          = link_to dog do
+            %h1= dog.fullname
+        .dog_desc
+          %em
+            = succeed "," do
+              = dog.name
+            = succeed "," do
+              = t dog.sex.downcase
+            = succeed "," do
+              = l dog.date_of_birth, :format => :date
+            = link_to t("pedigree"), dog.pedigree
+            - if can? :manage, Dog
+              ,[
+              - if dog.for_sale
+                = t "sale"
+              - else
+                = t "don't sale"
+              ]
+
+          - if can? :manage, Dog
+            .actions
+              = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => dog.id } })
+              |
+              = link_to t('Edit'), edit_dog_path(dog)
+              |
+              = link_to t('Destroy'), dog, confirm: t('Are you sure?'), method: :delete
+              |
+              - if dog.disabled
+                = link_to t('Publish dog'), enable_dog_path(dog) 
+              -else
+                = link_to t('Hide dog'), disable_dog_path(dog) 
+              |
+              = link_to t('Back'), dogs_path
+      .clear
+
+
+
 - if can? :manage, Dog
   =# link_to t('Add dog'), new_dog_path

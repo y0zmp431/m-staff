@@ -1,11 +1,13 @@
-<div class="galery">
 <% photos.each do |photo| %>
-  <%= link_to photo_path(photo), :class => :thumbnail do %>
-      <div class="polaroid <%= photo.orientation %> rotate_<%= rand 6 %> float_l">
-        <%= image_tag photo.image.url(:medium), :title => (photo.dogs.each{ |d| "AAAAAAAAAA #{d.name}" } )%>
+  <%= link_to photo.image.url, :class => :thumbnail do %>
+      <div class="dog_photo polaroid w-1-4 float_l dog_page_item" >
+        <%= image_tag photo.image.url(:w600), :title => (photo.dogs.each{ |d| "AAAAAAAAAA #{d.name}" } )%>
+        <div class="text">
+          <% photo.dogs_names.each do |dog_name| %>
+            #<%= dog_name %>
+          <% end %>
+        </div>
       </div>
 <% end %>
 <% end %>
-</div>
 
-<div class="clear"></div>

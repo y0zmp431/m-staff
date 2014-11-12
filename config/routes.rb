@@ -9,6 +9,10 @@ Base::Application.routes.draw do
 
 
   resources :dogs do
+		member do
+			get 'disable', :action => 'update', :defaults => { :dog => {:disabled => true} }
+			get 'enable', :action => 'update', :defaults => { :dog => {:disabled => false} }
+		end
   end
 
   #mount Ckeditor::Engine => '/ckeditor'
