@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 class Dog < ActiveRecord::Base
-  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar
+  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
 
@@ -18,10 +18,15 @@ class Dog < ActiveRecord::Base
 
   def self.find_with_params params
     if params[:show_hidden]
-      where :disabled => true
+      @dogs = self.where :disabled => true
     else 
-      where :disabled => false
+      @dogs = self.where :disabled => false
     end
+    @dogs = @dogs.where male: true if params[:male]
+    @dogs = @dogs.where male: false if params[:female]
+    @dogs = @dogs.where for_sale: false if params[:for_sale]
+    @dogs = @dogs.where from_us: false if params[:from_us]
+		@dogs
   end
 
   def sex

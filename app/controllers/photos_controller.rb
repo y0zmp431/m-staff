@@ -45,7 +45,9 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+				redirect_target = @photo
+				redirect_target = @photo.dogs.first if @photo.dogs.exists
+        format.html { redirect_to redirect_target, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
         format.html { render action: "new" }

@@ -1,0 +1,2 @@
+$ ->
+  $('.slabtext').slabText()

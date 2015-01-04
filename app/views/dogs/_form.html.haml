@@ -44,6 +44,14 @@
     %br/
     = f.text_area :desc, :class => :small
   .field
+    = f.label :medical_tests
+    %br/
+    = f.text_area :medical_tests, :class => :small
+  .field
+    = f.label :trophies
+    %br/
+    = f.text_area :trophies, :class => :small
+  .field
     = f.label :pedigree
     %br/
     = f.text_field :pedigree
@@ -59,5 +67,9 @@
   .field
     = f.label :avatar
     = f.file_field :avatar
+  .field
+    = f.label :sort_index
+    %br/
+    = f.text_field :sort_index
   .actions
     = f.submit t("Save")

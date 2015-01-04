@@ -1,6 +1,7 @@
 .float_l{float:left;}
 .float_r{float:right;}
 .clear{clear:both;}
+.hide{display: none}
 
 .w-1-1 { width: 100%; }
 .w-1-2 { width: 50%; }
@@ -22,10 +23,13 @@
 .unit{
   //padding:10px;
 }
-.unit, .mosaic_column{
+.unit, .mosaic_column, .s_unit{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.slabtext{
+	white-space: nowrap;
 }
 .container{
   //padding:0 20px;

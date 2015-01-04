@@ -163,6 +163,7 @@ end
 То /^пользователь "(.*?)" не сможет войти на сайт$/ do |login|
 	user = User.find_by_login login
 	@session = UserSession.create user
+	activate_authlogic
 #	assert ! @session.valid?
 	assert_nil controller.session["user_credentials"]
 end

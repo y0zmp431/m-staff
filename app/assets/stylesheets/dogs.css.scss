@@ -2,30 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.pink, .blue{
-  .avatar{
-    color: #fff;
-  }
-}
-.blue{
-  //border: 1px solid #0af;
-  background: #f0faff;
-  .avatar{
-    background: #0af;
-  }
-  .dog{
-  }
-}
-.pink{
-  //border: 1px solid #f58;
-  background: #fff5f8;
-  .avatar{
-    background: #f58;
-  }
-  .dog{
-  }
-}
 
+.avatar{
+  max-height: 500px;
+	color: #fff;
+	font-weight: normal;
+	text-align: center;
+	h1, h2{
+		position: relative;
+		z-index: 100;
+		width: 100%;
+		font-weight: normal;
+		text-shadow: 0px 0px 5px #000;
+	}
+	h1{
+		position: absolute;
+	  margin-top: 3%;
+	}
+	h2{
+		//margin-top: -22%;
+		//position: absolute;
+		font-size: 250%;
+		small{
+			font-size: 50%;
+		}
+	}
+}
+.avatar{
+	background-size: contain;
+}
+.dog_actions{
+	background: #0a0;
+}
+.avatar img{
+	//margin-top: -5%;
+	//position: relative;
+	display: block;
+	z-index: 10;
+	width: 100%;
+}
 .dog{
   //padding:0 20px;
   line-height:120%;
@@ -102,4 +117,10 @@
 }
 .dog_photo img{
   width: 100%;
+}
+.mosaic{
+	margin-top: 5%;
+}
+.mosaic_element{
+  width: 50%;
 }

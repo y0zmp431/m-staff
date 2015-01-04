@@ -1,0 +1,124 @@
+:sass
+  .dog, .dogs
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+  .dogs, .mosaic
+    background: #000
+  .dogs
+    width: 100%
+    padding: 0 8%
+    margin-top: 0px
+    padding-top: 2%
+    .wrap
+      text-align: center
+  .dog
+    text-align: center
+    display: inline-block
+    width: 20%
+    padding: 0 5px 
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    img
+      display: block
+      width: 100%
+      //border-radius: 50%
+  .dog.w2
+    width: 40%
+  .dog:hover .description
+    opacity: 1
+  .description
+    display: none
+    //opacity: 0
+    //position: absolute
+    padding: 10px 10px 0 10px
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    .desc_wrap
+      width: 100%
+      height: 100%
+      //background: rgba(255, 255, 255, 0.1)
+      background: rgba(0, 0, 0, 0.1)
+      h4
+        padding: 3%
+        font-family: 'BleedingCowboys', sans-serif
+        font-weight: normal
+        text-transform: uppercase
+        position: relative
+        top: 50%
+        -webkit-transform: translateY(-50%)
+        -ms-transform: translateY(-50%)
+        transform: translateY(-50%)
+        color: rgba(0, 0, 0, 0.5)
+        color: rgba(255, 255, 255, 1)
+
+  @media screen and (max-width: 1000px)
+    .dog
+      width: 33.3%
+  @media screen and (max-width: 640px)
+    .dog
+      width: 33.3%
+    .dog.w2
+      width: 100%
+
+.dogs
+  .wrap
+    .dog>
+      = image_tag "dog2_d.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Damin
+    .dog>
+      = image_tag "dog2_m.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Maxima
+    .dog>
+      = image_tag "dog2_h.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Harman
+    .dog>
+      = image_tag "dog2_a.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Amina
+    .dog>
+      = image_tag "dog2_z.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Zlata
+    .dog>
+      = image_tag "dog2_art.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Artist
+    .dog>
+      = image_tag "dog2_ha.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Haidy
+    .dog>
+      = image_tag "dog2_b.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Brand
+    .dog>
+      = image_tag "dog2_l.jpg"
+      .description
+        .desc_wrap
+          %h4.slabtext Limbo
+    - if false
+      .dog.item.gamma_gallery
+        = image_tag "dog_s.jpg"
+        .description
+          .desc_wrap
+            %h4.slabtext Saima
+
+
+
+:coffeescript
+  #msnry = new Masonry '.mosaic', {itemSelector: ".dog", columnWidth: 200}

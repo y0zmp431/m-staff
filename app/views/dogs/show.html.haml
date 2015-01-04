@@ -1,7 +1,59 @@
-.dog.w-1-4.float_l.dog_page_item{class: "#{@dog.male? ? "blue":"pink"}"}
-  .avatar
-    = image_tag @dog.avatar(:medium)
-    %h1= @dog.fullname
+:sass
+  .main.banner
+    display: none
+.avatar.s_unit
+  %h1.s_unit.slabtext= @dog.fullname
+  .image
+    = image_tag @dog.avatar
+  %small.s_unit
+    aka
+  %h2.slabtext.s_unit
+    = @dog.name.upcase
+.clear.after_avatar
+.mosaic
+  .mosaic_element
+    .wrap.dog_desc
+      %em
+        -if false
+          = succeed "," do
+            = @dog.name
+          = succeed "," do
+            = t @dog.sex.downcase
+          = succeed "," do
+            = l @dog.date_of_birth, :format => :date
+          = link_to t("pedigree"), @dog.pedigree
+          - if can? :manage, Dog
+            ,[
+            - if @dog.for_sale
+              = t "sale"
+            - else
+              = t "don't sale"
+          - unless @dog.owner_desc.blank?
+            %p
+              %b
+                = t "Owner desc"
+                \:
+              = @dog.owner_desc.split(", ").each do |desc|
+                = desc
+                %br
+      .cup
+        = image_tag "cup.png", class: :cup
+        - @dog.desc.split(",").each do |desc|
+          = desc
+          %br
+      - if can? :manage, Dog
+        = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
+        |
+        = link_to t('Edit'), edit_dog_path(@dog)
+        |
+        = link_to t('Back'), dogs_path
+  - @dog.photos.each do |photo|
+    .mosaic_element.dog_photo
+      .wrap
+        = image_tag photo.image(:w600)
+
+- if false
+  .dog.float_l.dog_page_item{class: "#{@dog.male? ? "blue":"pink"}"}
   .desc
     .dog_desc
       %em
@@ -27,12 +79,5 @@
             = t "Owner desc"
             \:
           = @dog.owner_desc
-      - if can? :manage, Dog
-        .actions
-          = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
-          |
-          = link_to t('Edit'), edit_dog_path(@dog)
-          |
-          = link_to t('Back'), dogs_path
 
-= render 'photos/galery', photos: @dog.photos
+  = render 'photos/galery', photos: @dog.photos

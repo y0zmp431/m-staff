@@ -7,6 +7,10 @@ Base::Application.routes.draw do
     get :autocomplete_dog_name, :on => :collection
   end
 
+	get 'male' =>  'dogs#index', :defaults => { male: true }
+	get 'female' => 'dogs#index', :defaults => { female: true }
+	get 'pets' => 'dogs#index', :defaults => { for_sale: true }
+	get 'by_maximum_staff' => 'dogs#index', :defaults => { from_us: true }
 
   resources :dogs do
 		member do

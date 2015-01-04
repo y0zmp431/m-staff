@@ -1,0 +1,186 @@
+@font-face
+  font-family: HennyPenny
+  src: local("HennyPenny"), url("/assets/HennyPenny-Regular.ttf")
+
+@font-face
+  font-family: DollhouseC
+  src: local("DollhouseC"), url("/assets/pNGnrklh.ttf")
+
+@font-face
+  font-family: Gregor
+  src: local("Gregor"), url("/assets/gregor_reg.otf")
+
+@font-face
+  font-family: BleedingCowboys
+  src: local("BleedingCowboys"), url("/assets/Bleeding_Cowboys.ttf")
+
+@font-face
+  font-family: Captureit
+  src: local("Captureit"), url("/assets/Capture_it.ttf")
+
+@font-face
+  font-family: Merriweather
+  src: local("Merriweather"), url("/assets/Merriweather.ttf")
+
+$max_width: 1280px
+$logo_color: #555 
+$logo_hover_color: #f08 
+$menu_color: #777 
+$menu_hover_color: #f08 
+
+html, body
+  width: 100%
+  border-collapse: collapse
+  font-family: Gregor
+  background: #000
+
+.contant
+  background: #fff
+
+*
+  margin: 0
+  padding: 0
+
+.clear
+  clear: both
+
+.container
+  max-width: $max_width
+  margin: 0 auto
+
+
+
+hgroup.logo
+  color: $logo_color
+  color: #fff
+  width: 100%
+  text-align: center
+  position: absolute
+
+hgroup:hover
+  //color: $logo_hover_color
+
+h1, h2, a h1, a h2
+  text-decoration: none
+  font-weight: normal
+  font-family: 'BleedingCowboys', sans-serif
+.logo
+  h1
+    width: 100%
+    text-align: center
+    font-family: 'BleedingCowboys', sans-serif
+    font-size: 95px 
+    font-weight: 200
+    text-align: center
+    opacity: 0.9
+    text-align: center
+    padding: 15% 10%
+    color: #00f
+    color: #fff
+  
+  h2
+    font-family: 'DollhouseC', sans-serif
+    font-size: 12px
+    padding: 20px 0 7px 0
+    text-align: center
+  
+
+header
+  //padding: 20px 0 5px 0 
+  //position: absolute
+  width: 100%
+  margin-bottom: 30px
+  .wrap
+  
+
+nav.menu
+  display: block
+  width: 100%
+  text-align: center
+  top: 0
+  position: absolute
+  z-index: 500
+  //background: rgba(255, 255, 255, 0.1)
+  //background: url("/assets/main_small.jpg") no-repeat center center
+  background-size: contain
+  padding: 0 10px
+  .wrap
+    padding: 10px
+    border-bottom: 1px solid #fff
+    //padding: 8px 5px 5px 5px
+    //float: right
+  a
+    display: inline-block
+    text-decoration: none
+    padding: 0 10px
+    font-family: Merriweather
+    color: #00f
+    color: #fff
+a.logo
+  text-decoration: none
+
+nav.main a
+  display: inline-block
+  //padding: 16px 10px 15px 10px
+  padding: 0 10px
+  font-family: 'DollhouseC', sans-serif
+  font-size: 20px
+  font-weight: bold
+  color: $menu_color
+
+nav.main a:hover
+  background: #f09
+  color: #fff
+
+.main.banner
+  img
+    display: block
+    width: 100%
+
+.dog_banner
+  text-align: center
+  .img_container
+    display: inline-block
+  img
+    max-height: 520px
+  h3
+    margin-top: -30px
+    font-size: 50px
+    font-family: BleedingCowboys
+    font-weight: 100
+    color: #fff
+    opacity: 0.8
+
+@media screen and (max-width: 1050px)
+  hgroup.logo, nav.menu
+    width: 100%
+    text-align: center
+    float: none
+  nav.menu .menu_wrap
+    float: none
+
+.col_wrapper
+  text-align: center
+
+.col
+  width: 30%
+  display: inline-block
+  vertical-align: top
+  background: #fefefe
+
+.col ul
+  display: block
+
+.col, .col a
+  color: #888
+  font-family: sans-serif
+
+.actions
+  padding: 10px 0
+
+
+footer
+  color: #fff
+  padding: 10px
+  text-align: center
+
