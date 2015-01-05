@@ -1,6 +1,8 @@
 :sass
   .main.banner
-    display: none
+    .logo, img
+      display: none
+
 .avatar.s_unit
   %h1.s_unit.slabtext= @dog.fullname
   .image
@@ -50,7 +52,7 @@
   - @dog.photos.each do |photo|
     .mosaic_element.dog_photo
       .wrap
-        = image_tag photo.image(:w600)
+        = image_tag photo.image(:w300)
 
 - if false
   .dog.float_l.dog_page_item{class: "#{@dog.male? ? "blue":"pink"}"}

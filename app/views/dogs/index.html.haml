@@ -39,10 +39,11 @@
         = link_to t("Hidden dogs"), dogs_path(:show_hidden => true)
   - @dogs.each do |dog|
     .dog
-      .avatar.unit.w-golden-small.float_l
-        = image_tag dog.avatar(:medium)
-        %h2.slabtext.s_unit.w-golden-small
-          = dog.name.capitalize
+      = link_to dog do
+        .avatar.unit.w-golden-small.float_l
+          = image_tag dog.avatar(:medium)
+          %h2.slabtext.s_unit.w-golden-small
+            = dog.name.capitalize
       .desc.unit.w-golden-large.float_l
         .dog_title
           = link_to dog do

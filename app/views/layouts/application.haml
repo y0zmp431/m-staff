@@ -9,17 +9,6 @@
     = csrf_meta_tags
   %body
     %header
-      %nav.menu.clone.s_unit
-        .wrap
-          %a{href: "/about_maximum_staff"} О питомнике
-          %a{href: "/news"} Новости
-          %a{href: "/male"} Кобели
-          %a{href: "/female"} Суки
-          %a{href: "/by_maximum_staff"} Выпускники
-          %a{href: "/pets"} Щенки
-          %a{href: "/links"} Ссылки
-          %a{href: "/contacts"} Контакт
-      .clear
       .main.banner
         -if request.fullpath == url_for(:root)
           %hgroup.logo{title: "Питомник Американских Стаффордширских Терьеров"}
@@ -29,6 +18,17 @@
             %hgroup.logo{title: "Питомник Американских Стаффордширских Терьеров"}
               %h1.s_unit.slabtext Maximum&nbsp;Staff
         = image_tag "main_small.jpg"
+        %nav.menu.s_unit
+          .wrap
+            %a{href: "/about_maximum_staff"} О питомнике
+            %a{href: "/news"} Новости
+            %a{href: "/male"} Кобели
+            %a{href: "/female"} Суки
+            %a{href: "/by_maximum_staff"} Выпускники
+            %a{href: "/pets"} Щенки
+            %a{href: "/links"} Ссылки
+            %a{href: "/contacts"} Контакт
+        .clear
 
 
 

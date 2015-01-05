@@ -23,7 +23,7 @@
   src: local("Merriweather"), url("/assets/Merriweather.ttf")
 
 $max_width: 1280px
-$logo_color: #555 
+$logo_color: #00f 
 $logo_hover_color: #f08 
 $menu_color: #777 
 $menu_hover_color: #f08 
@@ -74,9 +74,10 @@ h1, h2, a h1, a h2
     text-align: center
     opacity: 0.9
     text-align: center
-    padding: 15% 10% 0 10%
-    color: #00f
+    margin: -20px 0 0 0 
+    padding: 10px 10%
     color: #fff
+    color: $logo_color
   
   h2
     font-family: 'DollhouseC', sans-serif
@@ -95,18 +96,16 @@ header
 
 nav.menu
   display: block
+  position: absolute
   width: 100%
   text-align: center
-  top: 0
-  position: absolute
   z-index: 500
+  margin-top: 0%
+  padding: 0 15%
   //background: rgba(255, 255, 255, 0.1)
   //background: url("/assets/main_small.jpg") no-repeat center center
   background-size: contain
-  padding: 0 10px
   .wrap
-    padding: 10px
-    border-bottom: 1px solid #fff
     //padding: 8px 5px 5px 5px
     //float: right
   a
@@ -114,23 +113,10 @@ nav.menu
     text-decoration: none
     padding: 0 10px
     font-family: Merriweather
+    font-size: 120%
     color: #00f
-    color: #fff
 a.logo
   text-decoration: none
-
-nav.main a
-  display: inline-block
-  //padding: 16px 10px 15px 10px
-  padding: 0 10px
-  font-family: 'DollhouseC', sans-serif
-  font-size: 20px
-  font-weight: bold
-  color: $menu_color
-
-nav.main a:hover
-  background: #f09
-  color: #fff
 
 .main.banner
   img
