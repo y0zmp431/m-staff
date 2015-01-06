@@ -58,12 +58,35 @@
   box-sizing: border-box
   .wrap, .wrap img
     padding: 0
+  .actions
+    opacity: 0
+    text-align: center
+    background: #000
+    background: rgba(0, 0, 0, 0.5)
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    color: #fff
+    a 
+      color: #fff
   img
     display: block
     width: 100%
+.mosaic_element:hover
+  .actions
+    opacity: 1
 .wrap.dog_desc
   padding: 10px
-  background: #0a0
+.pedigree
+  .colored
+    background: #0a0
+.cup
+  .colored
+    background: #00a
+.medical_tests
+  .colored
+    background: #a00
 .dog_actions
   padding: 10px
   background: #0a5
@@ -118,3 +141,14 @@
     width: 30%
 .dogs_list
   background: #000
+.dog_desc
+  color: #fff
+  a
+    color: #fff !important
+  >div
+    padding: 10px 10px 20px 10px
+    .icon
+      padding: 10% 35%
+      img
+        width: 100%
+    text-align: center

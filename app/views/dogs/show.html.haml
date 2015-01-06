@@ -13,73 +13,47 @@
     = @dog.name.upcase
 .clear.after_avatar
 .mosaic
-  .mosaic_element
-    .wrap.dog_desc
-      %em
-        -if false
-          = succeed "," do
-            = @dog.name
-          = succeed "," do
-            = t @dog.sex.downcase
-          = succeed "," do
-            = l @dog.date_of_birth, :format => :date
-          = link_to t("pedigree"), @dog.pedigree
-          - if can? :manage, Dog
-            ,[
-            - if @dog.for_sale
-              = t "sale"
-            - else
-              = t "don't sale"
-          - unless @dog.owner_desc.blank?
-            %p
-              %b
-                = t "Owner desc"
-                \:
-              = @dog.owner_desc.split(", ").each do |desc|
-                = desc
-                %br
-      .cup
-        = image_tag "cup.png", class: :cup
-        - @dog.desc.split(",").each do |desc|
-          = desc
+
+  - unless @dog.pedigree.blank?
+    .mosaic_element.dog_desc.pedigree
+      .colored
+        .icon
+          = image_tag "tree.png", class: :pedigree
+        = link_to @dog.pedigree do
+          Pedigree
+        .clear
+        - if can? :manage, Dog
+          = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
+          |
+          = link_to t('Edit'), edit_dog_path(@dog)
+          |
+          = link_to t('Back'), dogs_path
+
+  - unless @dog.trophies.blank?
+    .mosaic_element.dog_desc.cup
+      .colored
+        .icon
+          = image_tag "cup.png", class: :cup
+        - @dog.trophies.split("\n").each do |trophy|
+          = trophy
           %br
-      - if can? :manage, Dog
-        = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
-        |
-        = link_to t('Edit'), edit_dog_path(@dog)
-        |
-        = link_to t('Back'), dogs_path
+
+  - unless @dog.medical_tests.blank? 
+    .mosaic_element.dog_desc.medical_tests
+      .colored
+        .icon
+          = image_tag "medical_test.png"
+        = @dog.medical_tests
+
   - @dog.photos.each do |photo|
     .mosaic_element.dog_photo
       .wrap
         = image_tag photo.image(:w300)
+      - if can? :manage, Dog
+        .actions
+          = photo.image_file_name
+          |
+          = link_to t('Edit'), edit_photo_path(photo)
+          |
+          = link_to t('Destroy'), photo, method: :delete, data: { confirm: 'Are you sure?' }
 
-- if false
-  .dog.float_l.dog_page_item{class: "#{@dog.male? ? "blue":"pink"}"}
-  .desc
-    .dog_desc
-      %em
-        = succeed "," do
-          = @dog.name
-        = succeed "," do
-          = t @dog.sex.downcase
-        = succeed "," do
-          = l @dog.date_of_birth, :format => :date
-        = link_to t("pedigree"), @dog.pedigree
-        - if can? :manage, Dog
-          ,[
-          - if @dog.for_sale
-            = t "sale"
-          - else
-            = t "don't sale"
-          ]
-      %p
-        = @dog.desc
-      - unless @dog.owner_desc.blank?
-        %p
-          %b
-            = t "Owner desc"
-            \:
-          = @dog.owner_desc
-
-  = render 'photos/galery', photos: @dog.photos
