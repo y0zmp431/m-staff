@@ -20,6 +20,7 @@
         = image_tag "main_small.jpg"
         %nav.menu.s_unit
           .wrap
+            %a{href: "/"} Главная
             %a{href: "/about_maximum_staff"} О питомнике
             %a{href: "/news"} Новости
             %a{href: "/male"} Кобели
@@ -56,8 +57,11 @@
     .notification
       %p#notice= notice
       %p#alert= alert
-    .contant
-      = yield   
+    = yield :custom_content
+    - unless yield.blank?
+      .content_wrap
+        .content
+          = yield   
     .clear
 <!--************CODE GEOCOUNTER************-->
 <script type="text/javascript" src="http://geoloc15.whoaremyfriends.net/private/geocounter.js?compte=668278262079"></script>

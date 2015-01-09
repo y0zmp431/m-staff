@@ -8,21 +8,26 @@ ru:
         url: URL(имя пса в адрессной строке)
         name: Имя 
         fullname: Имя по родословной
-        male: кобелёк?
-        for_sale: Ждет хозяев?
-        for_love: Ищет любви?
-        from_us: АлексасХаусовец?
+        male: Кобель?
+        for_sale: Продается?
+        for_love: Предлагается для вязки?
+        from_us: Выпускник?
         date_of_birth: Дата рождения
         desc: Описание
         pedigree: Ссылка на родословку
         disabled: Не публиковать 
         owner_desc: Информация о владельце
+        medical_tests: Тесты
+        trophies: Титулы и награды
+        sort_index: Индекс сортировки
+        avatar: Аватар
   Dogs: Собаки
   Photo hasnt dogs: На фото не отмечены собаки
   Add dog: Добавить пса
   New dog: Новая собака
   Hide dog: Скрыть
   Publish dog: Опубликовать
+  Editing dog: Редактирование данных о собаке
   male: Кобель
   female: Девочка
   sale: ищет хозяев

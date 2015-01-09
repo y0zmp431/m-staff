@@ -20,6 +20,10 @@
     %br/
     = f.text_field :fullname
   .field
+    = f.label :pedigree
+    %br/
+    = f.text_field :pedigree
+  .field
     = f.check_box :male
     = f.label :male
     %br/
@@ -38,7 +42,14 @@
   .field
     = f.label :date_of_birth
     %br/
-    = f.datetime_select :date_of_birth
+    = f.date_select :date_of_birth
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
+  .field
+    = f.label :sort_index
+    %br/
+    = f.text_field :sort_index
   .field
     = f.label :desc
     %br/
@@ -52,24 +63,14 @@
     %br/
     = f.text_area :trophies, :class => :small
   .field
-    = f.label :pedigree
-    %br/
-    = f.text_field :pedigree
-  .field
     = f.check_box :disabled
     = f.label :disabled
     %br/
-  .field
-    = f.label :owner_desc
-    \:
-    %br/
-    = f.text_area :owner_desc, :class => "small"
-  .field
-    = f.label :avatar
-    = f.file_field :avatar
-  .field
-    = f.label :sort_index
-    %br/
-    = f.text_field :sort_index
+  -if false
+    .field
+      = f.label :owner_desc
+      \:
+      %br/
+      = f.text_area :owner_desc, :class => "small"
   .actions
     = f.submit t("Save")

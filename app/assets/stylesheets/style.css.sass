@@ -34,8 +34,16 @@ html, body
   font-family: Gregor
   background: #000
 
-.contant
-  background: #fff
+.content_wrap
+  padding: 20px 0
+.content
+  background: #000
+  max-width: 1000px
+  margin: 0 auto
+  padding: 40px
+  color: #fff
+  p
+    line-height: 130%
 
 *
   margin: 0
@@ -115,6 +123,10 @@ nav.menu
     font-family: Merriweather
     font-size: 120%
     color: #00f
+@media screen and (max-width: 1370px)
+  nav.menu
+    a
+      font-size: 110%
 a.logo
   text-decoration: none
 
@@ -170,3 +182,6 @@ footer
   padding: 10px
   text-align: center
 
+.text
+  p
+    font-size: 120%

@@ -1,94 +1,95 @@
-:sass
-  .dog
-    .dog_title
-      text-align: center
-      a
-        color: #fff
-    .image
-      position: static
-    .actions
-      color: #333
-      a
-        color: #333
-    h2
-      padding: 15% 20% 0 20%
-      position: static
-
-.dogs_list
-  -# if can? :manage, Dog
-  - if false
-    .manage_options
-      = link_to t('Add dog'), new_dog_path
-      -if params[:show_hidden]
-        = link_to t("Showed dogs"), dogs_path
-        /
-        = t "Hidden dogs"
-      -else
-        = t "Showed dogs"
-        /
-        = link_to t("Hidden dogs"), dogs_path(:show_hidden => true)
-  - @dogs.each do |dog|
+= content_for :custom_content do
+  :sass
     .dog
-      = link_to dog do
-        .avatar.unit.w-golden-small.float_l
-          = image_tag dog.avatar(:medium)
-          %h2.slabtext.s_unit.w-golden-small
-            = dog.name.capitalize
-      .desc.unit.w-golden-large.float_l
-        .dog_title
-          = link_to dog do
-            %h1
-              = dog.fullname
-          - if can? :manage, Dog
-            .actions
-              = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => dog.id } })
-              |
-              = link_to t('Edit'), edit_dog_path(dog)
-              |
-              = link_to t('Destroy'), dog, confirm: t('Are you sure?'), method: :delete
-              |
-              - if dog.disabled
-                = link_to t('Publish dog'), enable_dog_path(dog) 
-              -else
-                = link_to t('Hide dog'), disable_dog_path(dog) 
-              |
-              = link_to t('Back'), dogs_path
-        .dog_desc
-          .cup.w-1-3.unit.float_l
-            .icon
-              = image_tag "cup.png"
-            = dog.trophies
-          .medical_tests.w-1-3.unit.float_l
-            .icon
-              = image_tag "medical_test.png"
-            = dog.medical_tests
-          .pedigree.w-1-3.unit.float_l
-            .icon
-              = image_tag "tree.png"
-            = link_to dog.pedigree do
-              Pedigree
-          .clear
-          - if false
-            %em
-            = succeed "," do
-              = dog.name
-            = succeed "," do
-              = t dog.sex.downcase
-            = succeed "," do
-              = l dog.date_of_birth, :format => :date
-            = link_to t("pedigree"), dog.pedigree
+      .dog_title
+        text-align: center
+        a
+          color: #fff
+      .image
+        position: static
+      .actions
+        color: #333
+        a
+          color: #333
+      h2
+        padding: 15% 20% 0 20%
+        position: static
+
+  .dogs_list
+    -# if can? :manage, Dog
+    - if false
+      .manage_options
+        = link_to t('Add dog'), new_dog_path
+        -if params[:show_hidden]
+          = link_to t("Showed dogs"), dogs_path
+          /
+          = t "Hidden dogs"
+        -else
+          = t "Showed dogs"
+          /
+          = link_to t("Hidden dogs"), dogs_path(:show_hidden => true)
+    - @dogs.each do |dog|
+      .dog
+        = link_to dog do
+          .avatar.unit.w-golden-small.float_l
+            = image_tag dog.avatar(:medium)
+            %h2.slabtext.s_unit.w-golden-small
+              = dog.name.capitalize
+        .desc.unit.w-golden-large.float_l
+          .dog_title
+            = link_to dog do
+              %h1
+                = dog.fullname
             - if can? :manage, Dog
-              ,[
-              - if dog.for_sale
-                = t "sale"
-              - else
-                = t "don't sale"
-              ]
+              .actions
+                = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => dog.id } })
+                |
+                = link_to t('Edit'), edit_dog_path(dog)
+                |
+                = link_to t('Destroy'), dog, confirm: t('Are you sure?'), method: :delete
+                |
+                - if dog.disabled
+                  = link_to t('Publish dog'), enable_dog_path(dog) 
+                -else
+                  = link_to t('Hide dog'), disable_dog_path(dog) 
+                |
+                = link_to t('Back'), dogs_path
+          .dog_desc
+            .cup.w-1-3.unit.float_l
+              .icon
+                = image_tag "cup.png"
+              = dog.trophies
+            .medical_tests.w-1-3.unit.float_l
+              .icon
+                = image_tag "medical_test.png"
+              = dog.medical_tests
+            .pedigree.w-1-3.unit.float_l
+              .icon
+                = image_tag "tree.png"
+              = link_to dog.pedigree do
+                Pedigree
+            .clear
+            - if false
+              %em
+              = succeed "," do
+                = dog.name
+              = succeed "," do
+                = t dog.sex.downcase
+              = succeed "," do
+                = l dog.date_of_birth, :format => :date
+              = link_to t("pedigree"), dog.pedigree
+              - if can? :manage, Dog
+                ,[
+                - if dog.for_sale
+                  = t "sale"
+                - else
+                  = t "don't sale"
+                ]
 
+        .clear
       .clear
-    .clear
 
 
 
-- if can? :manage, Dog
-  =# link_to t('Add dog'), new_dog_path
+  - if can? :manage, Dog
+    =# link_to t('Add dog'), new_dog_path

@@ -1,59 +1,60 @@
-:sass
-  .main.banner
-    .logo, img
-      display: none
+= content_for :custom_content do
+  :sass
+    .main.banner
+      .logo, img
+        display: none
 
-.avatar.s_unit
-  %h1.s_unit.slabtext= @dog.fullname
-  .image
-    = image_tag @dog.avatar
-  %small.s_unit
-    aka
-  %h2.slabtext.s_unit
-    = @dog.name.upcase
-.clear.after_avatar
-.mosaic
+  .avatar.s_unit
+    %h1.s_unit.slabtext= @dog.fullname
+    .image
+      = image_tag @dog.avatar
+    %small.s_unit
+      aka
+    %h2.slabtext.s_unit
+      = @dog.name.upcase
+  .clear.after_avatar
+  .mosaic
 
-  - unless @dog.pedigree.blank?
-    .mosaic_element.dog_desc.pedigree
-      .colored
-        .icon
-          = image_tag "tree.png", class: :pedigree
-        = link_to @dog.pedigree do
-          Pedigree
-        .clear
+    - unless @dog.pedigree.blank?
+      .mosaic_element.dog_desc.pedigree
+        .colored
+          .icon
+            = image_tag "tree.png", class: :pedigree
+          = link_to @dog.pedigree do
+            Pedigree
+          .clear
+          - if can? :manage, Dog
+            = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
+            |
+            = link_to t('Edit'), edit_dog_path(@dog)
+            |
+            = link_to t('Back'), dogs_path
+
+    - unless @dog.trophies.blank?
+      .mosaic_element.dog_desc.cup
+        .colored
+          .icon
+            = image_tag "cup.png", class: :cup
+          - @dog.trophies.split("\n").each do |trophy|
+            = trophy
+            %br
+
+    - unless @dog.medical_tests.blank? 
+      .mosaic_element.dog_desc.medical_tests
+        .colored
+          .icon
+            = image_tag "medical_test.png"
+          = @dog.medical_tests
+
+    - @dog.photos.each do |photo|
+      .mosaic_element.dog_photo
+        .wrap
+          = image_tag photo.image(:w300)
         - if can? :manage, Dog
-          = link_to t('Add photo'), new_photo_path(:photo => { :dog_ids => { "" => @dog.id } })
-          |
-          = link_to t('Edit'), edit_dog_path(@dog)
-          |
-          = link_to t('Back'), dogs_path
-
-  - unless @dog.trophies.blank?
-    .mosaic_element.dog_desc.cup
-      .colored
-        .icon
-          = image_tag "cup.png", class: :cup
-        - @dog.trophies.split("\n").each do |trophy|
-          = trophy
-          %br
-
-  - unless @dog.medical_tests.blank? 
-    .mosaic_element.dog_desc.medical_tests
-      .colored
-        .icon
-          = image_tag "medical_test.png"
-        = @dog.medical_tests
-
-  - @dog.photos.each do |photo|
-    .mosaic_element.dog_photo
-      .wrap
-        = image_tag photo.image(:w300)
-      - if can? :manage, Dog
-        .actions
-          = photo.image_file_name
-          |
-          = link_to t('Edit'), edit_photo_path(photo)
-          |
-          = link_to t('Destroy'), photo, method: :delete, data: { confirm: 'Are you sure?' }
+          .actions
+            = photo.image_file_name
+            |
+            = link_to t('Edit'), edit_photo_path(photo)
+            |
+            = link_to t('Destroy'), photo, method: :delete, data: { confirm: 'Are you sure?' }
 
