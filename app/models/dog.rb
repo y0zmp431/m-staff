@@ -25,7 +25,7 @@ class Dog < ActiveRecord::Base
       @dogs = self.where :disabled => false
     end
     @dogs = @dogs.where(male: true, in_kennel: true) if params[:male]
-    @dogs = @dogs.where male: false, in_kennel: true) if params[:female]
+    @dogs = @dogs.where(male: false, in_kennel: true) if params[:female]
     @dogs = @dogs.where for_sale: true if params[:for_sale]
     @dogs = @dogs.where from_us: true if params[:from_us]
 		@dogs
