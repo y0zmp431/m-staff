@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 class Dog < ActiveRecord::Base
-  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies
+  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies, :in_kennel
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
 
@@ -24,8 +24,8 @@ class Dog < ActiveRecord::Base
     else 
       @dogs = self.where :disabled => false
     end
-    @dogs = @dogs.where male: true if params[:male]
-    @dogs = @dogs.where male: false if params[:female]
+    @dogs = @dogs.where(male: true, in_kennel: true) if params[:male]
+    @dogs = @dogs.where male: false, in_kennel: true) if params[:female]
     @dogs = @dogs.where for_sale: true if params[:for_sale]
     @dogs = @dogs.where from_us: true if params[:from_us]
 		@dogs
