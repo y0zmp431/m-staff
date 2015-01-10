@@ -2,6 +2,9 @@ Base::Application.routes.draw do
 
   get "pages/index"
   get "pages/test"
+  get "pages/about_maximum_staff"
+	get 'about_maximum_staff' => 'pages#about_maximum_staff'
+
 
   resources :photos do
     get :autocomplete_dog_name, :on => :collection
