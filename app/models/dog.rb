@@ -12,7 +12,7 @@ class Dog < ActiveRecord::Base
 	validates :name, :url, :presence => true
 	validates :name, :url, :uniqueness => { :case_sensitive => false }
 
-	default_scope order('sort_index')
+	default_scope order('sort_index DESC')
 
 	def to_param
 		url # or whatever you set :url_attribute to
