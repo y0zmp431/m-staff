@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 class Dog < ActiveRecord::Base
-  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies, :in_kennel
+  attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies, :in_kennel, :litter_sym
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
 

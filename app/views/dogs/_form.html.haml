@@ -44,6 +44,10 @@
     = f.label :in_kennel
     %br/
   .field
+    = f.label :litter_sym
+    %br/
+    = f.text_field :litter_sym
+  .field
     = f.label :date_of_birth
     %br/
     = f.date_select :date_of_birth
@@ -70,6 +74,8 @@
     = f.check_box :disabled
     = f.label :disabled
     %br/
+  .field
+    = file_field_tag "images[]", type: :file, multiple: true
   -if false
     .field
       = f.label :owner_desc

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150110195230) do
+ActiveRecord::Schema.define(:version => 20150111091432) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20150110195230) do
     t.text     "medical_tests"
     t.text     "trophies"
     t.boolean  "in_kennel",           :default => false
+    t.string   "litter_sym"
   end
 
   create_table "dogs_photos", :id => false, :force => true do |t|

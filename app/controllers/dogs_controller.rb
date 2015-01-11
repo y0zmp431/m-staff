@@ -43,8 +43,14 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(params[:dog])
 
+
     respond_to do |format|
       if @dog.save
+				if params[:images]
+					params[:images].each { |image|
+						@dog.photos.create(image: image)
+					}
+				end
         format.html { redirect_to @dog, notice: t('Dog was successfully created.', :dog_name => @dog.name )}
         format.json { render json: @dog, status: :created, location: @dog }
       else
@@ -61,6 +67,11 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.update_attributes(params[:dog])
+				if params[:images]
+					params[:images].each { |image|
+						@dog.photos.create(image: image)
+					}
+				end
         format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
         format.json { head :no_content }
       else
