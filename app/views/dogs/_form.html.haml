@@ -76,11 +76,10 @@
     %br/
   .field
     = file_field_tag "images[]", type: :file, multiple: true
-  -if false
-    .field
-      = f.label :owner_desc
-      \:
-      %br/
-      = f.text_area :owner_desc, :class => "small"
+  .field
+    = f.label :owner_desc
+    \:
+    %br/
+    = f.text_area :owner_desc, :class => "small"
   .actions
     = f.submit t("Save")
