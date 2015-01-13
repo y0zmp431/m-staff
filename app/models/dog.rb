@@ -4,6 +4,7 @@ class Dog < ActiveRecord::Base
   attr_accessible :date_of_birth, :desc, :disabled, :for_love, :for_sale, :from_us, :fullname, :male, :name, :owner_desc, :pedigree, :url, :avatar, :sort_index, :medical_tests, :trophies, :in_kennel, :litter_sym
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
+	belongs_to :litter, foreign_key: :litter_sym, primary_key: :litter_sym
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -13,6 +14,7 @@ class Dog < ActiveRecord::Base
 	validates :name, :url, :uniqueness => { :case_sensitive => false }
 
 	default_scope order('sort_index DESC')
+	scope :for_sale, -> { where for_sale: :true }
 
 	def to_param
 		url # or whatever you set :url_attribute to

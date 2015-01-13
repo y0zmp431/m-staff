@@ -1,0 +1,19 @@
+= form_for @litter, html: { multipart: true } do |f|
+  - if @litter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@litter.errors.count, "error")} prohibited this litter from being saved:"
+      %ul
+        - @litter.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :litter_sym
+    = f.text_field :litter_sym
+  .field
+    = f.label :date_of_birth
+    = f.date_select :date_of_birth
+  .field
+    = f.label :banner
+    = f.file_field :banner
+  .actions
+    = f.submit 'Save'

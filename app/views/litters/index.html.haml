@@ -1,0 +1,29 @@
+:sass
+  .litter
+    text-align: center
+    h1
+      font-size: 320%
+      font-weight: 100
+      font-family: BleedingCowboys
+    h3
+      padding: 15px
+- @litters.each do |litter|
+  .litter 
+    %h1
+      Litter 
+      %big= litter.litter_sym
+    %h2
+      = l litter.date_of_birth
+    %h3
+      = litter.pets_count_for_sale
+    = image_tag litter.banner.url :medium
+    .clear
+    - if can? :manage, Dog
+      = link_to 'Show', litter
+      |
+      = link_to 'Edit', edit_litter_path(litter)
+      |
+      = link_to 'Destroy', litter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-# if can? :manage, Dog
+  =# link_to 'New Litter', new_litter_path

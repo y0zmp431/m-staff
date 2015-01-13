@@ -45,5 +45,7 @@ ru:
     updated: "Статья сохранена"
     published: "Статья <a href='%{link}' >«%{title}»</a> опубликована"
     unpublished: "Отменена публикация статьи <a href='%{link}' >«%{title}»</a>"
+  All pets were sold: "Все щенки проданы"
+  Pets count for sale: "%{for_sale_count} из %{all_count} щенков продано"
 
 

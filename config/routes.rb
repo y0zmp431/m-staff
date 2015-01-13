@@ -1,5 +1,9 @@
 Base::Application.routes.draw do
 
+  resources :litters
+	#resources :pets, :path => "litters"
+	#resources :by_maximum_staff, :path => "litters"
+
   get "pages/index"
   get "pages/test"
   get "pages/about_maximum_staff"
@@ -12,8 +16,8 @@ Base::Application.routes.draw do
 
 	get 'male' =>  'dogs#index', :defaults => { male: true }
 	get 'female' => 'dogs#index', :defaults => { female: true }
-	get 'pets' => 'dogs#index', :defaults => { for_sale: true }
-	get 'by_maximum_staff' => 'dogs#index', :defaults => { from_us: true }
+	get 'pets' => 'litters#index', :defaults => { for_sale: true }
+	get 'by_maximum_staff' => 'litters#index', :defaults => { from_us: true }
 
   resources :dogs do
 		member do

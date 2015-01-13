@@ -1,0 +1,20 @@
+%p#notice= notice
+
+:sass
+  .litter
+    text-align: center
+    h1
+      font-size: 320%
+      font-weight: 100
+      font-family: BleedingCowboys
+
+.litter 
+  %h1
+    Litter 
+    %big= @litter.litter_sym
+    = l @litter.date_of_birth
+  = image_tag @litter.banner.url :medium
+
+= link_to 'Edit', edit_litter_path(@litter)
+\|
+= link_to 'Back', litters_path
