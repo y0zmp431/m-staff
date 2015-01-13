@@ -5,7 +5,7 @@ class Dog < ActiveRecord::Base
   has_and_belongs_to_many :articles
   has_and_belongs_to_many :photos
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	acts_as_url :name, :only_when_blank => true
