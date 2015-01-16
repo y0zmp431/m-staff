@@ -7,13 +7,25 @@
       font-size: 320%
       font-weight: 100
       font-family: BleedingCowboys
+  .pet
+    text-align: left
 
 .litter 
   %h1
-    Litter 
-    %big= @litter.litter_sym
+    = link_to @litter do
+      Litter 
+      %big= @litter.litter_sym
+  %h2
     = l @litter.date_of_birth
-  = image_tag @litter.banner.url :medium
+  %h3
+    = @litter.pets_count_for_sale
+  .litter_pets
+    - @litter.dogs.each do |dog|
+      .pet
+        = dog.fullname
+        = dog.owner_desc
+        %br
+
 
 = link_to 'Edit', edit_litter_path(@litter)
 \|

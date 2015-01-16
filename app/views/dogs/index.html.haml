@@ -58,16 +58,22 @@
             .cup.w-1-3.unit.float_l
               .icon
                 = image_tag "cup.png"
-              = dog.trophies
+              .nowrap
+                - dog.trophies.split("\r\n").each do |trophy|
+                  = trophy
+                  %br
             .medical_tests.w-1-3.unit.float_l
               .icon
                 = image_tag "medical_test.png"
-              = dog.medical_tests
+              .nowrap
+                - dog.medical_tests.split("\r\n").each do |test|
+                  = test
             .pedigree.w-1-3.unit.float_l
               .icon
                 = image_tag "tree.png"
-              = link_to dog.pedigree do
-                Pedigree
+              .nowrap
+                = link_to dog.pedigree do
+                  Pedigree
             .clear
             - if false
               %em
