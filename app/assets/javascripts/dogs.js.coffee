@@ -5,7 +5,10 @@ $(document).ready ->
   #  $('a').bind 'click', (event) ->
   #  alert "delete"
   #  false
-  msnry = new Masonry '.mosaic', {itemSelector: '.mosaic_element'}
+  msnry = new Masonry '.mosaic', {
+		columnWidth: '.mosaic_element.pedigree',
+		itemSelector: '.mosaic_element'
+		}
   #msnry = new Masonry '.mosaic'
   $('#dog_name').bind 'railsAutocomplete.select', (event, data) ->
     dogs_of = $(this).attr("dogs_of")

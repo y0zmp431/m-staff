@@ -58,15 +58,15 @@
             .cup.w-1-3.unit.float_l
               .icon
                 = image_tag "cup.png"
-              .nowrap
-                - dog.trophies.split("\r\n").each do |trophy|
+              - dog.trophies.split("\r\n").each do |trophy|
+                %span.nowrap
                   = trophy
                   %br
             .medical_tests.w-1-3.unit.float_l
               .icon
                 = image_tag "medical_test.png"
-              .nowrap
-                - dog.medical_tests.split("\r\n").each do |test|
+              - dog.medical_tests.split("\r\n").each do |test|
+                %span.nowrap
                   = test
             .pedigree.w-1-3.unit.float_l
               .icon

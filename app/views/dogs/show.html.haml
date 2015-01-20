@@ -5,7 +5,8 @@
         display: none
 
   .avatar.s_unit
-    %h1.s_unit.slabtext= @dog.fullname
+    %span.slabtext
+    %h1.s_unit= @dog.fullname
     .image
       = image_tag @dog.avatar
     %small.s_unit
