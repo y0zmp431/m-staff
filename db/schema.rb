@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150113090545) do
+ActiveRecord::Schema.define(:version => 20150121164225) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -113,12 +113,13 @@ ActiveRecord::Schema.define(:version => 20150113090545) do
   create_table "photos", :force => true do |t|
     t.boolean  "disabled"
     t.integer  "index_of_order"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "only_for_pets_album", :default => false
   end
 
   create_table "taggings", :force => true do |t|

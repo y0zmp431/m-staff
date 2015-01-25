@@ -47,7 +47,7 @@
             = image_tag "medical_test.png"
           = @dog.medical_tests
 
-    - @dog.photos.sort_by{|i| i.image_file_name.to_i }.each do |photo|
+    - @dog.gallery.sort_by{|i| i.image_file_name.to_i }.each do |photo|
       .mosaic_element.dog_photo
         .wrap
           = image_tag photo.image(:w300)

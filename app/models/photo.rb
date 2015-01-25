@@ -1,8 +1,7 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :disabled, :index_of_order, :image, :dogs, :dog_ids
-  has_attached_file :image, :styles => {:w600 => "600", :w300 => "300", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  attr_accessible :disabled, :index_of_order, :image, :dogs, :dog_ids, :only_for_pets_album
+  has_attached_file :image, :styles => {:w600 => "600", :w300 => "300", :h300 => "x300", :h600 => "x600", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   has_and_belongs_to_many :dogs
-	#default_scope order('image_file_name')
 
   def orientation
     if ! self.image.blank?

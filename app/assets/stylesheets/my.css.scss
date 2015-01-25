@@ -21,6 +21,9 @@
 .central{
 	text-align: center
 }
+.centered{
+	margin: 0 auto
+}
 .text_pad{
   padding:10px;
 }
@@ -33,7 +36,6 @@
   box-sizing: border-box;
 }
 .slabtext{
-	white-space: nowrap;
 }
 .container{
   //padding:0 20px;

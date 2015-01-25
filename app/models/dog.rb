@@ -16,6 +16,14 @@ class Dog < ActiveRecord::Base
 	default_scope order('sort_index DESC')
 	scope :for_sale, -> { where for_sale: :true }
 
+	def gallery
+		self.photos.where only_for_pets_album: false
+	end
+
+	def pets_photos
+		self.photos.where only_for_pets_album: true
+	end
+
 	def to_param
 		url # or whatever you set :url_attribute to
 	end

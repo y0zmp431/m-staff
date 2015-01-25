@@ -20,6 +20,9 @@
     %br/
     = autocomplete_field_tag :dog_name, '', autocomplete_dog_name_photos_path, :dogs_of => "photo"
   .field
+    = f.check_box :only_for_pets_album
+    = f.label :only_for_pets_album
+  .field
     = f.check_box :disabled
     = f.label :disabled
     %br/
