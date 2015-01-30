@@ -3,6 +3,8 @@
 :sass
   .litter
     text-align: center
+    h1, h2, h3
+      color: #fff
     h1
       font-size: 320%
       font-weight: 100
@@ -11,14 +13,15 @@
   .pet_wrap
     padding: 10px
   .pet
-    background: #fff
-    color: #000
+    background: #000
+    color: #fff
     padding: 20px
     width: 100%
   .el
-    width: 30%
+    vertical-align: top
     display: inline-block
-    padding: 0 7%
+    //padding: 0 7%
+    padding: 0
     text-align: center
     .photos
       width: 100%
@@ -28,6 +31,7 @@
       opacity: 0
   .el:hover
     .actions
+      text-align: center
       opacity: 1
 
   .photos
@@ -39,22 +43,13 @@
     .litter_pets
       padding-top: 20px
   .aka
-    background:  linear-gradient( 90deg, rgba(255, 255, 255, 1) , rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), linear-gradient( 0deg, rgba(0, 0, 0, 0.0) 45%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 55%)
+    background:  linear-gradient( 90deg, rgba(000, 000, 000, 1) , rgba(000, 000, 000, 0), rgba(000, 000, 000, 1)), linear-gradient( 0deg, rgba(255, 255, 255, 0.0) 45%, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 55%)
 
     small
-      background: #fff
+      background: #000
+      color: #fff
       padding: 0 10px
       font-style: italic
-  .owner
-    float: right
-    position: relative
-    margin-top: -150px
-    margin-right: 20px
-    padding: 20px
-    width: 200px
-    border: 2px solid #000
-    transform: rotate(-5deg)
-    opacity: 0.5
     h3
       margin: 0
       padding: 0
@@ -62,64 +57,73 @@
     height: 150px
   a
     h1, h2, h3, h4, .aka
+      position: relative
+      z-index: 500
       color: #000
-
-.litter 
-  %h1
-    = link_to @litter do
-      Litter 
-      %big= @litter.litter_sym
-  %h2
-    = l @litter.date_of_birth
-  %h3
-    = @litter.pets_count_for_sale
-  .litter_pets
-    - @litter.dogs.each do |dog|
-      .pet_wrap.unit
-        .pet.s_unit
-          .name 
-            = link_to dog, class: :undecor do
-              %h2
-                = dog.fullname
-              .aka
-                %small
-                  aka
-              %h1
-                = dog.name
-          .photos
-            - dog.pets_photos[0, 2].each do |photo|
-              .el
-                = image_tag photo.image :h300
-                - if can? :manage, Dog
-                  .actions
-                    = photo.image_file_name
-                    |
-                    = link_to t('Edit'), edit_photo_path(photo)
-                    |
-                    = link_to t('Destroy'), photo, method: :delete, data: { confirm: 'Are you sure?' }
-            - if dog.pets_photos.count.zero?
-              .black_instead_pets_photos
-          - unless dog.owner_desc.blank?
-            .owner.centered
-              - dog.owner_desc.split("\n").each_with_index do |o, i|
-                - if i == 0
-                  %h3.slabtext
-                    = o
-                - elsif i == 2
-                  .slabtext
-                    = o
-                - else
+  .owner
+    font-size: 200%
+    font-family: BickhamScriptOne
+    font-family: Calligraph
+    font-family: Roscherk
+    font-family: ItalyA
+    font-family: BenKrush
+    font-family: BosaNova
+    font-family: FuelPro
+    //transform: rotate(-3deg)
+      
+= content_for :custom_content do
+  .litter 
+    %h1
+      = link_to @litter do
+        Litter 
+        %big= @litter.litter_sym
+    %h2
+      = l @litter.date_of_birth
+    %h3
+      = @litter.pets_count_for_sale
+    .litter_pets
+      - @litter.dogs.each do |dog|
+        .pet_wrap.unit
+          .pet.s_unit
+            .name 
+              = link_to dog, class: :undecor do
+                %h2
+                  = dog.fullname
+                .aka
+                  %small
+                    aka
+                %h1
+                  = dog.name
+            .photos
+              - dog.pets_photos.each do |photo|
+                .el
+                  = image_tag photo.image :h300
+                  - if can? :manage, Dog
+                    .actions
+                      = photo.image_file_name
+                      |
+                      = link_to t('Edit'), edit_photo_path(photo)
+                      |
+                      = link_to t('Destroy'), photo, method: :delete, data: { confirm: 'Are you sure?' }
+              - if dog.pets_photos.count.zero?
+                .black_instead_pets_photos
+            - unless dog.owner_desc.blank?
+              .owner.centered
+                - dog.owner_desc.split("\n").each_with_index do |o, i|
                   = o
-          - if can? :manage, Dog
-            .actions
-              = link_to t('Add photo'), new_photo_path( :photo => { :dog_ids => { "" => dog.id }, :only_for_pets_album => true })
-              |
-              = link_to t('Edit'), edit_dog_path(dog)
-              |
-              = link_to t('Show'), dog
-      .clear
+                  %br
+            - if can? :manage, Dog
+              .actions
+                = link_to t('Add photo'), new_photo_path( :photo => { :dog_ids => { "" => dog.id }, :only_for_pets_album => true })
+                |
+                = link_to t('Edit'), edit_dog_path(dog)
+                |
+                = link_to t('Show'), dog
+        .clear
+        .vensel.centered
+          = image_tag "/assets/vensel1.png"
 
 
-= link_to 'Edit', edit_litter_path(@litter)
-\|
-= link_to 'Back', litters_path
+  = link_to 'Edit', edit_litter_path(@litter)
+  \|
+  = link_to 'Back', litters_path

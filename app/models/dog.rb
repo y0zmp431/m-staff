@@ -21,7 +21,7 @@ class Dog < ActiveRecord::Base
 	end
 
 	def pets_photos
-		self.photos.where only_for_pets_album: true
+		self.photos.where(only_for_pets_album: true).order("photos.index_of_order ASC")
 	end
 
 	def to_param
