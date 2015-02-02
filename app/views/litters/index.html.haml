@@ -13,15 +13,22 @@
 - @litters.each do |litter|
   .litter 
     %h1
-      = link_to litter do
+      - if litter.dogs.count.zero?
         Litter 
         %big= litter.litter_sym
+      - else
+        = link_to litter do
+          Litter 
+          %big= litter.litter_sym
     %h2
       = l litter.date_of_birth
     %h3
       = litter.pets_count_for_sale
-    = link_to litter do
+    - if litter.dogs.count.zero?
       = image_tag litter.banner.url :medium
+    - else
+      = link_to litter do
+        = image_tag litter.banner.url :medium
     .clear
     - if can? :manage, Dog
       = link_to 'Show', litter
