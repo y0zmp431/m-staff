@@ -22,8 +22,9 @@
           %big= litter.litter_sym
     %h2
       = l litter.date_of_birth
-    %h3
-      = litter.pets_count_for_sale
+    - unless litter.dogs.count.zero?
+      %h3
+        = litter.pets_count_for_sale
     - if litter.dogs.count.zero?
       = image_tag litter.banner.url :medium
     - else
