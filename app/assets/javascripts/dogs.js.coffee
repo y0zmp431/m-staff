@@ -5,10 +5,19 @@ $(window).load ->
   #  $('a').bind 'click', (event) ->
   #  alert "delete"
   #  false
-  msnry = new Masonry '.mosaic', {
-		columnWidth: '.mosaic_element.pedigree',
-		itemSelector: '.mosaic_element'
-		}
+
+  window.msnry = new Masonry '.mosaic', {
+    columnWidth: '.mosaic_element.pedigree',
+    itemSelector: '.mosaic_element.dog_desc'
+  }
+
+  $('.mosaic_element').bind 'click', ->
+    #$('.mosaic').masonry('addItems', this)
+    #$('.mosaic').appended( '.mosaic_element.pedigree' )
+    #$('.mosaic').masonry('appended', $('.mosaic_element.pedigree'))
+    $('.mosaic').masonry()
+    #window.msnry.hide $('.mosaic_element.pedigree')
+    alert $(this).find('img').attr 'src'
   #msnry = new Masonry '.mosaic'
   $('#dog_name').bind 'railsAutocomplete.select', (event, data) ->
     dogs_of = $(this).attr("dogs_of")
