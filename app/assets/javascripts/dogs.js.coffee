@@ -6,23 +6,31 @@ $(window).load ->
   #  alert "delete"
   #  false
 
-  window.msnry = new Masonry '.mosaic', {
-    columnWidth: '.mosaic_element.pedigree',
-    itemSelector: '.mosaic_element.dog_desc'
-  }
+  #$('.mosaic').before $('<div class="gallery"></div>')
 
-  $('.mosaic_element').bind 'click', ->
+  #$('.mosaic .mosaic_element').bind 'click', ->
+  #  $('.gallery').append( this ).masonry().masonry( 'appended', this ).masonry('layout')
+  $('.mosaic').masonry()
+
+
+  #window.msnry = new Masonry '.mosaic', {
+    #columnWidth: '.mosaic_element.pedigree',
+    #itemSelector: '.mosaic_element.dog_desc'
+  #}
+
+  #$('.mosaic_element').bind 'click', ->
     #$('.mosaic').masonry('addItems', this)
     #$('.mosaic').appended( '.mosaic_element.pedigree' )
     #$('.mosaic').masonry('appended', $('.mosaic_element.pedigree'))
-    $('.mosaic').masonry()
+    #$('.mosaic').masonry()
     #window.msnry.hide $('.mosaic_element.pedigree')
-    alert $(this).find('img').attr 'src'
   #msnry = new Masonry '.mosaic'
+  #
+  #
+  # Rails autocomplete
+  #
   $('#dog_name').bind 'railsAutocomplete.select', (event, data) ->
     dogs_of = $(this).attr("dogs_of")
-    #alert data.item.id
-    #alert JSON.stringify data
     $('#list_dog_ids').append("<input type=\"hidden\" name=\"#{dogs_of}[dog_ids][]\" class=\"dog_id\" value=\"#{data.item.id}\" />")
 #    $('#field_dog_ids').value data.item.id
     $('#list_dog_ids').append('<a href="" for="'+data.item.id+'" class="delete_dog_id">'+data.item.label+'</a>')

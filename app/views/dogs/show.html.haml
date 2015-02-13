@@ -3,6 +3,11 @@
     .main.banner
       .logo, img
         display: none
+    .gallery
+      clear: both
+      margin: 20px
+      padding: 20px
+      background: #00f
 
   .avatar.s_unit
     %span.slabtext
@@ -14,7 +19,7 @@
     %h2.slabtext.s_unit
       = @dog.name.upcase
   .clear.after_avatar
-  .mosaic
+  #grid.mosaic
 
     - unless @dog.pedigree.blank?
       .mosaic_element.dog_desc.pedigree
