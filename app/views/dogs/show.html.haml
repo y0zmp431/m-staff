@@ -8,6 +8,12 @@
       margin: 20px
       padding: 20px
       background: #00f
+    .date_of_birth
+      position: relative
+      text-shadow: 1px 1px 1px #000
+      font-size: 170%
+      color: #eee
+      z-index: 550
 
   .avatar.s_unit
     %span.slabtext
@@ -18,6 +24,9 @@
       aka
     %h2.slabtext.s_unit
       = @dog.name.upcase
+    %span.date_of_birth
+      = @dog.date_of_birth
+      = " - #{@dog.date_of_death}" if @dog.date_of_death
   .clear.after_avatar
   #grid.mosaic
 

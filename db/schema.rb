@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150121164225) do
+ActiveRecord::Schema.define(:version => 20150216171139) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20150121164225) do
     t.boolean  "for_sale",            :default => false, :null => false
     t.boolean  "for_love",            :default => false, :null => false
     t.boolean  "from_us",             :default => true,  :null => false
-    t.datetime "date_of_birth"
+    t.date     "date_of_birth"
     t.text     "desc"
     t.string   "pedigree"
     t.boolean  "disabled",            :default => false, :null => false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20150121164225) do
     t.text     "trophies"
     t.boolean  "in_kennel",           :default => false
     t.string   "litter_sym"
+    t.date     "date_of_death"
   end
 
   create_table "dogs_photos", :id => false, :force => true do |t|
