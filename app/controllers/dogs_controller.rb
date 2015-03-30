@@ -26,6 +26,7 @@ class DogsController < ApplicationController
   # GET /dogs/new.json
   def new
     @dog = Dog.new
+    @dog.sort_index = Dog.unscoped.order('sort_index ASC').pluck(:sort_index).last + 10
 
     respond_to do |format|
       format.html # new.html.erb
