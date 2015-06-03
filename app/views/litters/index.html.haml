@@ -18,7 +18,7 @@
         Litter 
         %big= litter.litter_sym
       - else
-        = link_to litter do
+        = link_to litter, title: t("Show all pets") do
           Litter 
           %big= litter.litter_sym
     %h2
@@ -29,15 +29,15 @@
     - if litter.dogs.count.zero?
       = image_tag litter.banner.url :medium
     - else
-      = link_to litter do
+      = link_to litter, title: t("Show all pets")  do
         = image_tag litter.banner.url :medium
     .clear
+      = link_to t('More details'), litter
     - if can? :manage, Dog
-      = link_to 'Show', litter
       |
-      = link_to 'Edit', edit_litter_path(litter)
+      = link_to t('Edit'), edit_litter_path(litter)
       |
-      = link_to 'Destroy', litter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      = link_to t('Destroy'), litter, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 -# if can? :manage, Dog
   =# link_to 'New Litter', new_litter_path

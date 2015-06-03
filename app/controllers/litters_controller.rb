@@ -2,7 +2,7 @@ class LittersController < ApplicationController
   # GET /litters
   # GET /litters.json
   def index
-    @litters = Litter.all
+    @litters = Litter.order("date_of_birth DESC")
 
     respond_to do |format|
       format.html # index.html.erb
