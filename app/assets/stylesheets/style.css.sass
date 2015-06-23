@@ -197,3 +197,18 @@ footer
     padding: 15px
 .nowrap
   #white-space: nowrap
+
+@-webkit-keyframes pulsate 
+  50%
+    color: #88f
+    text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #003, 0 0 8px #00f 
+@keyframes pulsate
+  50% 
+    color: #88f
+    text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #003, 0 0 8px #00f 
+
+.blink 
+  color: rgb(245,245,245)
+  text-shadow: 0 -1px rgba(0,0,0,.1)
+  -webkit-animation: pulsate 1.2s linear infinite
+  animation: pulsate 1.2s linear infinite
