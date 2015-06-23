@@ -2,6 +2,7 @@ class LittersController < ApplicationController
   # GET /litters
   # GET /litters.json
   def index
+    @article = Article.find_by_url "pets"
     @litters = Litter.order("date_of_birth DESC")
 
     respond_to do |format|

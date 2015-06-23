@@ -11,6 +11,8 @@
         color: #fff
     h3
       padding: 15px
+- if @article.present? && @article.text.present?
+  = @article.text.html_safe
 - @litters.each do |litter|
   .litter 
     %h1
