@@ -20,16 +20,25 @@
         = image_tag "main_small.jpg"
         %nav.menu.s_unit
           .wrap
-            %a{href: "/"} Главная
-            %a{href: "/about_maximum_staff"} О питомнике
-            //%a{href: "/news"} Новости
-            %a{href: "/male"} Кобели
-            %a{href: "/female"} Суки
-            %a{href: "/by_maximum_staff"} Выпускники
-            %a.blink{href: "/pets"} Щенки
-            %a{href: "/links"} Ссылки
-            %a{href: "/contacts"} Контакт
+            = link_to t(:Main), :root
+            = link_to t(:About_us), "/about_maximum_staff"
+            = link_to t(:Males), "/male"
+            = link_to t(:Females) ,"/female"
+            = link_to t(:Alumnus), "/by_maximum_staff"
+            = link_to t(:Pets), "/pets", class: :blink
+            = link_to t(:Links), "/links"
+            = link_to t(:Contacts), "/contacts"
         .clear
+        .lang_panel
+          - if  I18n.locale == :ru
+            RU
+          - else
+            %a{href: "http://maximum-staff.com"} RUS
+          |
+          - if  I18n.locale == :en
+            ENG
+          -else
+            %a{href: "http://en.maximum-staff.com"} ENG
 
 
 

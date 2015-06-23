@@ -257,3 +257,12 @@ ru:
   activerecord:
     errors:
       <<: *errors
+
+  Main: Главная
+  About_us: О питомнике
+  Males: Кобели
+  Females: Суки
+  Alumnus: Выпускники
+  Pets: Щенки
+  Links: ССылки
+  Contacts: Контакты
