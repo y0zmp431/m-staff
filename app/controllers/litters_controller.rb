@@ -15,6 +15,7 @@ class LittersController < ApplicationController
   # GET /litters/1.json
   def show
     @litter = Litter.find(params[:id])
+    @article = Article.find_by_url "litter_#{@litter.litter_sym}"
 
     respond_to do |format|
       format.html # show.html.erb

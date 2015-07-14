@@ -81,6 +81,8 @@
       = l @litter.date_of_birth
     %h3
       = @litter.pets_count_for_sale
+    - if @article.present? && @article.text.present?
+      = @article.text.html_safe
     .litter_pets
       - @litter.dogs.each do |dog|
         .pet_wrap.unit
@@ -123,7 +125,7 @@
         .vensel.centered
           = image_tag "/assets/vensel1.png"
 
-
-  = link_to 'Edit', edit_litter_path(@litter)
-  \|
-  = link_to 'Back', litters_path
+  - if can? :manage, @litter
+    = link_to 'Edit', edit_litter_path(@litter)
+    \|
+    = link_to 'Back', litters_path
