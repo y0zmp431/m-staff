@@ -13,6 +13,7 @@ Base::Application.routes.draw do
   resources :photos do
     get :autocomplete_dog_name, :on => :collection
   end
+  post 'photos/upload_file' => "photos#upload_file"
 
 	get 'male' =>  'dogs#index', :defaults => { male: true }
 	get 'female' => 'dogs#index', :defaults => { female: true }
@@ -26,7 +27,6 @@ Base::Application.routes.draw do
 		end
   end
 
-  #mount Ckeditor::Engine => '/ckeditor'
   get "/contacts" => "contacts#show"
   get "/contacts/edit" => "contacts#edit"
   put "/contacts" => "contacts#update"

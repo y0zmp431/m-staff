@@ -11,3 +11,5 @@ public/ckeditor_assets
 public/system
 public/system/dogs
 public/system/photos
+.sass-cache/
+vendor/assets/*

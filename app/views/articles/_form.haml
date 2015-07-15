@@ -40,7 +40,7 @@
   .field
     = f.label :text
     %br/
-    = f.cktext_area :text
+    = f.text_area :text, id: :edit
   #list_of_dogs.field
     = label_tag :dogs
     %span#list_dog_ids
@@ -54,11 +54,11 @@
     = f.check_box :published
   .actions
     = f.submit t('Save')
-%script{:charset => "UTF-8", :type => "text/javascript"}
-  $(document).ready(function(){
-  $('form[data-remote]').bind('ajax:before', function(){
-  for (instance in CKEDITOR.instances){
-  CKEDITOR.instances[instance].updateElement();
-  }
-  });
-  });
+- if true
+  :coffee
+    $ ->
+      $('#edit').editable({
+        inlineMode: true,
+        imageUploadURL: '/photos/upload_file.json',
+        allowStyle: true,
+        alwaysBlank: true})

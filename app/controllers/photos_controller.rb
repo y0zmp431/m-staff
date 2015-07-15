@@ -56,6 +56,21 @@ class PhotosController < ApplicationController
     end
   end
 
+
+  # POST /photos.json/upload_file
+  def upload_file
+    @photo = Photo.new(image: params[:file])
+
+    respond_to do |format|
+      if @photo.save
+        format.json { render json: {link: @photo.image}, status: :created, location: @photo }
+      else
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   # PUT /photos/1
   # PUT /photos/1.json
   def update
