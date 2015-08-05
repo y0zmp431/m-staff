@@ -14,7 +14,7 @@ class Dog < ActiveRecord::Base
 	validates :name, :url, :uniqueness => { :case_sensitive => false }
 
 	default_scope order('sort_index DESC')
-	scope :for_sale, -> { where for_sale: :true }
+	scope :for_sale, -> { where for_sale: true }
 
 	def gallery
 		self.photos.where only_for_pets_album: false
