@@ -10,8 +10,8 @@ class Dog < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	acts_as_url :name, :only_when_blank => true
-	validates :name, :url, :presence => true
-	validates :name, :url, :uniqueness => { :case_sensitive => false }
+	validates :url, :presence => true
+	validates :url, :uniqueness => { :case_sensitive => false }
 
 	default_scope order('sort_index DESC')
 	scope :for_sale, -> { where for_sale: true }

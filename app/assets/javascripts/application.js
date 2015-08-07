@@ -19,6 +19,8 @@
 //= require froala_editor.min.js
 //= require langs/ru.js
 // Include other plugins.
+//= require jquery.masonry.min.js
+//= require dogs.js
 //= require plugins/block_styles.min.js
 //= require plugins/colors.min.js
 //= require plugins/media_manager.min.js
