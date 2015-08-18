@@ -17,7 +17,7 @@ class Dog < ActiveRecord::Base
 	scope :for_sale, -> { where for_sale: true }
 
 	def gallery
-		self.photos.where only_for_pets_album: false
+		self.photos.where(only_for_pets_album: false).order("created_at DESC")
 	end
 
 	def pets_photos
