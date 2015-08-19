@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   attr_accessible :published, :section, :short_text, :text, :title, :url, :user_id, :dogs, :dog_ids, :tag_list
+  translates :text, :title
 	belongs_to :user
   has_and_belongs_to_many :dogs
 	acts_as_url :title, :only_when_blank => true, :allow_duplicates => true
