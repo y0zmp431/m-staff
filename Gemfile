@@ -34,6 +34,7 @@ gem "role_model"
 gem "acts-as-taggable-on"
 
 gem 'globalize', '~> 3.1.0'
+gem 'kaminari'
 
 
 gem 'execjs'

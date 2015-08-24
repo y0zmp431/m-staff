@@ -18,11 +18,12 @@
 <% @photos.each do |photo| %>
   <%= link_to photo_path(photo), :class => :thumbnail do %>
       <div class="polaroid <%= photo.orientation %> rotate_<%= rand 6 %> float_l">
-        <%= image_tag photo.image.url(:medium), :title => (photo.dogs.each{ |d| "AAAAAAAAAA #{d.name}" } )%>
+        <%= image_tag photo.image.url(:h300), :title => (photo.dogs.each{ |d| "#{d.name}" } )%>
       </div>
 <% end %>
 <% end %>
 </div>
+<%= paginate @photos %>
 
 <div class="clear"></div>
 <%= link_to 'New Photo', new_photo_path %>
