@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150819150018) do
+ActiveRecord::Schema.define(:version => 20150905090622) do
 
   create_table "article_translations", :force => true do |t|
     t.integer  "article_id"
@@ -115,12 +115,13 @@ ActiveRecord::Schema.define(:version => 20150819150018) do
   create_table "litters", :force => true do |t|
     t.string   "litter_sym"
     t.date     "date_of_birth"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.boolean  "disabled",            :default => false
   end
 
   create_table "photos", :force => true do |t|

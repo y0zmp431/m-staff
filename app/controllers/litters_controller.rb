@@ -3,7 +3,9 @@ class LittersController < ApplicationController
   # GET /litters.json
   def index
     @article = Article.find_by_url "pets"
-    @litters = Litter.order("date_of_birth DESC")
+    @litters = Litter.where(disabled: false)
+    @litters = Litter.where(disabled: false) if params[:show_disables_too].present?
+    @litters = @litters.order("date_of_birth DESC")
 
     respond_to do |format|
       format.html # index.html.erb

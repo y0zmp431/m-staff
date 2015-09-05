@@ -15,5 +15,9 @@
   .field
     = f.label :banner
     = f.file_field :banner
+  .field
+    = f.check_box :disabled
+    = f.label :disabled
+    %br/
   .actions
     = f.submit 'Save'
